@@ -1,0 +1,105 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import SkipLink from "@/components/SkipLink.astro";
+import Header from "@/components/layout/Header.astro";
+import Footer from "@/components/layout/Footer.astro";
+import { siteConfig } from "@/site.config";
+import type { SiteMeta } from "@/types";
+
+interface Props {
+  meta: SiteMeta;
+}
+
+const {
+  meta: { articleDate, description = siteConfig.description, ogImage, title },
+} = Astro.props;
+const hasHero = Astro.slots.has("hero");
+---
+
+<html
+  class="scroll-pt-20 scroll-smooth antialiased"
+  lang={siteConfig.lang}
+  data-theme="light"
+>
+  <head>
+    {/* Mark JS-on before first paint so .reveal can hide cleanly without flash */}
+    <script is:inline>document.documentElement.classList.add("js");</script>
+    <BaseHead
+      articleDate={articleDate}
+      description={description}
+      ogImage={ogImage}
+      title={title}
+    />
+    <slot name="head" />
+  </head>
+  <body class="bg-neutral-50 text-neutral-800 font-sans">
+    <SkipLink />
+    <div class="relative z-10">
+      <slot name="sidebar" />
+      <Header />
+      {hasHero && <slot name="hero" />}
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <script>
+      // Scroll-reveal: when a .reveal element (or [data-stagger] container) intersects,
+      // mark it (and any child .reveal descendants) visible. Respects prefers-reduced-motion.
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const reveal = (el: Element) => {
+        el.classList.add("is-visible");
+        el.querySelectorAll(".reveal").forEach((child) => child.classList.add("is-visible"));
+      };
+      if (!reduce && "IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              reveal(e.target);
+              io.unobserve(e.target);
+            }
+          }
+        }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+        document.querySelectorAll(".reveal, [data-stagger]").forEach((el) => io.observe(el));
+      } else {
+        document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+      }
+
+      // Tick-up numeric counters (data-tick="10M+" / "99.9%" / "1.4s")
+      const tickUp = (el: HTMLElement, finalText: string) => {
+        const match = finalText.match(/^(\d+(?:\.\d+)?)(.*)$/);
+        if (!match) { el.textContent = finalText; return; }
+        const target = parseFloat(match[1]);
+        const suffix = match[2];
+        const decimals = (match[1].split(".")[1] || "").length;
+        const duration = 900;
+        const start = performance.now();
+        const step = (now: number) => {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const v = target * eased;
+          el.textContent = (decimals ? v.toFixed(decimals) : Math.floor(v).toString()) + suffix;
+          if (t < 1) requestAnimationFrame(step);
+          else el.textContent = finalText;
+        };
+        requestAnimationFrame(step);
+      };
+      if (!reduce && "IntersectionObserver" in window) {
+        const tickIO = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              const el = e.target as HTMLElement;
+              const final = el.getAttribute("data-tick") || el.textContent || "";
+              tickUp(el, final);
+              tickIO.unobserve(el);
+            }
+          }
+        }, { threshold: 0.4 });
+        document.querySelectorAll<HTMLElement>("[data-tick]").forEach((el) => {
+          el.textContent = "0";
+          tickIO.observe(el);
+        });
+      }
+    </script>
+  </body>
+</html>

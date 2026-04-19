@@ -1,0 +1,89 @@
+---
+title: Access Requests
+description: Manage how and when users can request platform entry.
+section: /docs
+priority: 10
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import accessRequestHero from "@/assets/images/accessrequest.svg";
+import stepOne from "@/assets/images/accessreqieststep1.svg";
+import stepTwo from "@/assets/images/accessreqieststep2.svg";
+import stepThree from "@/assets/images/accessreqieststep3.svg";
+import stepFour from "@/assets/images/accessreqieststep4.svg";
+import stepFive from "@/assets/images/accessreqieststep5.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As Admin role", href: "/docs/" },
+    { label: "Access Requests" },
+  ]}
+/>
+
+<GuideIntro image={accessRequestHero} imageAlt="Access request dashboard illustration">
+  <h1>Access Requests</h1>
+  <p>Users can request access when:</p>
+## Conditions for Access Request Approval
+<ul class="list-disc marker:!text-primary-600 pl-5">
+<li> A dataset is published but not assigned to them.</li>
+<li> A dashboard exists but requires permission.</li>
+<li> They need additional privileges, such as adding members to a space or assigning licenses.</li>
+</ul>
+</GuideIntro>
+
+
+## Steps to Review Access Requests
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="Navigate to the Access Requests tab from the main admin dashboard"
+    description="The tab displays all pending, approved, and rejected requests in a unified view."
+    image={stepOne}
+    imageAlt="Overview of the access requests table"
+  />
+  <GuideStepCard
+    number={2}
+    title="Filter requests by status, date, or requester"
+    description="Use the filter controls at the top of the page to narrow down the request list."
+    image={stepTwo}
+    imageAlt="Access request filters"
+  />
+  <GuideStepCard
+    number={3}
+    title="Select a specific request to view full details"
+    description="Click on any request row to open the detailed view panel showing requester information, requested asset, access level, Comment, and Activity & Audit."
+    image={stepThree}
+    imageAlt="Request details panel"
+  />
+  <GuideStepCard
+    number={4}
+    title="Approve or reject the request with optional comments"
+    description="Provide feedback or any conditions for approval so the review history stays clear."
+    image={stepFour}
+    imageAlt="Approve or reject actions"
+  />
+  <GuideStepCard
+    number={5}
+    title="The requester receives an email notification of the decision"
+    description="Automated notifications keep all stakeholders informed of access changes."
+    image={stepFive}
+    imageAlt="Approval notification"
+  />
+</div>
+
+
+
+<GuideCallout title="Additional Information" variant="info">
+  <ul>
+    <li>When navigating to the My Requests tab, all requests submitted to me will be displayed.</li>
+    <li>By clicking on Export, the data will be exported.</li>
+    <li>By clicking on the View (eye) icon, the details of the selected request will appear, along with the audit log to track the request status.</li>
+  </ul>
+</GuideCallout>

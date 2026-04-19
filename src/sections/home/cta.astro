@@ -1,0 +1,18 @@
+---
+import DarkCTA from "@/components/DarkCTA.astro";
+import Button from "@/components/Button.astro";
+---
+
+<section class="section bg-neutral-50">
+  <div class="section-inner section-pad">
+    <DarkCTA eyebrow="Ready to ship">
+      <Fragment slot="title">Your closing pitch. <em>Here.</em></Fragment>
+      <Fragment slot="kicker">One line summarising why the reader should act right now.</Fragment>
+      <Fragment slot="actions">
+        <Button href="#" variant="on-dark-primary">Primary action</Button>
+        <Button href="/docs" variant="on-dark-secondary">Read docs →</Button>
+      </Fragment>
+      <Fragment slot="foot">Small disclaimer or supporting line.</Fragment>
+    </DarkCTA>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+---
+interface Props { eyebrow?: string }
+const { eyebrow } = Astro.props;
+---
+<div class="rounded-3xl bg-primaryColor px-8 py-14 md:px-16 md:py-20 text-center text-neutral-100 reveal">
+  {eyebrow && <span class="eyebrow !bg-white/[0.08] !text-primary-300">{eyebrow}</span>}
+  <h2 class="display-lg mt-5 !text-white"><slot name="title" /></h2>
+  {Astro.slots.has("kicker") && (
+    <p class="body-lg mt-4 max-w-xl mx-auto !text-neutral-300"><slot name="kicker" /></p>
+  )}
+  <div class="mt-8 flex flex-wrap items-center justify-center gap-3"><slot name="actions" /></div>
+  {Astro.slots.has("foot") && (
+    <p class="mt-4 text-xs text-neutral-400"><slot name="foot" /></p>
+  )}
+</div>

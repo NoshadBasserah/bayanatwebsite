@@ -1,0 +1,27 @@
+---
+type Variant = "primary" | "secondary" | "ghost" | "on-dark-primary" | "on-dark-secondary";
+interface Props {
+  href?: string;
+  variant?: Variant;
+  class?: string;
+  type?: "button" | "submit";
+  ariaLabel?: string;
+}
+const { href, variant = "primary", class: cls = "", type = "button", ariaLabel } = Astro.props;
+const variantClass: Record<Variant, string> = {
+  primary: "btn btn-primary",
+  secondary: "btn btn-secondary",
+  ghost: "btn btn-ghost",
+  "on-dark-primary": "btn btn-on-dark-primary",
+  "on-dark-secondary": "btn btn-on-dark-secondary",
+};
+const Tag = href ? "a" : "button";
+---
+<Tag
+  href={href}
+  type={!href ? type : undefined}
+  class={`${variantClass[variant]} ${cls}`}
+  aria-label={ariaLabel}
+>
+  <slot />
+</Tag>

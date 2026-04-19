@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon/components";
+import SectionHeader from "@/components/SectionHeader.astro";
+import Tile from "@/components/Tile.astro";
+
+const items = [
+  {
+    icon: "hugeicons:rocket-01",
+    title: "Feature one",
+    body: "Short description of what this feature does and why the reader should care. Keep it to two sentences.",
+  },
+  {
+    icon: "hugeicons:code",
+    title: "Feature two",
+    body: "Another short description. Swap the icon by changing the <code>icon</code> field — any hugeicons name works.",
+  },
+  {
+    icon: "hugeicons:search-01",
+    title: "Feature three",
+    body: "Replace this copy with the core capability your product is known for.",
+  },
+  {
+    icon: "hugeicons:lock-key",
+    title: "Feature four",
+    body: "Tiles use the shared <code>Tile</code> component. Add or remove items in the <code>items</code> array.",
+  },
+];
+---
+
+<section class="section bg-neutral-50">
+  <div class="section-inner section-pad">
+    <SectionHeader eyebrow="Capabilities">
+      <Fragment slot="title">
+        Everything you'd build, <em>already built.</em>
+      </Fragment>
+      <Fragment slot="kicker">
+        A short line under the section title. Explains the grid below in one sentence.
+      </Fragment>
+    </SectionHeader>
+
+    <div class="reveal mt-14 grid gap-6 sm:grid-cols-2">
+      {
+        items.map(({ icon, title, body }) => (
+          <Tile class="flex h-full flex-col">
+            <div class="ring-primaryColor/6 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white ring-1">
+              <Icon name={icon} class="text-primaryColor h-5 w-5" aria-hidden="true" />
+            </div>
+            <h3 class="display-md text-primaryColor mt-4 text-lg font-semibold">
+              {title}
+            </h3>
+            <p class="text-neutral-600 mt-2 text-sm" set:html={body} />
+            <a
+              href="/docs"
+              class="text-primaryColor hover:text-primary-700 mt-4 inline-flex items-center gap-1 text-sm font-semibold transition-colors"
+            >
+              Learn more →
+            </a>
+          </Tile>
+        ))
+      }
+    </div>
+  </div>
+</section>

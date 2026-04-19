@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getAllPosts } from "@/data/post";
+import BlogIndex from "@/layouts/BlogIndex.astro";
+import { collectionDateSort } from "@/utils/date";
+import type { GetStaticPaths, Page } from "astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const MAX_POSTS_PER_PAGE = 9;
+  const allPosts = await getAllPosts();
+  return paginate(allPosts.sort(collectionDateSort), {
+    pageSize: MAX_POSTS_PER_PAGE,
+  });
+}) satisfies GetStaticPaths;
+
+interface Props {
+  page: Page<CollectionEntry<"post">>;
+}
+
+const { page } = Astro.props;
+
+const meta = {
+  description: "Blog posts and articles. Replace this description in src/pages/blog/[...page].astro.",
+  title: "Blog",
+};
+
+const total = page.total;
+const metaLine = `${total} guide${total === 1 ? "" : "s"} · updated occasionally`;
+---
+
+<BlogIndex
+  meta={meta}
+  eyebrow="Blog"
+  title="Guides & references"
+  metaLine={metaLine}
+  posts={page.data}
+  pagination={page}
+/>

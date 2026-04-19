@@ -1,0 +1,33 @@
+---
+import BaseLayout from "./Base.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout meta={{ description, title }}>
+  <div class="grid-top-right"></div>
+  <div
+    class="relative container mx-auto w-full max-w-[1170px] px-6 py-12 md:p-15"
+  >
+    <h1
+      class="mb-9 text-center text-xl font-black leading-tight text-gray-900 sm:text-2xl md:text-4xl lg:text-3xl xl:text-[40px]"
+    >
+      {title}
+    </h1>
+
+    <div
+      class="shadow-base rounded-2xl border border-gray-200 bg-white px-8 py-10 sm:px-16 sm:py-11"
+    >
+      <div
+        class="prose prose-headings:font-semibold prose-headings:text-gray-900 max-w-none flex-grow"
+      >
+        <slot />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

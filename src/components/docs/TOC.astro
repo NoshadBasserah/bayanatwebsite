@@ -1,0 +1,45 @@
+---
+import { generateToc } from "@/utils/generateToc";
+import type { MarkdownHeading } from "astro";
+import TOCHeading from "./TOCHeading.astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+const toc = generateToc(headings);
+---
+
+<div id="toc-panel" class="border-neutral-200 xl:sticky xl:top-24 rounded-2xl border bg-white p-4">
+  <h4 class="text-neutral-500 mb-3 text-xs font-semibold uppercase tracking-[0.12em]">On this page</h4>
+  <ul class="space-y-1 text-sm">
+    {toc.map((heading) => <TOCHeading heading={heading} />)}
+  </ul>
+</div>
+
+<script>
+  const setCurrent: IntersectionObserverCallback = (entries) => {
+    for (const entry of entries) {
+      const { id } = entry.target;
+      const tocHeadingEl = document.querySelector(`#toc-panel a[href="#${id}"]`);
+      if (!tocHeadingEl) continue;
+      if (entry.isIntersecting) {
+        document.querySelectorAll("#toc-panel a").forEach((e) => {
+          e.classList.remove("text-primary-700", "bg-primary-50", "font-semibold");
+        });
+        tocHeadingEl.classList.add("text-primary-700", "bg-primary-50", "font-semibold");
+      }
+    }
+  };
+
+  const observerOption: IntersectionObserverInit = {
+    rootMargin: "0px 0px -66%",
+    threshold: 1,
+  };
+
+  const headingObserver = new IntersectionObserver(setCurrent, observerOption);
+  document
+    .querySelectorAll("[data-docs-content] :is(h2,h3,h4)")
+    .forEach((heading) => headingObserver.observe(heading));
+</script>

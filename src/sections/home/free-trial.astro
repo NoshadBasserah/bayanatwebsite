@@ -1,0 +1,30 @@
+---
+import Eyebrow from "@/components/Eyebrow.astro";
+import Button from "@/components/Button.astro";
+
+const benefits = [
+  "Benefit one",
+  "Benefit two",
+  "Benefit three",
+  "Benefit four",
+];
+---
+
+<section class="section bg-neutral-100">
+  <div class="section-inner section-pad">
+    <div class="mx-auto max-w-3xl rounded-3xl bg-white ring-1 ring-primaryColor/8 p-8 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 items-center reveal">
+      <div>
+        <Eyebrow>Start free</Eyebrow>
+        <h2 class="display-md mt-4">Free to start. <em>No card required.</em></h2>
+        <ul class="mt-5 grid sm:grid-cols-2 gap-y-2 gap-x-6 text-sm text-neutral-700">
+          {benefits.map((b) => (
+            <li class="flex items-center gap-2"><span class="inline-block h-1.5 w-1.5 rounded-full bg-primary-600"></span>{b}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="flex flex-col items-start md:items-end gap-2">
+        <Button href="#" variant="primary">Primary action</Button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getAllPosts, getUniqueTags } from "@/data/post";
+import BlogIndex from "@/layouts/BlogIndex.astro";
+import { collectionDateSort } from "@/utils/date";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async () => {
+  const allPosts = await getAllPosts();
+  const tags = getUniqueTags(allPosts);
+  return tags.map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: allPosts
+        .filter((p) => p.data.tags.includes(tag))
+        .sort(collectionDateSort),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  tag: string;
+  posts: CollectionEntry<"post">[];
+}
+
+const { tag, posts } = Astro.props;
+const count = posts.length;
+const metaLine = `${count} guide${count === 1 ? "" : "s"}`;
+
+const meta = {
+  description: `Blog posts tagged "${tag}".`,
+  title: `Posts tagged "${tag}"`,
+};
+---
+
+<BlogIndex
+  meta={meta}
+  eyebrow={tag}
+  title={`Posts tagged ${tag}`}
+  metaLine={metaLine}
+  backLinkHref="/blog"
+  backLinkLabel="← All guides"
+  posts={posts}
+/>

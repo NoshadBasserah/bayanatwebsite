@@ -1,0 +1,21 @@
+---
+import Base from "@/layouts/Base.astro";
+import Hero from "@/sections/home/hero.astro";
+import Capabilities from "@/sections/home/capabilities.astro";
+import GettingStarted from "@/sections/home/getting-started.astro";
+import FreeTrial from "@/sections/home/free-trial.astro";
+import Cta from "@/sections/home/cta.astro";
+
+const meta = {
+  title: "Home",
+  description: "An Astro template for product and documentation sites. Replace this description in src/pages/index.astro.",
+};
+---
+
+<Base meta={meta}>
+  <Hero />
+  <Capabilities />
+  <GettingStarted />
+  <FreeTrial />
+  <Cta />
+</Base>

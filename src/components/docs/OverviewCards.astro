@@ -1,0 +1,120 @@
+---
+import DocIcon from "./DocIcon.astro";
+import introbgright from "@/assets/images/introbgright.svg?url";
+
+interface FeatureItem {
+  title: string;
+  description: string;
+  icon?: string | undefined;
+  href?: string | undefined;
+  featured?: boolean;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  adminFeatures: FeatureItem[];
+  userFeatures: FeatureItem[];
+}
+
+const { title, description, adminFeatures, userFeatures } = Astro.props;
+---
+
+<div data-docs-content>
+  <!-- Hero Banner: id="introduction" for TOC scrollspy -->
+  <div
+    id="introduction"
+    class="relative mb-4 flex h-[182px] items-end overflow-hidden rounded-2xl p-6"
+    style="background: linear-gradient(168deg, #81cae7 0%, #009ad6 70.7%)"
+  >
+    <div class="relative z-10">
+      <p class="text-[32px] font-bold leading-tight text-white">{title}</p>
+      <p class="mt-1 text-sm leading-relaxed text-white/90">{description}</p>
+    </div>
+    <img
+      src={introbgright}
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none absolute right-0 bottom-0 h-full w-auto select-none object-contain"
+      loading="eager"
+    />
+  </div>
+
+  <!-- As Admin role -->
+  {adminFeatures.length > 0 && (
+    <section id="as-admin-role" class="mb-4 rounded-xl !bg-white p-8">
+      <h2 class="mb-5 text-xl font-bold leading-9 text-black">As Admin role</h2>
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {adminFeatures.map((item) =>
+          item.featured ? (
+            <a
+              href={item.href ?? "#"}
+              class="flex items-center justify-between rounded-xl border border-transparent hover:border-neutral-100 px-4 py-3 transition-shadow
+              [&>.arrowIcon]:opacity-0 [&:hover>.arrowIcon]:opacity-100"
+            >
+              <div class="flex items-center gap-3">
+                <div class="relative h-[58px] w-[58px] shrink-0 rounded-xl border border-neutral-100 bg-[#fdfdfd]">
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <DocIcon name={item.icon ?? "monitor"} class="h-6 w-6 text-primary-600" />
+                  </div>
+                </div>
+                <div>
+                  <p class="text-[14px] font-semibold leading-5 text-[#2a313c]">{item.title}</p>
+                  <p class="mt-0.5 max-w-[240px] text-[12px] leading-[1.6] text-neutral-600">{item.description}</p>
+                </div>
+              </div>
+              <svg class="arrowIcon ml-3 h-5 w-5 shrink-0 text-primary-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          ) : (
+            <a href={item.href ?? "#"} class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 transition-colors 
+            border border-transparent hover:border-neutral-100  [&>.arrowIcon]:opacity-0 [&:hover>.arrowIcon]:opacity-100">
+               <div class="flex items-center gap-3">
+              <div class="relative h-[58px] w-[58px] shrink-0 rounded-xl border border-neutral-100 bg-[#fdfdfd]">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <DocIcon name={item.icon ?? "monitor"} class="h-6 w-6 text-primary-600" />
+                </div>
+              </div>
+              <div>
+                <p class="text-[14px] font-semibold leading-5 text-[#2a313c]">{item.title}</p>
+                <p class="mt-0.5 max-w-[240px] text-[12px] leading-[1.6] text-neutral-600">{item.description}</p>
+              </div>
+            </div>
+            <svg class="arrowIcon ml-3 h-5 w-5 shrink-0 text-primary-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            </a>
+          )
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- As User role -->
+  {userFeatures.length > 0 && (
+    <section id="as-user-role" class="rounded-xl bg-white p-8">
+      <h2 class="mb-5 text-xl font-bold leading-9 text-black">As User role</h2>
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {userFeatures.map((item) => (
+          <a href={item.href ?? "#"} class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 transition-colors border border-transparent hover:border-neutral-100  [&>.arrowIcon]:opacity-0 [&:hover>.arrowIcon]:opacity-100">
+              <div class="flex items-center gap-3">
+            <div class="relative h-[58px] w-[58px] shrink-0 rounded-xl border border-neutral-100 bg-[#fdfdfd]">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <DocIcon name={item.icon ?? "monitor"} class="h-6 w-6 text-primary-600" />
+              </div>
+            </div>
+            <div>
+              <p class="text-[14px] font-semibold leading-5 text-[#2a313c]">{item.title}</p>
+              <p class="mt-0.5 max-w-[240px] text-[12px] leading-[1.6] text-neutral-600">{item.description}</p>
+            </div>
+            </div>
+              <svg class="arrowIcon ml-3 h-5 w-5 shrink-0 text-primary-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</div>

@@ -1,0 +1,67 @@
+---
+import type { CollectionEntry } from "astro:content";
+import type { SiteMeta } from "@/types";
+import Base from "@/layouts/Base.astro";
+import Eyebrow from "@/components/Eyebrow.astro";
+import PostCard from "@/components/blog/PostCard.astro";
+import Paginator from "@/components/Paginator.astro";
+
+interface PaginationLike {
+  url: { current: string; next: string | undefined; prev: string | undefined };
+  currentPage: number;
+  lastPage: number;
+  start: number;
+  end: number;
+  size: number;
+  total: number;
+}
+
+interface Props {
+  meta: SiteMeta;
+  eyebrow: string;
+  title: string;
+  metaLine?: string;
+  backLinkHref?: string;
+  backLinkLabel?: string;
+  posts: CollectionEntry<"post">[];
+  pagination?: PaginationLike;
+}
+
+const { meta, eyebrow, title, metaLine, backLinkHref, backLinkLabel, posts, pagination } = Astro.props;
+---
+
+<Base meta={meta}>
+  <section slot="hero" class="section bg-neutral-50">
+    <div class="section-inner px-6 md:px-12 pt-20 md:pt-28 pb-10 md:pb-12 text-center">
+      {backLinkHref && backLinkLabel && (
+        <div class="mb-6">
+          <a href={backLinkHref} class="inline-flex items-center gap-1.5 text-sm text-neutral-500 hover:text-primary-700 transition-colors">
+            {backLinkLabel}
+          </a>
+        </div>
+      )}
+      <Eyebrow>{eyebrow}</Eyebrow>
+      <h1 class="display-md mt-4">{title}</h1>
+      {metaLine && (
+        <p class="mt-3 text-sm font-mono uppercase tracking-[0.12em] text-neutral-500">
+          {metaLine}
+        </p>
+      )}
+    </div>
+  </section>
+
+  <section class="section bg-neutral-50">
+    <div class="section-inner px-6 md:px-12 pb-24 md:pb-28">
+      {posts.length === 0 ? (
+        <p class="mx-auto max-w-[46rem] text-center text-neutral-500 py-16">No posts yet.</p>
+      ) : (
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 list-none">
+          {posts.map((post) => (
+            <li><PostCard post={post} /></li>
+          ))}
+        </ul>
+      )}
+      {pagination && <Paginator pagination={pagination} />}
+    </div>
+  </section>
+</Base>

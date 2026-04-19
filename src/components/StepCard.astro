@@ -1,0 +1,10 @@
+---
+interface Props { number: number; title: string; class?: string }
+const { number, title, class: cls = "" } = Astro.props;
+const numStr = String(number).padStart(2, "0");
+---
+<article class={`tile tile-hover relative overflow-hidden ${cls}`}>
+  <span class="pointer-events-none absolute right-4 top-2 font-display text-[64px] font-bold text-neutral-200 leading-none select-none">{numStr}</span>
+  <h3 class="display-md text-base font-semibold text-primaryColor relative">{title}</h3>
+  <div class="mt-3 text-sm text-neutral-600 relative"><slot /></div>
+</article>

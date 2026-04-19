@@ -1,0 +1,20 @@
+---
+interface Props {
+  image?: { src: string } | string;
+  imageAlt?: string;
+}
+
+const { image, imageAlt = "" } = Astro.props;
+const imageSrc = typeof image === "string" ? image : image?.src;
+---
+
+<div class="docs-guide-intro">
+  <div class="docs-guide-intro__copy">
+    <slot />
+  </div>
+  {imageSrc && (
+    <div class="docs-guide-intro__art">
+      <img src={imageSrc} alt={imageAlt} loading="lazy" />
+    </div>
+  )}
+</div>

@@ -1,0 +1,27 @@
+---
+interface Props {
+  number: number | string;
+  title: string;
+  description: string;
+  image?: { src: string } | string;
+  imageAlt?: string;
+}
+
+const { number, title, description, image, imageAlt = "" } = Astro.props;
+const imageSrc = typeof image === "string" ? image : image?.src;
+---
+
+<div class="docs-step-card">
+  <div class="docs-step-card__badge" aria-hidden="true">{number}</div>
+  <div class="docs-step-card__panel">
+    <div class="docs-step-card__body">
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+    {imageSrc && (
+      <div class="docs-step-card__media">
+        <img src={imageSrc} alt={imageAlt} loading="lazy" />
+      </div>
+    )}
+  </div>
+</div>

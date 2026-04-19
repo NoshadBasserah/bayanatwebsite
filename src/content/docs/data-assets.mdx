@@ -1,0 +1,113 @@
+---
+title: Data Assets
+description: Define permissions for viewing and editing global data.
+section: /docs
+priority: 11
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import dataAssetsHero from "@/assets/images/dataassets.svg";
+import stepOne from "@/assets/images/dataassets1.svg";
+import stepTwo from "@/assets/images/dataassets2.svg";
+import stepThree from "@/assets/images/dataassets3.svg";
+import stepFour from "@/assets/images/dataassets4.svg";
+import stepFive from "@/assets/images/dataassets5.svg";
+import stepSix from "@/assets/images/dataassets6.svg";
+import stepSeven from "@/assets/images/dataassets7.svg";
+import stepEight from "@/assets/images/dataassets8.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As Admin role", href: "/docs/" },
+    { label: "Data Assets" },
+  ]}
+/>
+
+<GuideIntro image={dataAssetsHero} imageAlt="Data asset management illustration">
+  <h1>Data Assets</h1>
+  <p>
+    The Data Assets tab provides a comprehensive view of all data sources,
+    databases, pipelines, dashboards, and metadata within BayanatiHub.
+  </p>
+  <p>Administrators can along with filtering and organization capabilities. </p>
+</GuideIntro>
+
+
+
+
+## Steps to Manage Data Assets
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="Navigate to the Data Assets tab"
+    description="Access the central catalog of all organizational data assets."
+    image={stepOne}
+    imageAlt="Data assets navigation"
+  />
+  <GuideStepCard
+    number={2}
+    title="Browse or search for specific data assets"
+    description="Use the search bar and filters to locate datasets, databases, or specific tables."
+    image={stepTwo}
+    imageAlt="Data asset search and filter"
+  />
+  <GuideStepCard
+    number={3}
+    title="Select an asset to view its details page"
+    description="View schema information, lineage, usage statistics, and the stored metadata."
+    image={stepThree}
+    imageAlt="Asset details view"
+  />
+  <GuideStepCard
+    number={4}
+    title="Add or edit metadata including description, tags, and custom properties"
+    description="Provide feedback or conditions for approval to maintain an audit trail."
+    image={stepFour}
+    imageAlt="Metadata editing form"
+  />
+  <GuideStepCard
+    number={5}
+    title="Assign ownership and stewardship roles"
+    description="Designate data owners and stewards responsible for data quality and governance."
+    image={stepFive}
+    imageAlt="Ownership and stewardship roles"
+  />
+  <GuideStepCard
+    number={6}
+    title="Set data classification and sensitivity levels"
+    description="Apply appropriate security classifications (Public, Internal, Confidential, Restricted)."
+    image={stepSix}
+    imageAlt="Data classification panel"
+  />
+  <GuideStepCard
+    number={7}
+    title="Configure access policies and permissions"
+    description="Define who can view, query, or modify the data asset."
+    image={stepSeven}
+    imageAlt="Permissions configuration panel"
+  />
+  <GuideStepCard
+    number={8}
+    title="Publish changes to make them visible to users"
+    description="Publish changes to make them visible to users."
+    image={stepEight}
+    imageAlt="Publish action"
+  />
+</div>
+
+
+<GuideCallout title="Note" variant="note">
+  <ul>
+    <li>Only published assets are visible to other users.</li>
+    <li>Draft assets are only visible to their creator.</li>
+    <li>Deletion is allowed only before publishing.</li>
+    <li>Access permissions control how users can interact with the asset.</li>
+  </ul>
+</GuideCallout>

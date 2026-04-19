@@ -1,0 +1,64 @@
+---
+import { generateToc } from "@/utils/generateToc";
+import type { MarkdownHeading } from "astro";
+import TOCHeading from "./TOCHeading.astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+const toc = generateToc(headings);
+---
+
+<nav id="toc-panel" class="sticky top-24 text-sm" aria-label="Table of contents">
+  <h2 class="text-[0.7rem] font-mono uppercase tracking-[0.14em] text-neutral-500 mb-3">On this page</h2>
+  <ul class="border-l border-neutral-200 pl-4 space-y-1.5">
+    {toc.map((heading) => <TOCHeading heading={heading} />)}
+  </ul>
+</nav>
+
+<script>
+  const setCurrent: IntersectionObserverCallback = (entries) => {
+    for (const entry of entries) {
+      const { id } = entry.target;
+      const tocHeadingEl = document.querySelector<HTMLElement>(
+        `#toc-panel a[href="#${id}"]`
+      );
+      if (!tocHeadingEl) return;
+      if (entry.isIntersecting) {
+        // Remove active classes from all TOC links
+        document.querySelectorAll("#toc-panel a").forEach((el) => {
+          el.classList.remove(
+            "text-primary-700",
+            "font-medium",
+            "border-l-2",
+            "border-primary-500",
+            "-ml-4",
+            "pl-[14px]"
+          );
+        });
+        // Add active classes to the current link
+        tocHeadingEl.classList.add(
+          "text-primary-700",
+          "font-medium",
+          "border-l-2",
+          "border-primary-500",
+          "-ml-4",
+          "pl-[14px]"
+        );
+      }
+    }
+  };
+
+  const observerOptions: IntersectionObserverInit = {
+    rootMargin: "0px 0px -66%",
+    threshold: 1,
+  };
+
+  const headingObserver = new IntersectionObserver(setCurrent, observerOptions);
+  document
+    .querySelectorAll("article :is(h2,h3)")
+    .forEach((heading) => headingObserver.observe(heading));
+</script>

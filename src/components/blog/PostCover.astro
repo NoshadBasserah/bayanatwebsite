@@ -1,0 +1,182 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"post">;
+  priority?: boolean;
+}
+
+const { post } = Astro.props;
+
+function hash(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h);
+}
+
+const h = hash(post.id);
+const variant = h % 4;
+const glyphIdx = Math.floor(h / 4) % 4;
+
+const firstTag =
+  Array.isArray(post.data.tags) && post.data.tags.length > 0
+    ? post.data.tags[0]
+    : null;
+---
+
+<figure
+  class="group relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-neutral-50 ring-1 ring-primaryColor/8"
+>
+  <div
+    class="cover-accent absolute inset-0"
+    data-variant={String(variant)}
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="cover-glyph absolute top-5 right-5 text-neutral-50" aria-hidden="true">
+    {
+      glyphIdx === 0 && (
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {Array.from({ length: 6 }).map((_, i) => {
+            const angle = (i / 6) * Math.PI * 2 - Math.PI / 2;
+            const cx = 14 + Math.cos(angle) * 10;
+            const cy = 14 + Math.sin(angle) * 10;
+            return <circle cx={cx} cy={cy} r={1.8} fill="currentColor" />;
+          })}
+        </svg>
+      )
+    }
+    {
+      glyphIdx === 1 && (
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect x="3" y="4" width="22" height="2.5" rx="1" fill="currentColor" />
+          <rect x="3" y="9" width="18" height="2.5" rx="1" fill="currentColor" />
+          <rect x="3" y="14" width="14" height="2.5" rx="1" fill="currentColor" />
+          <rect x="3" y="19" width="10" height="2.5" rx="1" fill="currentColor" />
+        </svg>
+      )
+    }
+    {
+      glyphIdx === 2 && (
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="3"
+            y="3"
+            width="22"
+            height="22"
+            rx="1.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.25"
+          />
+          <rect
+            x="7"
+            y="7"
+            width="14"
+            height="14"
+            rx="1.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.25"
+          />
+          <rect
+            x="11"
+            y="11"
+            width="6"
+            height="6"
+            rx="1.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.25"
+          />
+        </svg>
+      )
+    }
+    {
+      glyphIdx === 3 && (
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g transform="rotate(15 14 14)">
+            {Array.from({ length: 3 }).map((_, row) =>
+              Array.from({ length: 3 }).map((_, col) => (
+                <rect
+                  x={8 + col * 4}
+                  y={8 + row * 4}
+                  width="3"
+                  height="3"
+                  rx="0.5"
+                  fill="currentColor"
+                />
+              ))
+            )}
+          </g>
+        </svg>
+      )
+    }
+  </div>
+
+  {
+    firstTag && (
+      <div class="absolute bottom-5 left-5 right-5 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-neutral-500">
+        {firstTag}
+      </div>
+    )
+  }
+</figure>
+
+<style>
+  .cover-accent {
+    clip-path: polygon(0 0, 100% 0, 100% 55%, 0 65%);
+    transition: transform 200ms var(--ease-out-soft);
+    will-change: transform;
+  }
+  .cover-accent[data-variant="0"] {
+    background: var(--color-primary-500);
+  }
+  .cover-accent[data-variant="1"] {
+    background: var(--color-neutral-900);
+  }
+  .cover-accent[data-variant="2"] {
+    background: oklch(0.68 0.07 150);
+  }
+  .cover-accent[data-variant="3"] {
+    background: oklch(0.56 0.09 320);
+  }
+  .group:hover .cover-accent {
+    transform: translateY(-2px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cover-accent {
+      transition: none;
+    }
+    .group:hover .cover-accent {
+      transform: none;
+    }
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+interface PaginationProps {
+  start: number;
+  end: number;
+  size: number;
+  total: number;
+  currentPage: number;
+  lastPage: number;
+  url: {
+    current: string;
+    next?: string;
+    prev?: string;
+  };
+}
+
+interface Props {
+  pagination: PaginationProps;
+}
+
+const { pagination } = Astro.props;
+---
+
+<nav class="mt-16 flex items-center justify-center gap-6 text-sm" aria-label="Pagination">
+  {
+    pagination.url.prev ? (
+      <a
+        href={pagination.url.prev}
+        class="inline-flex items-center gap-2 rounded-full bg-neutral-100 text-neutral-700 hover:bg-primary-100 hover:text-primary-800 transition-colors px-4 py-2"
+      >
+        <span aria-hidden="true">←</span>
+        Previous
+      </a>
+    ) : (
+      <span class="inline-flex items-center gap-2 text-neutral-300 px-4 py-2" aria-disabled="true">
+        <span aria-hidden="true">←</span>
+        Previous
+      </span>
+    )
+  }
+  <span class="font-mono text-xs uppercase tracking-[0.12em] text-neutral-500">
+    Page {pagination.currentPage} of {pagination.lastPage}
+  </span>
+  {
+    pagination.url.next ? (
+      <a
+        href={pagination.url.next}
+        class="inline-flex items-center gap-2 rounded-full bg-neutral-100 text-neutral-700 hover:bg-primary-100 hover:text-primary-800 transition-colors px-4 py-2"
+      >
+        Next
+        <span aria-hidden="true">→</span>
+      </a>
+    ) : (
+      <span class="inline-flex items-center gap-2 text-neutral-300 px-4 py-2" aria-disabled="true">
+        Next
+        <span aria-hidden="true">→</span>
+      </span>
+    )
+  }
+</nav>

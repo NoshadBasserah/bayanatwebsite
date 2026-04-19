@@ -1,0 +1,27 @@
+---
+import { render } from "astro:content";
+import { getDocs } from "@/data/post";
+import DocsLayout from "@/layouts/Docs.astro";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+
+export const getStaticPaths = (async () => {
+  const docs = await getDocs();
+  return docs.map((post) => {
+    const id = String(post.id).replace(/^\//, "");
+    const isIndex = id === "index" || id === "";
+    return {
+      params: { slug: isIndex ? undefined : id },
+      props: { post },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<DocsLayout post={post}>
+  <Content />
+</DocsLayout>
