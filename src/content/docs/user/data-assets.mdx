@@ -1,0 +1,90 @@
+---
+title: Data Assets
+description: In this tab, all published data assets are displayed, including those from Databases, Pipelines, Dashboards and Metadata.
+section: /docs
+priority: 35
+navGroup: user
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As user role", href: "#" },
+    {
+      label: "Data Assets",
+    },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>Data Assets</h1>
+  <p>
+    In this tab, all published data assets are displayed, including those from
+    Databases. Pipelines,Dashboards and Metadata.
+  </p>
+  <p>
+    Each asset includes details such as the creator, publisher, and the number
+    of rows and columns.
+  </p>
+  <p>
+    You can also filter, select a specific service type, or search for a
+    particular asset.
+  </p>
+</GuideIntro>
+
+<div class="mt-6 flex gap-1 rounded-[12px] border border-[#dbeafe] bg-white p-4">
+  <svg
+    class="text-primary-600 mt-0.5 shrink-0"
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="12" y1="16" x2="12" y2="12"></line>
+    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+  </svg>
+  <p class="m-0 text-[14px] leading-relaxed text-[#0f172a]">
+    To access any data asset, the user must submit an{" "}
+    <strong class="text-[#009ad6]">access request.</strong>
+  </p>
+</div>
+
+## Steps to Request Access to a Data Asset
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="Navigate to the Data Assets tab."
+    description="Tab on the Teams."
+  />
+  <GuideStepCard
+    number={2}
+    title="Select the data asset you want to access."
+    description="nter the required details (Name and Description)."
+  />
+  <GuideStepCard
+    number={3}
+    title="Click on Request Access."
+    description={`A pop-up will appear with the following message. Within the team, you can create spaces, add members, share assets, and communicate effectively.`}
+  />
+  <GuideStepCard
+    number={4}
+    title="Create New Space"
+    description="Choose the access type (Add to Space or Read), set the priority, and provide a description."
+  />
+  <GuideStepCard
+    number={4}
+    title="Confirm."
+    description="Choose the access type (Add to Space or Read), set the priority, and provide a description."
+  />
+</div>

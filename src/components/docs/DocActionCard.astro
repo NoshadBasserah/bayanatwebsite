@@ -1,0 +1,74 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: "edit" | "view" | "more" | "shield" | "delete" | "check";
+  color?: "purple" | "blue" | "green" | "red" | "teal";
+}
+
+const { title, description, icon, color = "blue" } = Astro.props;
+
+const bgMap: Record<string, string> = {
+  purple: "#ede9fe",
+  blue:   "#dbeafe",
+  green:  "#dcfce7",
+  teal:   "#d1fae5",
+  red:    "#fee2e2",
+};
+
+const strokeMap: Record<string, string> = {
+  purple: "#7c3aed",
+  blue:   "#2563eb",
+  green:  "#16a34a",
+  teal:   "#059669",
+  red:    "#dc2626",
+};
+
+const iconPaths: Record<string, string> = {
+  "edit":   `<path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>`,
+  "view":   `<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>`,
+  "more":   `<circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>`,
+  "shield": `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`,
+  "delete": `<polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>`,
+  "check":  `<path d="m20 6-11 11-5-5"/>`,
+};
+---
+
+<div class="doc-action-card">
+  <div class="doc-action-card__icon" style={`background:${bgMap[color]}`}>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={strokeMap[color]} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={iconPaths[icon]} />
+  </div>
+  <p class="doc-action-card__title">{title}</p>
+  <p class="doc-action-card__text">{description}</p>
+</div>
+
+<style>
+  .doc-action-card {
+    border: 1px solid #edf1f7;
+    border-radius: 16px;
+    background: white;
+    padding: 1.25rem;
+  }
+  .doc-action-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+  }
+  .doc-action-card__title {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #0f172a;
+  }
+  .doc-action-card__text {
+    margin: 0.375rem 0 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: #66758f;
+  }
+</style>

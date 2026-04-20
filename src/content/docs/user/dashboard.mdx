@@ -1,0 +1,234 @@
+---
+title: Dashboard
+description: Interactive dashboard to track, visualize, and analyze your data assets and daily operations.
+section: /docs
+priority: 22
+navGroup: user
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import stepOne from "@/assets/images/dashboardimage1.svg";
+import stepTwo from "@/assets/images/dashboardimage2.svg";
+import stepThree from "@/assets/images/dashboardimage3.svg";
+import stepFour from "@/assets/images/dashboardimage4.svg";
+import stepFive from "@/assets/images/dashboardimage5.svg";
+import stepSix from "@/assets/images/dashboardimage6.svg";
+
+<GuideBreadcrumbs items={[ { label: "Docs" , href: "/docs/" }, { label: "As user role" , href: "#" }, {
+  label: "Dashboard" }, ]} />
+
+<GuideIntro>
+  <h1>Dashboard</h1>
+  <p>
+    The Dashboards tab displays all dashboards that you have access to. If you
+    don't have access to any data assets, you can submit a request for a new
+    dashboard or request access to existing ones.
+  </p>
+</GuideIntro>
+
+<aside class="docs-guide-callout docs-guide-callout--info">
+  <div class="docs-guide-callout__header ">
+    <span class="docs-guide-callout__icon w-10 h-10 rounded-xl bg-white border border-[#DBEAFE]" aria-hidden="true"
+      style="margin-top:-2px;">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="6" height="6" rx="1"></rect>
+        <rect x="11" y="3" width="6" height="6" rx="1"></rect>
+        <rect x="3" y="11" width="6" height="6" rx="1"></rect>
+        <rect x="11" y="11" width="6" height="6" rx="1"></rect>
+      </svg>
+    </span>
+    <h3>About the Dashboards Tab</h3>
+  </div>
+  <div class="docs-guide-callout__content">
+    <p class="!text-neutral-600">This section shows all dashboards you have access to. If you lack access to any data
+      assets, you can request a new dashboard by clicking{" "}<strong>Request New Dashboard</strong>. You can also
+      browse the{" "}<strong>Data Assets</strong> tab to request access to existing dashboardsdirectly.</p>
+  </div>
+</aside>
+
+## Steps to access to any Dashboards
+
+<div class="docs-step-list">
+  <GuideStepCard number={1} title="Request a New Dashboard"
+    description="From the Dashboards tab, click Request New Dashboard to begin the access request process."
+    image={stepOne} imageAlt="Request a New Dashboard" />
+  <GuideStepCard number={2} title="Fill Required Details"
+    description="Enter the dashboard name, owner, and a brief description of what data it should display."
+    image={stepTwo} imageAlt="Fill Required Details" />
+  <GuideStepCard number={3} title="Submit and Track Request"
+    description="Track your request from the Access Requests tab." image={stepThree}
+    imageAlt="Submit and Track Request" />
+  <GuideStepCard number={4} title="Request Existing Dashboards"
+    description="Define whether the dashboard can be shared externally and with whom, directly." image={stepFour}
+    imageAlt="Request Existing Dashboards" />
+</div>
+
+<div class="docs-step-card mt-8">
+  <div class="docs-step-card__panel">
+    <div class="docs-step-card__body">
+      <h3>Track in Access Requests</h3>
+      <p>
+        After submission, monitor your request status in the Access Requests
+        tab.
+      </p>
+    </div>
+    <div class="docs-step-card__media">
+      <img src={stepFive.src} alt="Track in Access Requests" loading="lazy" />
+    </div>
+  </div>
+</div>
+
+<div class="docs-step-card mt-6">
+  <div class="docs-step-card__panel" style="display:flex; align-items:flex-start; gap:1.25rem; ">
+    <div
+      class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#dcfce7] text-[#16a34a] [&>svg]:!w-5 [&>svg]:h-auto">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+        <line x1="12" y1="11" x2="12" y2="17"></line>
+        <line x1="9" y1="14" x2="15" y2="14"></line>
+      </svg>
+    </div>
+    <div class="docs-step-card__body shrink">
+      <h3>Browse Data Assets</h3>
+      <p>
+        To request access to an existing dashboard, navigate to the{" "}
+        <strong>Data Assets</strong> tab and browse available assets. Once you
+        find the dashboard, click <strong>Request Access</strong> to submit your
+        request directly from there.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="docs-step-card mt-6">
+  <div class="docs-step-card__panel"
+    style="display:grid; grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 1fr); align-items:start; gap:1.5rem;">
+    <div style="display:flex; align-items:flex-start; gap:1.25rem;">
+      <div
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#dbeafe] text-[#2563eb] [&>svg]:!w-5 [&>svg]:h-auto">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+      </div>
+      <div class="docs-step-card__body">
+        <h3>Viewing Dashboard Details</h3>
+        <p>
+          Click <strong>View</strong> on any existing dashboard to see its
+          description, tags, and service type (e.g., Qlik or Power BI).
+        </p>
+      </div>
+    </div>
+    <div class="docs-step-card__media" style="margin-top:0;">
+      <img src={stepSix.src} alt="Viewing Dashboard Details" loading="lazy" />
+    </div>
+  </div>
+</div>
+
+<div class="docs-step-card mt-6">
+  <div class="docs-step-card__panel" style="display:flex; align-items:flex-start; gap:1.25rem;">
+    <div
+      class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#dbeafe] text-[#2563eb] [&>svg]:!w-5 [&>svg]:h-auto">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+    </div>
+    <div class="docs-step-card__body w-full">
+      <h3>Open in BI Tool</h3>
+      <p>
+        Depending on the dashboard's service type, you can open it directly in
+        the corresponding BI platform.
+      </p>
+
+      <div class="mt-4 flex gap-3">
+        <button class="flex cursor-pointer items-center gap-2 rounded-[10px] border border-[#DBEAFE] bg-[#eff6ff]  
+        text-sm font-semibold text-[#2563eb] transition-colors hover:bg-[#dbeafe] px-4 py-2"
+          style="border-color:#DBEAFE; color:#2563eb; background: #eff6ff;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          <span>View in Qlik</span>
+        </button>
+        <button
+          class="flex cursor-pointer items-center gap-2 rounded-[10px] border border-[#ddd6fe] bg-[#F5F3FF] text-sm font-semibold text-[#7C3AED] transition-colors hover:bg-[#7C3AED] px-4 py-2"
+          style="border-color:#ddd6fe; color:#7C3AED; background: #F5F3FF;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          <span>View in Power BI</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-8 rounded-[12px] border border-neutral-100 bg-neutral-50 p-5">
+  <div class="mb-3 flex items-center gap-2.5">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <h4 class="m-0 text-[15px] font-semibold text-[#0f172a]">
+      Before Requesting a Dashboard
+    </h4>
+  </div>
+  <ul class="ml-[30px] flex flex-col gap-1.5">
+    <li class="flex items-center gap-2.5 text-[14px] text-[#314158] m-0">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+      <span>Verify you need the dashboard for business purposes.</span>
+    </li>
+    <li class="flex items-center gap-2.5 text-[14px] text-[#314158] m-0">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+      <span>
+        Check Data Assets tab first — the dashboard may already exist.
+      </span>
+    </li>
+    <li class="flex items-center gap-2.5 text-[14px] text-[#314158] m-0">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+      <span>Provide accurate PI classification to avoid approval delays.</span>
+    </li>
+    <li class="flex items-center gap-2.5 text-[14px] text-[#314158] m-0">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+      <span>Ensure the correct data owner is referenced in your request.</span>
+    </li>
+  </ul>
+</div>
+
+
+<GuideCallout title={`After submission, your dashboard request follows the same approval workflow as dataset requests.
+  You can track every status change via the Access Requests tab.`} variant="info">
+
+</GuideCallout>

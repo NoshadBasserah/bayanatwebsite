@@ -1,0 +1,347 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import SkipLink from "@/components/SkipLink.astro";
+import Logo from "@/components/Logo.astro";
+import Navigation from "@/components/docs/Navigation.astro";
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import { docsNavSections, flattenNavItems } from "@/data/docsNav";
+import { siteConfig } from "@/site.config";
+import plannerimage1 from "@/assets/images/plannerimage1.svg";
+import plannerimage2 from "@/assets/images/plannerimage2.svg";
+import plannerimage3 from "@/assets/images/plannerimage3.svg";
+import plannerimage4 from "@/assets/images/plannerimage4.svg";
+import plannerimage5 from "@/assets/images/plannerimage5.svg";
+import plannerimage6 from "@/assets/images/plannerimage6.svg";
+import plannerimage7 from "@/assets/images/plannerimage7.svg";
+import plannerimage8 from "@/assets/images/plannerimage8.svg";
+import plannerimage9 from "@/assets/images/plannerimage9.svg";
+import plannerimage10 from "@/assets/images/plannerimage10.svg";
+import plannerimage11 from "@/assets/images/plannerimage11.svg";
+import plannerimage12 from "@/assets/images/plannerimage12.svg";
+import plannerimage13 from "@/assets/images/plannerimage13.svg";
+
+const title = "Planner & Tasks";
+const description =
+  "Manage your personal tasks and tasks assigned within teams and spaces.";
+
+const allPages = flattenNavItems(docsNavSections);
+
+function normalize(p: string) {
+  return p.endsWith("/") ? p : `${p}/`;
+}
+
+const currentPath = normalize(Astro.url.pathname);
+const currentIdx = allPages.findIndex((p) => normalize(p.href) === currentPath);
+
+const prevPage = currentIdx > 0 ? allPages[currentIdx - 1] : null;
+const nextPage =
+  currentIdx >= 0 && currentIdx < allPages.length - 1
+    ? allPages[currentIdx + 1]
+    : null;
+
+const tocHeadings = [
+  { depth: 2, slug: "overview", text: "Overview" },
+  { depth: 2, slug: "steps-to-create-a-planner-my-planner", text: "Steps to Create a Planner (My Planner)" },
+  { depth: 2, slug: "steps-for-team-space-planner", text: "Steps for Team & Space Planner" },
+];
+---
+
+<html
+  class="scroll-pt-[88px] scroll-smooth font-sans antialiased"
+  lang={siteConfig.lang}
+  data-theme="light"
+>
+  <head>
+    <BaseHead description={description} title={title} />
+  </head>
+  <body class="bg-neutral-50 text-neutral-800">
+    <SkipLink />
+
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside class="sticky top-0 z-20 hidden h-screen w-[240px] shrink-0 flex-col overflow-y-auto border-r border-neutral-100 bg-white lg:flex">
+        <div class="flex h-[72px] shrink-0 items-center border-b border-neutral-100 px-5">
+          <a href="/" aria-label="BayanatiHub home">
+            <Logo class="h-[47px] w-auto" />
+          </a>
+        </div>
+        <div class="flex-1 overflow-y-auto">
+          <Navigation />
+        </div>
+        <div class="shrink-0 p-3 pb-5">
+          <div class="overflow-hidden rounded-[14px] border border-neutral-100 bg-gradient-to-b from-white to-[#e3f7ff] p-4">
+            <p class="text-[13px] font-semibold text-[#0f172a]">Need help?</p>
+            <p class="mt-1 text-[11px] leading-[16px] text-[#6b7689]">
+              Find guides and tutorials to make the most of BayanatiHub.
+            </p>
+            <a
+              href="#"
+              class="mt-3 flex h-[34px] items-center justify-between rounded-[8px] border border-[#e5ecfe] bg-white px-3 text-[11.5px] font-semibold text-[#009ad6] transition-colors hover:bg-[#eff6ff]"
+            >
+              <span>View Help Center</span>
+              <span aria-hidden="true">-&gt;</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <div class="flex min-w-0 flex-1 flex-col">
+        <!-- Header -->
+        <header class="sticky top-0 z-10 flex h-[72px] shrink-0 items-center justify-between gap-4 border-b border-neutral-100 bg-white px-6">
+          <div class="flex h-[40px] w-full max-w-[420px] items-center gap-2 rounded-[10px] border border-neutral-100 bg-[#f7f8fb] px-3">
+            <svg class="h-[12px] w-[12px] shrink-0 text-[#949eb0]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <span class="flex-1 text-[13px] text-[#949eb0]">Search documentation...</span>
+            <div class="flex h-[22px] items-center rounded-[5px] border border-[#e5e9f0] bg-white px-2">
+              <span class="text-[10.5px] font-medium text-[#6b7689]">⌘ K</span>
+            </div>
+          </div>
+          <div class="flex shrink-0 items-center gap-3">
+            <button aria-label="Toggle theme" class="hidden h-8 w-8 cursor-pointer items-center justify-center rounded-full text-neutral-900 transition-colors hover:bg-neutral-50 sm:flex">
+              <svg class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+              </svg>
+            </button>
+            <button class="hidden items-center gap-1.5 rounded-full px-2 py-1 text-[11.5px] font-medium text-[#8796af] transition-colors hover:bg-neutral-50 sm:flex">
+              <span>Arabic</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="flex flex-1">
+          <main id="main-content" class="min-w-0 flex-1 p-6 lg:p-8">
+            <article data-docs-content class="docs-guide">
+
+              <GuideBreadcrumbs
+                items={[
+                  { label: "Docs", href: "/docs/" },
+                  { label: "As user role", href: "#" },
+                  { label: "Planner & Tasks" },
+                ]}
+              />
+
+              <GuideIntro>
+                <h1>Planner &amp; Tasks</h1>
+                <p>
+                  This tab allows you to manage both your personal tasks and tasks
+                  assigned within teams and spaces.
+                </p>
+              </GuideIntro>
+
+              <!-- Overview -->
+              <h2 id="overview">There are two main sections:</h2>
+
+              <div class="mt-4 mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div class="flex items-start gap-4 rounded-[16px] border border-[#edf1f7] bg-white p-5">
+                  <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-[#dbeafe]">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="m-0 text-[14px] font-semibold text-[#0f172a]">My Planners</p>
+                    <p class="m-0 mt-1 text-[13px] leading-relaxed text-[#66758f]">Used for managing your personal planners and tasks that you create for yourself.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4 rounded-[16px] border border-[#edf1f7] bg-white p-5">
+                  <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-[#d1fae5]">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Team &amp; Space Planner</p>
+                    <p class="m-0 mt-1 text-[13px] leading-relaxed text-[#66758f]">Displays tasks assigned to you by the space owner within teams and spaces.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- My Planner steps -->
+              <h2 id="steps-to-create-a-planner-my-planner">Steps to Create a Planner (My Planner)</h2>
+
+              <div class="docs-step-list">
+                <GuideStepCard
+                  number={1}
+                  title="Go to the Planner & Tasks tab"
+                  description="Navigate to the Planning & Tasks section from the left sidebar."
+                  image={plannerimage1}
+                  imageAlt="Go to the Planner & Tasks tab"
+                />
+                <GuideStepCard
+                  number={2}
+                  title="Select the My Planner page."
+                  description="Choose the My Planner page to manage your personal planners and tasks."
+                  image={plannerimage2}
+                  imageAlt="Select the My Planner page"
+                />
+                <GuideStepCard
+                  number={3}
+                  title="Click on Add Planner."
+                  description={`Click the "Add Planner" button to create a new personal planner.`}
+                  image={plannerimage3}
+                  imageAlt="Click on Add Planner"
+                />
+                <GuideStepCard
+                  number={4}
+                  title="Enter the Planner Details"
+                  description="Fill in the planner Name and Description, then confirm to create it."
+                  image={plannerimage4}
+                  imageAlt="Enter the Planner Details"
+                />
+                <GuideStepCard
+                  number={5}
+                  title="Open the created planner."
+                  description="Click on the newly created planner to open it and start adding tasks."
+                  image={plannerimage5}
+                  imageAlt="Open the created planner"
+                />
+                <GuideStepCard
+                  number={6}
+                  title="Click on Create New Task."
+                  description={`Use the "Create New Task" button inside the planner to add a task.`}
+                  image={plannerimage6}
+                  imageAlt="Click on Create New Task"
+                />
+                <GuideStepCard
+                  number={7}
+                  title="Fill in the task details"
+                  description="Provide the task Name, Start Date, End Date, Priority, and Progress."
+                  image={plannerimage7}
+                  imageAlt="Fill in the task details"
+                />
+                <GuideStepCard
+                  number={8}
+                  title="Click Save."
+                  description="Save the task to add it to your planner. It will appear in the task list."
+                  image={plannerimage8}
+                  imageAlt="Click Save"
+                />
+              </div>
+
+              <!-- Team & Space Planner steps -->
+              <h2 id="steps-for-team-space-planner" class="mt-10">Steps for Team &amp; Space Planner</h2>
+
+              <div class="docs-step-list">
+                <GuideStepCard
+                  number={1}
+                  title="Go to the Planning & Tasks tab"
+                  description="Navigate to the Planning & Tasks section from the left sidebar."
+                  image={plannerimage9}
+                  imageAlt="Go to the Planning & Tasks tab"
+                />
+                <GuideStepCard
+                  number={2}
+                  title="Select the Team & Space Planner page."
+                  description="Switch to the Team & Space Planner page to view team-assigned planners."
+                  image={plannerimage10}
+                  imageAlt="Select the Team & Space Planner page"
+                />
+                <GuideStepCard
+                  number={3}
+                  title="All planners that include tasks assigned to you will be displayed."
+                  description="All planners that include tasks assigned to you will be displayed here."
+                  image={plannerimage11}
+                  imageAlt="All planners displayed"
+                />
+                <GuideStepCard
+                  number={4}
+                  title="Enter the planner details (Name and Description)."
+                  description="Select a planner from the list to see all tasks assigned to you inside it."
+                  image={plannerimage12}
+                  imageAlt="Enter the planner details"
+                />
+                <GuideStepCard
+                  number={5}
+                  title="Open the created planner."
+                  description="Review the task details and update the progress status as needed."
+                  image={plannerimage13}
+                  imageAlt="Open the created planner"
+                />
+              </div>
+
+            </article>
+
+            {(prevPage || nextPage) && (
+              <div class="mt-6 flex gap-4">
+                {prevPage ? (
+                  <a
+                    href={prevPage.href}
+                    class="flex flex-1 items-center gap-4 rounded-[14px] border border-neutral-100 bg-white px-5 py-5 shadow-[0px_2px_8px_0px_rgba(24,36,64,0.03)] transition-shadow hover:shadow-md"
+                  >
+                    <span class="text-[18px] font-medium text-[#6b7689]">&lt;-</span>
+                    <div>
+                      <p class="text-[11px] font-medium uppercase tracking-[0.04em] text-[#6b7689]">Previous</p>
+                      <p class="mt-0.5 text-[15px] font-semibold tracking-[-0.003em] text-[#0f172a]">{prevPage.title}</p>
+                    </div>
+                  </a>
+                ) : (
+                  <div class="flex-1"></div>
+                )}
+
+                {nextPage ? (
+                  <a
+                    href={nextPage.href}
+                    class="flex flex-1 items-center justify-end gap-4 rounded-[14px] border border-neutral-100 bg-white px-5 py-5 shadow-[0px_2px_8px_0px_rgba(24,36,64,0.03)] transition-shadow hover:shadow-md"
+                  >
+                    <div class="text-right">
+                      <p class="text-[11px] font-medium uppercase tracking-[0.04em] text-[#6b7689]">Next</p>
+                      <p class="mt-0.5 text-[15px] font-semibold tracking-[-0.003em] text-[#0f172a]">{nextPage.title}</p>
+                    </div>
+                    <span class="text-[18px] font-medium text-[#6b7689]">-&gt;</span>
+                  </a>
+                ) : (
+                  <div class="flex-1"></div>
+                )}
+              </div>
+            )}
+          </main>
+
+          <!-- TOC -->
+          <aside class="hidden xl:block w-[260px] shrink-0 sticky top-[72px] h-[calc(100vh-72px)] overflow-y-auto p-5 ps-0">
+            <div class="rounded-[14px] border border-neutral-100 bg-white p-4 shadow-[0px_2px_8px_rgba(24,36,64,0.03)]">
+              <p class="mb-3 text-sm font-semibold tracking-[-0.003em] text-[#0f172a]">On this page</p>
+              <div class="mb-3 h-px bg-[#f0f3f7]"></div>
+              <ul class="space-y-[10px]">
+                {tocHeadings.map((h, i) => (
+                  <li class="flex items-center gap-2">
+                    <div class:list={[
+                      "h-[18px] w-[2.5px] shrink-0 rounded-xl transition-colors",
+                      i === 0 ? "bg-[#009ad6]" : "bg-transparent",
+                    ]} />
+                    <a
+                      href={`#${h.slug}`}
+                      class:list={[
+                        "text-[12.5px] leading-5 transition-colors",
+                        i === 0
+                          ? "font-semibold text-[#009ad6]"
+                          : "font-medium text-[#374151] hover:text-[#009ad6]",
+                      ]}
+                    >
+                      {h.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

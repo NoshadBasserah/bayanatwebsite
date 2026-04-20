@@ -1,0 +1,81 @@
+---
+title: Datasets
+description: "This section displays all data assets that you have access to. If you do not have access to any data assets, you can request access as follows:"
+section: /docs
+priority: 21
+navGroup: user
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import stepOne from "@/assets/images/datasetimage1.svg";
+import stepTwo from "@/assets/images/datasetimage2.svg";
+import stepThree from "@/assets/images/datasetimage3.svg";
+import stepFour from "@/assets/images/datasetimage4.svg";
+import stepFive from "@/assets/images/datasetimage5.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As user role", href: "#" },
+    { label: "Datasets" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>Datasets</h1>
+  <p>
+    This section displays all data assets that you have access to. If you do
+    not have access to any data assets, you can request access as follows:
+  </p>
+</GuideIntro>
+
+## Steps to access to any data assets
+
+<div class="docs-step-list mt-8">
+  <GuideStepCard
+    number={1}
+    title="Request a New Dataset"
+    description='Click on "New Request" to start a dataset request.'
+    image={stepOne}
+    imageAlt="Request a New Dataset snippet"
+  />
+  <GuideStepCard
+    number={2}
+    title="Fill Required Details"
+    description="Provide Basic Info, Data & Metadata, PII & Security, and External Sharing."
+    image={stepTwo}
+    imageAlt="Fill Required Details snippet"
+  />
+  <GuideStepCard
+    number={3}
+    title="Submit and Track Request"
+    description="Track your request from the Access Requests tab."
+    image={stepThree}
+    imageAlt="Submit and Track Request snippet"
+  />
+  <GuideStepCard
+    number={4}
+    title="Request Existing Data"
+    description="After submission, you can track and review your request through the Access Requests tab."
+    image={stepFour}
+    imageAlt="Request Existing Data snippet"
+  />
+  <GuideStepCard
+    number={5}
+    title="Additional Actions"
+    description="If you would like to request access to existing datasets, you can browse available data assets in the Data Assets tab and submit an access request directly from there."
+    image={stepFive}
+    imageAlt="Additional Actions snippet"
+  />
+</div>
+
+## Additional Information
+
+<GuideCallout title="Additional Information" variant="info">
+  <p class="mb-2">When selecting and viewing an existing data asset, you can request to create a dashboard by clicking on Request to Create Dashboard.</p>
+  <p>If you do not have the required professional license, you must first submit a request to obtain the license in order to proceed with creating the dashboard.</p>
+</GuideCallout>

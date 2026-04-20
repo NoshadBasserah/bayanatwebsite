@@ -1,0 +1,185 @@
+---
+title: Form builder
+description: Create structured forms for manual data entry or import from Excel.
+section: /docs
+priority: 23
+navGroup: user
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import stepOne from "@/assets/images/formbuilderimage1.svg";
+import stepTwo from "@/assets/images/formbuilderimage2.svg";
+import stepThree from "@/assets/images/formbuilderimage3.svg";
+import stepFour from "@/assets/images/formbuilderimage4.svg";
+
+<GuideBreadcrumbs items={[ { label: "Docs" , href: "/docs/" }, { label: "As user role" , href: "#" }, {
+  label: "Form builder" }, ]} />
+
+<GuideIntro>
+  <h1>Form builder</h1>
+  <p>
+    The Form Builder tab allows you to create structured forms where data
+    can be entered manually or imported from an Excel file. Forms can be
+    shared within spaces and used to generate dashboards.
+  </p>
+</GuideIntro>
+
+## Steps to create a form
+
+<div class="docs-step-list">
+  <GuideStepCard number={1} title="Navigate to the Forms builder"
+    description="Open the Forms Builder tab from the left navigation menu." image={stepOne}
+    imageAlt="Navigate to the Forms builder" />
+  <GuideStepCard number={2} title="Create a New Form"
+    description="Click Create Form and fill in the required Name and Description, then click Create." image={stepTwo}
+    imageAlt="Create a New Form" />
+  <GuideStepCard number={3} title="Open your Form"
+    description="Click Open Form. A pop-up appears with available options: import data or create a dashboard."
+    image={stepThree} imageAlt="Open your Form" />
+  <GuideStepCard number={4} title="Build Your Form"
+    description="Add columns, insert rows, set data types, import an Excel file, or create a dashboard from your data."
+    image={stepFour} imageAlt="Build Your Form" />
+</div>
+
+## Additional information
+
+<div class="mt-6 flex flex-col gap-4">
+  <div class="flex items-center gap-4 rounded-[12px] border border-[#ffedd5] bg-white p-4 shadow-sm">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] bg-[#fff7ed] text-[#f97316]">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="12" y1="3" x2="12" y2="21"></line>
+      </svg>
+    </div>
+    <div>
+      <h4 class="m-0 text-sm font-semibold text-[#0f172a]">Add Columns</h4>
+      <p class="m-0 mt-0.5 text-sm text-[#64748b]">Add new fields to your form - Text, Number, Date, and more.</p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-4 rounded-[12px] border border-[#f3e8ff] bg-white p-4 shadow-sm">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] bg-[#faf5ff] text-[#a855f7]">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </div>
+    <div>
+      <h4 class="m-0 text-sm font-semibold text-[#0f172a]">Add Rows</h4>
+      <p class="m-0 mt-0.5 text-sm text-[#64748b]">Insert new data entries manually into the form.</p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-4 rounded-[12px] border border-[#cffafe] bg-white p-4 shadow-sm">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] bg-[#ecfeff] text-[#06b6d4]">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 3h5v5"></path>
+        <path d="M8 3H3v5"></path>
+        <path d="M12 22v-8.3a4 4 0 0 0-1.17-2.83L3 3"></path>
+        <path d="M15.1 10.9 21 3"></path>
+      </svg>
+    </div>
+    <div>
+      <h4 class="m-0 text-sm font-semibold text-[#0f172a]">Set Column Type</h4>
+      <p class="m-0 mt-0.5 text-sm text-[#64748b]">Define what data type each column accepts to enforce data
+        quality.</p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-4 rounded-[12px] border border-[#dcfce7] bg-white p-4 shadow-sm">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] bg-[#f0fdf4] text-[#16a34a]">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="12" y1="18" x2="12" y2="12"></line>
+        <line x1="9" y1="15" x2="15" y2="15"></line>
+      </svg>
+    </div>
+    <div>
+      <h4 class="m-0 text-sm font-semibold text-[#0f172a]">Import Excel File</h4>
+      <p class="m-0 mt-0.5 text-sm text-[#64748b]">Upload an Excel file to automatically populate your form.</p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-4 rounded-[12px] border border-[#dbeafe] bg-white p-4 shadow-sm">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] bg-[#eff6ff] text-[#2563eb]">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="3" y1="9" x2="21" y2="9"></line>
+        <line x1="9" y1="21" x2="9" y2="9"></line>
+      </svg>
+    </div>
+    <div>
+      <h4 class="m-0 text-sm font-semibold text-[#0f172a]">Create Dashboard</h4>
+      <p class="m-0 mt-0.5 text-sm text-[#64748b]">Generate a dashboard directly from the form's data.</p>
+    </div>
+  </div>
+</div>
+
+<div class="mt-6 rounded-[12px] border border-neutral-100 bg-transparent p-5 shadow-[0px_2px_8px_rgba(24,36,64,0.03)]">
+  <div class="flex items-start gap-3">
+    <div class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center text-[#64748b]">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="5" cy="12" r="1"></circle>
+        <circle cx="12" cy="12" r="1"></circle>
+        <circle cx="19" cy="12" r="1"></circle>
+      </svg>
+    </div>
+    <div class="w-full">
+      <h3 class="m-0 text-[15px] font-semibold text-[#0f172a]">Editing or Deleting a Form</h3>
+      <p class="mt-1.5 text-[14px] leading-relaxed text-[#64748b]">
+        To edit or delete a form, select the desired form and click the <strong>three-dot (...) menu</strong>. From
+        there you can update the form's name and description, or permanently delete it.
+      </p>
+
+      <div class="mt-4 flex gap-3">
+        <button class="flex items-center gap-2  text-sm">
+          <span class="rounded-[6px] 
+        border border-[#ffedd5]  h-7 w-7 text-sm font-medium flex items-center justify-center
+          text-[#f97316] transition-colors hover:bg-[#fff7ed] bg-[#FFF7ED]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+            </svg></span>
+          <span class="text-neutral-700">Edit Name / Description</span>
+        </button>
+        <button class="flex items-center gap-2  text-sm">
+          <span class="rounded-[6px] 
+        border border-danger/10 bg-[#FEF2F2] h-7 w-7 text-sm font-medium flex items-center justify-center
+          text-danger transition-colors hover:bg-[#fff7ed]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg></span>
+          <span class="text-neutral-700">Delete Form</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-6 flex gap-3 rounded-[12px] border border-[#ffedd5] bg-[#fff7ed] p-4 text-[#ea580c]">
+  <svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <polyline points="12 16 12 12 12 8"></polyline>
+    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+  </svg>
+  <p class="m-0 text-sm font-medium leading-relaxed">
+    Forms added to a Space become accessible to all space members. Any dashboard created from a form will reflect live
+    data as entries are added or updated.
+  </p>
+</div>

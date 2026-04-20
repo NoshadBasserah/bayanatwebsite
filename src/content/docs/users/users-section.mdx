@@ -1,0 +1,71 @@
+---
+title: Users Section
+description: View and manage all platform users including roles, license status, and account access settings.
+section: /docs
+priority: 20
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import DocInfoCard from "@/components/docs/DocInfoCard.astro";
+import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
+import DocActionCard from "@/components/docs/DocActionCard.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As Admin role", href: "/docs/" },
+    { label: "Users", href: "/docs/users/" },
+    { label: "Users Section" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>Users Section</h1>
+  <p>
+    This section displays a list of all users in the platform along with their
+    key details and access settings.
+  </p>
+</GuideIntro>
+
+## User Information
+
+<p class="text-[14px] text-[#66758f] mt-1 mb-4">Each user record includes the following information:</p>
+
+<div class="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-2">
+  <DocInfoCard title="ID"        description="Unique identifier for the user."                                   icon="id"        color="purple" />
+  <DocInfoCard title="Name"      description="User's full name."                                                 icon="name"      color="blue"   />
+  <DocInfoCard title="Email"     description="User's email address."                                             icon="email"     color="green"  />
+  <DocInfoCard title="Directory" description="Source of the user account (e.g., Database or Active Directory)." icon="directory" color="yellow" />
+  <DocInfoCard title="Role"      description="Assigned role (e.g., Admin, Data Analyst, Viewer)."               icon="role"      color="pink"   />
+  <DocInfoCard title="Licenses"  description="Indicates Professional or Analyzer licenses."                      icon="license"   color="green"  />
+  <DocInfoCard title="Status"    description="Indicates whether the user account is active or inactive."         icon="status"    color="yellow" />
+  <DocInfoCard title="Actions"   description="Options to manage the user."                                       icon="actions"   color="slate"  />
+</div>
+
+## Finding and Customizing Users
+
+<div class="grid gap-4 mb-2">
+  <DocFeatureRow title="Search"            description="Use the search bar to find users by name, email, or ID."                 icon="search" color="blue"   />
+  <DocFeatureRow title="Filters & Columns" description="Use filters to narrow down results and select which columns to display." icon="filter" color="purple" />
+  <DocFeatureRow title="Add User"          description="Click on Add User to create a new user account."                         icon="add"    color="green"  />
+</div>
+
+## Managing Users
+
+<p class="text-[14px] text-[#66758f] mt-0 mb-4">From the Actions column, you can:</p>
+
+<div class="grid gap-4 sm:grid-cols-3 mb-2">
+  <DocActionCard title="Edit User Details"     description="Update user details such as role, name, and other information using the edit icon." icon="edit"   color="purple" />
+  <DocActionCard title="View User Information" description="View detailed information about the user using the view icon."                      icon="view"   color="teal"   />
+  <DocActionCard title="More Actions"          description="Access additional management options from the actions menu."                         icon="more"   color="green"  />
+</div>
+
+## Important
+
+<GuideCallout title="Important" variant="info">
+  Disabled users will not be able to access the platform.
+</GuideCallout>
