@@ -28,9 +28,9 @@ export const docsNavSections: NavSection[] = [
         title: "Users",
         href: "/docs/users/",
         children: [
-          { title: "Users Section", href: "/docs/users-section/" },
-          { title: "Roles Section", href: "/docs/roles-section/" },
-          { title: "Policies Section", href: "/docs/policies-section/" },
+          { title: "Users Section", href: "/docs/users/#users-section" },
+          { title: "Roles Section", href: "/docs/users/#roles-section" },
+          { title: "Policies Section", href: "/docs/users/#policies-section" },
         ],
       },
       { title: "Domains", href: "/docs/domains/" },

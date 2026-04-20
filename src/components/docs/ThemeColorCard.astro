@@ -1,0 +1,17 @@
+---
+interface Props {
+  color: string;
+  name: string;
+  description: string;
+}
+
+const { color, name, description } = Astro.props;
+---
+
+<div class="ts-color-card">
+  <div class="ts-color-card__bar" style={`background:${color}`}></div>
+  <div class="ts-color-card__body">
+    <p class="ts-color-card__name">{name}</p>
+    <p class="ts-color-card__desc">{description}</p>
+  </div>
+</div>

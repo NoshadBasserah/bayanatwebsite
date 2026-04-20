@@ -1,0 +1,79 @@
+---
+title: Lists
+description: Organize curated collections of data assets.
+section: /docs
+priority: 15
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As Admin role", href: "/docs/" },
+    { label: "Lists" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>Lists</h1>
+  <p>
+    Lists allow administrators to create and manage curated collections of data
+    assets.
+  </p>
+  <p>
+    These collections can be used for organizing assets by project,
+    department, data domain, or any custom grouping criteria. Lists help users
+    discover related assets and maintain logical groupings.
+  </p>
+</GuideIntro>
+
+## Steps to manage lists
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="Navigate to the Lists tab"
+    description="Open the area where existing curated collections are managed."
+  />
+  <GuideStepCard
+    number={2}
+    title="Click 'Add New List'"
+    description="Open the list creation form to start a new collection."
+  />
+  <GuideStepCard
+    number={3}
+    title="Enter the list name and description"
+    description="Provide context about the purpose, ownership, and intended scope of the list."
+  />
+  <GuideStepCard
+    number={4}
+    title="Add the values or assets"
+    description="Select the items, datasets, or assets that belong in this curated list."
+  />
+  <GuideStepCard
+    number={5}
+    title="Save the list"
+    description="The list becomes available according to the configured visibility settings."
+  />
+</div>
+
+## Additional Information
+
+<GuideCallout title="Additional Information" variant="info">
+  <p>
+    Lists can be shared with specific users or teams, or made publicly
+    accessible to all platform users.
+  </p>
+  <p>
+    Membership is dynamic, so when an asset is removed from the platform it is
+    automatically removed from any lists that reference it. Users can also
+    subscribe to lists to receive notifications when assets are added or
+    removed.
+  </p>
+</GuideCallout>

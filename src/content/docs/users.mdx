@@ -1,0 +1,176 @@
+---
+title: Users
+description: Manage users, roles, and policies from one administration workspace.
+section: /docs
+priority: 19
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import userIcon from "@/assets/images/usericon.svg";
+import roleIcon from "@/assets/images/roleicon.svg";
+import policyIcon from "@/assets/images/policyicon.svg";
+import usersRightImage from "@/assets/images/userrightimage.svg";
+import rolesRightImage from "@/assets/images/rolesrightimage.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As Admin role", href: "/docs/" },
+    { label: "Users" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>Users</h1>
+  <p>
+    Manage platform access from a single workspace that brings together users,
+    assigned roles, and governance policies.
+  </p>
+  <p>
+    Administrators can review account activity, control permissions, and align
+    user access with organizational governance rules without leaving the Users
+    section.
+  </p>
+</GuideIntro>
+
+## Users Section
+
+<p>
+  This section allows you to review platform users, their current activity, and
+  the roles assigned to each account.
+</p>
+
+<section class="mt-6 rounded-[24px] border border-neutral-100 bg-white p-8 shadow-[0_4px_16px_rgba(24,36,64,0.045)]" id="users-section">
+  <div class="grid gap-8 lg:grid-cols-[0.95fr_1.15fr] items-start">
+    <div class="flex gap-6">
+      <div class="grid h-[56px] w-[56px] shrink-0 place-items-center rounded-full bg-[#eff5ff]">
+        <img src={userIcon.src} alt="Users icon" class="h-[26px] w-[26px]" loading="lazy" />
+      </div>
+      <div>
+        <h3 class="m-0 text-[24px] font-semibold tracking-[-0.02em] text-[#0f172a]">Users</h3>
+        <p class="mt-2 text-[15px] leading-7 text-[#66758f]">
+          View and manage all platform users including roles, license status,
+          and recent account activity.
+        </p>
+        <ul class="mt-5 space-y-2 text-[15px] text-[#3b4a62]">
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#4f7cff]"></span>Active users</li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#4f7cff]"></span>Assigned roles</li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#4f7cff]"></span>License status</li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#4f7cff]"></span>Account activity</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="overflow-hidden rounded-[18px] border border-[#eef2f8] bg-[#f9fbfe] p-4">
+      <img
+        src={usersRightImage.src}
+        alt="Users list preview"
+        class="h-auto w-full object-contain"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+## Roles Section
+
+<p>
+  Use roles to define access bundles and connect permissions to different user
+  responsibilities across the platform.
+</p>
+
+<section class="mt-6 rounded-[24px] border border-neutral-100 bg-white p-8 shadow-[0_4px_16px_rgba(24,36,64,0.045)]" id="roles-section">
+  <div class="grid gap-8 lg:grid-cols-[0.95fr_1.15fr] items-start">
+    <div class="flex gap-6">
+      <div class="grid h-[56px] w-[56px] shrink-0 place-items-center rounded-full bg-[#eaf9f0]">
+        <img src={roleIcon.src} alt="Roles icon" class="h-[28px] w-[24px]" loading="lazy" />
+      </div>
+      <div>
+        <h3 class="m-0 text-[24px] font-semibold tracking-[-0.02em] text-[#0f172a]">Roles</h3>
+        <p class="mt-2 text-[15px] leading-7 text-[#66758f]">
+          Define roles and control access through assigned policies and
+          permission groups.
+        </p>
+        <ul class="mt-5 space-y-2 text-[15px] text-[#3b4a62]">
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#1cc18d]"></span>Create new roles</li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#1cc18d]"></span>Assign policies</li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#1cc18d]"></span>Manage activation status</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="overflow-hidden rounded-[18px] border border-[#eef2f8] bg-[#f9fbfe] p-4">
+      <img
+        src={rolesRightImage.src}
+        alt="Roles and permissions preview"
+        class="h-auto w-full object-contain"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+## Policies Section
+
+<p>
+  Policies make governance rules actionable by defining what users and roles
+  can read, edit, export, approve, or classify.
+</p>
+
+<section class="mt-6 rounded-[24px] border border-neutral-100 bg-white p-8 shadow-[0_4px_16px_rgba(24,36,64,0.045)]" id="policies-section">
+  <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+    <div class="flex gap-6">
+      <div class="grid h-[56px] w-[56px] shrink-0 place-items-center rounded-full bg-[#f2ebff]">
+        <img src={policyIcon.src} alt="Policies icon" class="h-[28px] w-[24px]" loading="lazy" />
+      </div>
+      <div>
+        <h3 class="m-0 text-[24px] font-semibold tracking-[-0.02em] text-[#0f172a]">Policies</h3>
+        <p class="mt-2 text-[15px] leading-7 text-[#66758f]">
+          Create and manage system and custom policies to enforce governance
+          rules across users, roles, and protected assets.
+        </p>
+        <ul class="mt-5 space-y-2 text-[15px] text-[#3b4a62]">
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#9b6bff]"></span>System policies</li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#9b6bff]"></span>Custom policies</li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-[#9b6bff]"></span>Assign to roles</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <div class="rounded-[18px] border border-[#edf1f7] bg-[#fbfcff] p-5">
+        <div class="text-[20px] font-semibold tracking-[-0.02em] text-[#0f172a]">Data Asset Read</div>
+        <div class="mt-3 inline-flex rounded-full bg-[#eef3ff] px-3 py-1 text-[12px] font-semibold text-[#2563eb]">System</div>
+        <p class="mt-4 text-[14px] leading-6 text-[#66758f]">Allows read-only access to data assets.</p>
+      </div>
+      <div class="rounded-[18px] border border-[#edf1f7] bg-[#fbfcff] p-5">
+        <div class="text-[20px] font-semibold tracking-[-0.02em] text-[#0f172a]">Data Asset Edit</div>
+        <div class="mt-3 inline-flex rounded-full bg-[#eef3ff] px-3 py-1 text-[12px] font-semibold text-[#2563eb]">System</div>
+        <p class="mt-4 text-[14px] leading-6 text-[#66758f]">Allows create and edit access to data assets.</p>
+      </div>
+      <div class="rounded-[18px] border border-[#edf1f7] bg-[#fbfcff] p-5">
+        <div class="text-[20px] font-semibold tracking-[-0.02em] text-[#0f172a]">Access Request</div>
+        <div class="mt-3 inline-flex rounded-full bg-[#eef3ff] px-3 py-1 text-[12px] font-semibold text-[#2563eb]">System</div>
+        <p class="mt-4 text-[14px] leading-6 text-[#66758f]">Allows users to approve or reject access requests.</p>
+      </div>
+      <div class="rounded-[18px] border border-[#edf1f7] bg-[#fbfcff] p-5">
+        <div class="text-[20px] font-semibold tracking-[-0.02em] text-[#0f172a]">PII Data Access</div>
+        <div class="mt-3 inline-flex rounded-full bg-[#f3ecff] px-3 py-1 text-[12px] font-semibold text-[#8b5cf6]">Custom</div>
+        <p class="mt-4 text-[14px] leading-6 text-[#66758f]">Restricts access to PII classified data.</p>
+      </div>
+      <div class="rounded-[18px] border border-[#edf1f7] bg-[#fbfcff] p-5">
+        <div class="text-[20px] font-semibold tracking-[-0.02em] text-[#0f172a]">Export Data</div>
+        <div class="mt-3 inline-flex rounded-full bg-[#f3ecff] px-3 py-1 text-[12px] font-semibold text-[#8b5cf6]">Custom</div>
+        <p class="mt-4 text-[14px] leading-6 text-[#66758f]">Controls the ability to export governed platform data.</p>
+      </div>
+      <div class="rounded-[18px] border border-[#edf1f7] bg-[#fbfcff] p-5">
+        <div class="text-[20px] font-semibold tracking-[-0.02em] text-[#0f172a]">Data Classification</div>
+        <div class="mt-3 inline-flex rounded-full bg-[#f3ecff] px-3 py-1 text-[12px] font-semibold text-[#8b5cf6]">Custom</div>
+        <p class="mt-4 text-[14px] leading-6 text-[#66758f]">Allows users to manage and update classifications.</p>
+      </div>
+    </div>
+  </div>
+</section>

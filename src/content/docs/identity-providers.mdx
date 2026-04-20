@@ -1,0 +1,69 @@
+---
+title: Identity Providers
+description: Configure SSO and external authentication methods.
+section: /docs
+priority: 16
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As Admin role", href: "/docs/" },
+    { label: "Identity Providers" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>Identity Providers</h1>
+  <p>
+    BayanatiHub supports enterprise Single Sign-On (SSO) through integration
+    with external identity providers.
+  </p>
+  <p>
+    Administrators can configure identity providers such as Active Directory
+    (AD) and Active Directory Federation Services (ADFS). This enables secure
+    authentication, centralized access management, and a seamless login
+    experience across the platform.
+  </p>
+</GuideIntro>
+
+## Steps to Configure Identity Provider
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="Navigate to the Identity Providers tab"
+    description="View configured SSO providers and their current activation status."
+  />
+  <GuideStepCard
+    number={2}
+    title="Click 'Add Identity Provider'"
+    description="Open the identity provider setup flow."
+  />
+  <GuideStepCard
+    number={3}
+    title="Select provider type (AD, ADFS)"
+    description="Choose the provider that matches your organization's identity infrastructure."
+  />
+  <GuideStepCard
+    number={4}
+    title="Enter provider details (Entity ID, SSO URL, Certificate)"
+    description="Map identity provider attributes to BayanatiHub user fields such as name, email, and groups."
+  />
+  <GuideStepCard
+    number={5}
+    title="Test the SSO configuration"
+    description="Validate the authentication flow in a safe test scenario before enabling it broadly."
+  />
+  <GuideStepCard
+    number={6}
+    title="Activate the identity provider"
+    description="Users can then authenticate using SSO from the platform login page."
+  />
+</div>

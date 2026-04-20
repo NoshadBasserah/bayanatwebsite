@@ -1,0 +1,203 @@
+---
+title: Classifications
+description: Create, manage, and retire classification labels for governed data assets.
+section: /docs
+priority: 13
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import GuideTabs from "@/components/docs/GuideTabs.astro";
+import classificationsHero from "@/assets/images/classifications.svg";
+import createOne from "@/assets/images/classificationscreate1.svg";
+import createTwo from "@/assets/images/classificationscreate2.svg";
+import createThree from "@/assets/images/classificationscreate3.svg";
+import createFour from "@/assets/images/classificationscreate4.svg";
+import createFive from "@/assets/images/classificationscreate5.svg";
+import createSix from "@/assets/images/classificationscreate6.svg";
+import createSeven from "@/assets/images/classificationscreate7.svg";
+import editOne from "@/assets/images/classificationedit1.svg";
+import editTwo from "@/assets/images/classificationedit2.svg";
+import editThree from "@/assets/images/classificationsedit3.svg";
+import editFour from "@/assets/images/classificationsedit4.svg";
+import editFive from "@/assets/images/classificationsedit5.svg";
+import deleteOne from "@/assets/images/classificationsdelete1.svg";
+import deleteTwo from "@/assets/images/classificationsdelete2.svg";
+import deleteThree from "@/assets/images/classificationsdelete3.svg";
+import deleteFour from "@/assets/images/classificationsdelete4.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As Admin role", href: "/docs/" },
+    { label: "Classifications" },
+  ]}
+/>
+
+<GuideIntro image={classificationsHero} imageAlt="Classifications management illustration">
+  <h1>Classifications</h1>
+  <p>
+    The Classifications section helps administrators define sensitivity and
+    governance labels that can be applied to datasets, tables, dashboards, and
+    other managed assets across BayanatiHub.
+  </p>
+  <p>
+    These labels support consistent handling of sensitive information by making
+    it easier to organize assets, apply policy rules, and communicate risk to
+    users across the platform.
+  </p>
+</GuideIntro>
+
+<GuideTabs
+  tabs={[
+    { id: "create", label: "Create" },
+    { id: "edit", label: "Edit" },
+    { id: "delete", label: "Delete" },
+  ]}
+  defaultTab="create"
+>
+  <div slot="create">
+    <h2 id="steps-to-create-a-classification">Steps to Create a Classification</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="Navigate to the Classifications tab"
+        description="Open the classifications workspace to review the list of existing labels and governance settings."
+        image={createOne}
+        imageAlt="Classifications list view"
+      />
+      <GuideStepCard
+        number={2}
+        title="Click Create Classification"
+        description="Start a new classification record for the label you want administrators and data owners to use."
+        image={createTwo}
+        imageAlt="Create classification action"
+      />
+      <GuideStepCard
+        number={3}
+        title="Enter the classification name and description"
+        description="Provide a clear name, purpose, and business explanation so the label is easy to understand and apply correctly."
+        image={createThree}
+        imageAlt="Classification name and description form"
+      />
+      <GuideStepCard
+        number={4}
+        title="Define the label appearance and severity"
+        description="Choose the display styling, level, or visual indicator that helps users quickly recognize the classification."
+        image={createFour}
+        imageAlt="Classification styling options"
+      />
+      <GuideStepCard
+        number={5}
+        title="Configure classification rules or criteria"
+        description="Add the logic, conditions, or governance guidance that determines when this classification should be used."
+        image={createFive}
+        imageAlt="Classification rule configuration"
+      />
+      <GuideStepCard
+        number={6}
+        title="Review the summary before saving"
+        description="Confirm the details are accurate so the new classification can be reused consistently across assets."
+        image={createSix}
+        imageAlt="Classification review summary"
+      />
+      <GuideStepCard
+        number={7}
+        title="Save and publish the classification"
+        description="The new label becomes available for administrators and stewards to assign to relevant data assets."
+        image={createSeven}
+        imageAlt="Save classification action"
+      />
+    </div>
+  </div>
+
+  <div slot="edit">
+    <h2 id="steps-to-edit-a-classification">Steps to Edit a Classification</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="Open an existing classification from the list"
+        description="Select the label you want to update to review its current definition, rules, and usage details."
+        image={editOne}
+        imageAlt="Selected classification details"
+      />
+      <GuideStepCard
+        number={2}
+        title="Click Edit to modify the classification"
+        description="Switch the classification into edit mode to adjust its metadata, display label, or governance logic."
+        image={editTwo}
+        imageAlt="Edit classification action"
+      />
+      <GuideStepCard
+        number={3}
+        title="Update the required fields"
+        description="Revise the name, description, level, or criteria to reflect the latest governance standards."
+        image={editThree}
+        imageAlt="Classification fields being updated"
+      />
+      <GuideStepCard
+        number={4}
+        title="Review impacted usage and dependencies"
+        description="Check where the classification is already applied so changes remain clear and do not create confusion for users."
+        image={editFour}
+        imageAlt="Classification usage review"
+      />
+      <GuideStepCard
+        number={5}
+        title="Save the updated classification"
+        description="The revised definition is applied across the platform wherever the classification is referenced."
+        image={editFive}
+        imageAlt="Save edited classification"
+      />
+    </div>
+  </div>
+
+  <div slot="delete">
+    <h2 id="steps-to-delete-a-classification">Steps to Delete a Classification</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="Select the classification you want to remove"
+        description="Open the target classification from the list and verify that you are working on the correct governance label."
+        image={deleteOne}
+        imageAlt="Classification selected for deletion"
+      />
+      <GuideStepCard
+        number={2}
+        title="Review where the classification is currently used"
+        description="Check whether the label is assigned to existing assets so you can avoid breaking governance workflows unexpectedly."
+        image={deleteTwo}
+        imageAlt="Classification usage before deletion"
+      />
+      <GuideStepCard
+        number={3}
+        title="Confirm the delete action"
+        description="Approve the removal only after validating that the classification is no longer needed or has been replaced."
+        image={deleteThree}
+        imageAlt="Delete confirmation dialog"
+      />
+      <GuideStepCard
+        number={4}
+        title="Verify the classification is removed from the list"
+        description="The deleted classification should no longer appear as an available option when labeling assets."
+        image={deleteFour}
+        imageAlt="Classification removed from the list"
+      />
+    </div>
+  </div>
+</GuideTabs>
+
+<GuideCallout title="Important" variant="info">
+  <ul>
+    <li>Use clear naming conventions so classifications are easy to distinguish and apply correctly.</li>
+    <li>Before deleting a classification, review any assets that still depend on it.</li>
+    <li>Changes to classifications can affect governance workflows, reporting, and access policy interpretation.</li>
+  </ul>
+</GuideCallout>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  image: { src: string } | string;
+  imageAlt?: string;
+  title: string;
+  description: string;
+}
+
+const { image, imageAlt = "", title, description } = Astro.props;
+const imageSrc = typeof image === "string" ? image : image?.src;
+---
+
+<div class="ts-logo-card">
+  <div class="ts-logo-card__preview">
+    {imageSrc && <img src={imageSrc} alt={imageAlt} loading="lazy" />}
+  </div>
+  <div class="ts-logo-card__meta">
+    <p class="ts-logo-card__label">{title}</p>
+    <p class="ts-logo-card__hint">{description}</p>
+  </div>
+</div>

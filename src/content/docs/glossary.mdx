@@ -1,0 +1,139 @@
+---
+title: Glossary
+description: Manage business terms and enterprise definitions.
+section: /docs
+priority: 14
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideTabs from "@/components/docs/GuideTabs.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As Admin role", href: "/docs/" },
+    { label: "Glossary" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>Glossary</h1>
+  <p>
+    The Business Glossary provides a centralized repository of business terms
+    and definitions.
+  </p>
+  <p>
+    It helps establish a common business vocabulary across the organization,
+    ensuring consistent understanding of data concepts. Terms can be linked to
+    data assets to provide business context.
+  </p>
+</GuideIntro>
+
+<GuideTabs
+  tabs={[
+    { id: "create", label: "Create" },
+    { id: "edit", label: "Edit" },
+    { id: "delete", label: "Delete" },
+  ]}
+  defaultTab="create"
+>
+  <div slot="create">
+    <h2 id="steps-to-create-a-glossary">Steps to Create a Glossary</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="Navigate to the Glossary tab"
+        description="Access the complete business terminology repository."
+      />
+      <GuideStepCard
+        number={2}
+        title="Click 'Add New Term'"
+        description="Open the glossary term creation form."
+      />
+      <GuideStepCard
+        number={3}
+        title="Enter the term name and business definition"
+        description="Provide clear, concise definitions that non-technical stakeholders can understand."
+      />
+      <GuideStepCard
+        number={4}
+        title="Add synonyms and related terms"
+        description="Link related concepts to improve discoverability and understanding."
+      />
+      <GuideStepCard
+        number={5}
+        title="Assign term owners and subject matter experts"
+        description="Designate who is responsible for maintaining the term definition."
+      />
+      <GuideStepCard
+        number={6}
+        title="Optionally organize terms into hierarchies or categories"
+        description="Create parent-child relationships for complex domain models."
+      />
+      <GuideStepCard
+        number={7}
+        title="Link the term to relevant data assets"
+        description="Associate the business term with technical data assets for traceability."
+      />
+      <GuideStepCard
+        number={8}
+        title="Publish the term"
+        description="Make the term searchable and available for asset tagging."
+      />
+    </div>
+  </div>
+
+  <div slot="edit">
+    <h2 id="steps-to-edit-glossary-terms">Steps to Edit Glossary Terms</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="Search for and select the term"
+        description="Use the glossary search or browse by category."
+      />
+      <GuideStepCard
+        number={2}
+        title="Click 'Edit'"
+        description="Open the term editor while maintaining version history."
+      />
+      <GuideStepCard
+        number={3}
+        title="Update definition, synonyms, or relationships"
+        description="All changes are tracked with timestamps and author information."
+      />
+      <GuideStepCard
+        number={4}
+        title="Save changes"
+        description="Updates are immediately reflected across all linked assets."
+      />
+    </div>
+  </div>
+
+  <div slot="delete">
+    <h2 id="steps-to-delete-glossary-terms">Steps to Delete Glossary Terms</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="Select the term to delete"
+        description="Review where the term is currently used."
+      />
+      <GuideStepCard
+        number={2}
+        title="Click 'Delete'"
+        description="Displays impact analysis showing linked assets."
+      />
+      <GuideStepCard
+        number={3}
+        title="Confirm deletion with optional replacement term"
+        description="You can specify an alternative term for automatic replacement."
+      />
+    </div>
+  </div>
+</GuideTabs>

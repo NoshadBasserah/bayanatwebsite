@@ -1,0 +1,199 @@
+---
+title: Theme Settings
+description: Customize the visual appearance of BayanatiHub to match your organization's brand identity.
+section: /docs
+priority: 18
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import ThemeLogoCard from "@/components/docs/ThemeLogoCard.astro";
+import ThemeFontCard from "@/components/docs/ThemeFontCard.astro";
+import ThemeColorCard from "@/components/docs/ThemeColorCard.astro";
+import fullLogoImg from "@/assets/images/fulllogo.svg";
+import compactLogoImg from "@/assets/images/compactlogo.svg";
+import faviconImg from "@/assets/images/faviconlogo.svg";
+import fontEnglishImg from "@/assets/images/fontfamilyenglish.svg";
+import fontArabicImg from "@/assets/images/fontfamilyarabic.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As Admin role", href: "/docs/" },
+    { label: "Theme Settings" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>Theme Settings</h1>
+  <p>Customize the visual appearance of BayanatiHub to match your organization's brand identity.</p>
+  <p>Theme settings allow you to configure colors, typography, logos, and other visual elements that affect the user interface.</p>
+</GuideIntro>
+
+## Logo & Icon
+
+<p class="ts-section-sub">This section allows you to upload and manage branding assets:</p>
+
+<div class="ts-logo-grid">
+  <ThemeLogoCard
+    image={fullLogoImg}
+    imageAlt="Full logo preview"
+    title="Full Logo"
+    description="The main platform logo"
+  />
+  <ThemeLogoCard
+    image={compactLogoImg}
+    imageAlt="Compact logo preview"
+    title="Compact Logo"
+    description="A simplified version used in smaller UI areas (e.g., sidebar)"
+  />
+  <ThemeLogoCard
+    image={faviconImg}
+    imageAlt="Favicon preview"
+    title="Favicon"
+    description="The browser tab icon"
+  />
+</div>
+
+## Typography
+
+<p class="ts-section-sub">You can configure the font families used across the platform:</p>
+
+<div class="ts-font-grid">
+  <ThemeFontCard
+    image={fontEnglishImg}
+    imageAlt="English font family preview"
+    title="Font Family (English)"
+    description="Font used for English content"
+  />
+  <ThemeFontCard
+    image={fontArabicImg}
+    imageAlt="Arabic font family preview"
+    title="Font Family (Arabic)"
+    description="Font used for Arabic content"
+  />
+</div>
+
+## Brand Color Seeds
+
+<p class="ts-section-sub">This section defines the primary color scheme of the platform. These colors are automatically applied across the UI:</p>
+
+<div class="ts-color-grid">
+  <ThemeColorCard color="#009ad6" name="Primary"  description="Main brand color" />
+  <ThemeColorCard color="#ef4444" name="Error"    description="Used for error messages" />
+  <ThemeColorCard color="#22c55e" name="Success"  description="Used for success messages" />
+  <ThemeColorCard color="#f59e0b" name="Warning"  description="Used for warning alerts" />
+  <ThemeColorCard color="#6366f1" name="Info"     description="Used for informational messages" />
+</div>
+
+<p class="ts-footer-note">The system automatically generates tonal palettes based on these selected colors.</p>
+
+## Live Preview
+
+<p class="ts-section-sub">Displays a real-time preview of how the selected fonts and colors will appear across the platform, including:</p>
+
+<div class="ts-lp-row">
+  <div class="ts-lp-card">
+    <p class="ts-lp-card__title">Buttons</p>
+    <div class="ts-lp-btn-row">
+      <button class="ts-btn ts-btn--primary">Primary Button</button>
+      <button class="ts-btn ts-btn--outline">Outline Button</button>
+      <button class="ts-btn ts-btn--danger-outline">Danger Button</button>
+    </div>
+  </div>
+  <div class="ts-lp-card">
+    <p class="ts-lp-card__title">Actions</p>
+    <div class="ts-lp-btn-row">
+      <button class="ts-btn ts-btn--primary ts-btn--icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Save Changes
+      </button>
+      <button class="ts-btn ts-btn--outline ts-btn--icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        Rest to Default
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="ts-lp-card ts-lp-card--full">
+  <p class="ts-lp-card__title">System Messages</p>
+  <div class="ts-sys-grid">
+    <div class="ts-sys-card ts-sys-card--info">
+      <div class="ts-sys-card__top">
+        <div class="ts-sys-card__heading">
+          <svg class="ts-sys-card__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#6366f1" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="8.5"/><path d="M10 9v5M10 7h.01" stroke-linecap="round"/></svg>
+          <span>We've just released a new feature</span>
+        </div>
+        <span class="ts-sys-card__close" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l12 12M13 1L1 13"/></svg>
+        </span>
+      </div>
+      <p class="ts-sys-card__body">Your request for <strong>New Dashboard</strong> access has been sent to the admin.</p>
+      <div class="ts-sys-card__actions">
+        <button class="ts-btn ts-btn--sm ts-btn--ghost-border">Cancel Request</button>
+        <button class="ts-btn ts-btn--sm ts-btn--primary">Close</button>
+      </div>
+    </div>
+    <div class="ts-sys-card ts-sys-card--success">
+      <div class="ts-sys-card__top">
+        <div class="ts-sys-card__heading">
+          <svg class="ts-sys-card__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#22c55e" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="8.5"/><path d="M6.5 10l2.5 2.5 4.5-4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Successfully Send request</span>
+        </div>
+        <span class="ts-sys-card__close" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l12 12M13 1L1 13"/></svg>
+        </span>
+      </div>
+      <p class="ts-sys-card__body">Your request for <strong>New Dashboard</strong> access has been sent to the admin.</p>
+      <div class="ts-sys-card__actions">
+        <button class="ts-btn ts-btn--sm ts-btn--ghost-border">Cancel Request</button>
+        <button class="ts-btn ts-btn--sm ts-btn--primary">Close</button>
+      </div>
+    </div>
+    <div class="ts-sys-card ts-sys-card--error">
+      <div class="ts-sys-card__top">
+        <div class="ts-sys-card__heading">
+          <svg class="ts-sys-card__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ef4444" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="8.5"/><path d="M10 6v5M10 14h.01" stroke-linecap="round"/></svg>
+          <span>There was a problem with that action</span>
+        </div>
+        <span class="ts-sys-card__close" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l12 12M13 1L1 13"/></svg>
+        </span>
+      </div>
+      <p class="ts-sys-card__body">Your request for <strong>New Dashboard</strong> access has been sent to the admin.</p>
+      <div class="ts-sys-card__actions">
+        <button class="ts-btn ts-btn--sm ts-btn--ghost-border">Cancel Request</button>
+        <button class="ts-btn ts-btn--sm ts-btn--primary">Close</button>
+      </div>
+    </div>
+    <div class="ts-sys-card ts-sys-card--warning">
+      <div class="ts-sys-card__top">
+        <div class="ts-sys-card__heading">
+          <svg class="ts-sys-card__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#f59e0b" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="8.5"/><path d="M10 6v5M10 14h.01" stroke-linecap="round"/></svg>
+          <span>Just to let you know this might be a problem</span>
+        </div>
+        <span class="ts-sys-card__close" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l12 12M13 1L1 13"/></svg>
+        </span>
+      </div>
+      <p class="ts-sys-card__body">Your request for <strong>New Dashboard</strong> access has been sent to the admin.</p>
+      <div class="ts-sys-card__actions">
+        <button class="ts-btn ts-btn--sm ts-btn--ghost-border">Cancel Request</button>
+        <button class="ts-btn ts-btn--sm ts-btn--primary">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<GuideCallout title="Note" variant="note">
+  <ul>
+    <li>Changes to Theme Settings apply platform-wide immediately after saving.</li>
+    <li>Uploaded logos must be SVG or PNG with a transparent background for best results.</li>
+    <li>Color seeds are used to generate full tonal palettes — avoid very dark or very light seed values.</li>
+    <li>The Live Preview reflects the current unsaved state; publish to apply changes to all users.</li>
+  </ul>
+</GuideCallout>

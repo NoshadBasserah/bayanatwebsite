@@ -1,0 +1,79 @@
+---
+interface TabItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  tabs: TabItem[];
+  defaultTab?: string;
+}
+
+const { tabs, defaultTab } = Astro.props;
+const activeTab = defaultTab ?? tabs[0]?.id;
+---
+
+<div class="docs-guide-tabs" data-guide-tabs data-default-tab={activeTab}>
+  <div class="docs-guide-tabs__controls" role="tablist" aria-label="Guide sections">
+    {tabs.map((tab) => (
+      <button
+        type="button"
+        class:list={[
+          "docs-guide-tabs__control",
+          tab.id === activeTab && "is-active",
+        ]}
+        role="tab"
+        aria-selected={tab.id === activeTab ? "true" : "false"}
+        aria-controls={`panel-${tab.id}`}
+        data-tab-trigger={tab.id}
+      >
+        {tab.label}
+      </button>
+    ))}
+  </div>
+
+  <div class="docs-guide-tabs__panels">
+    {tabs.map((tab) => (
+      <section
+        id={`panel-${tab.id}`}
+        class:list={[
+          "docs-guide-tabs__panel",
+          tab.id === activeTab && "is-active",
+        ]}
+        role="tabpanel"
+        data-tab-panel={tab.id}
+      >
+        {tab.id === "create" && <slot name="create" />}
+        {tab.id === "edit" && <slot name="edit" />}
+        {tab.id === "delete" && <slot name="delete" />}
+      </section>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  document.querySelectorAll("[data-guide-tabs]").forEach((tabset) => {
+    const triggers = Array.from(tabset.querySelectorAll("[data-tab-trigger]"));
+    const panels = Array.from(tabset.querySelectorAll("[data-tab-panel]"));
+
+    const setActiveTab = (tabId) => {
+      triggers.forEach((trigger) => {
+        const isActive = trigger.getAttribute("data-tab-trigger") === tabId;
+        trigger.classList.toggle("is-active", isActive);
+        trigger.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.getAttribute("data-tab-panel") === tabId;
+        panel.classList.toggle("is-active", isActive);
+      });
+    };
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const tabId = trigger.getAttribute("data-tab-trigger");
+        if (tabId) setActiveTab(tabId);
+      });
+    });
+  });
+</script>
