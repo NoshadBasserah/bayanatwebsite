@@ -1,0 +1,69 @@
+---
+title: قسم الأدوار
+description: إدارة الأدوار والتحكم في أذونات المستخدمين من خلال السياسات المعيّنة في BayanatiHub.
+section: /ar/docs
+priority: 21
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import DocInfoCard from "@/components/docs/DocInfoCard.astro";
+import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
+import DocActionCard from "@/components/docs/DocActionCard.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "المستخدمون", href: "/ar/docs/users/" },
+    { label: "قسم الأدوار" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>قسم الأدوار</h1>
+  <p>
+    يتيح هذا القسم للمسؤولين إدارة الأدوار داخل المنصة والتحكم في أذونات
+    المستخدمين من خلال السياسات المعيّنة.
+  </p>
+</GuideIntro>
+
+## قائمة الأدوار
+
+<p class="text-[14px] text-[#66758f] mt-1 mb-4">تعرض قائمة الأدوار التفاصيل التالية:</p>
+
+<div class="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-2">
+  <DocInfoCard title="المعرف"       description="معرف فريد لكل دور."                                icon="id"          color="purple" />
+  <DocInfoCard title="اسم الدور"    description="اسم الدور (مثل مسؤول، مشاهد، محلل بيانات)."        icon="name"        color="blue"   />
+  <DocInfoCard title="الوصف"        description="وصف موجز لأذونات الدور."                           icon="description" color="green"  />
+  <DocInfoCard title="الحالة"       description="يشير إلى ما إذا كان الدور نشطاً أم غير نشط."        icon="directory"   color="yellow" />
+</div>
+
+## البحث والتخصيص
+
+<div class="grid gap-3 mb-2">
+  <DocFeatureRow title="البحث"             description="استخدم شريط البحث للعثور السريع على دور محدد."             icon="search" color="blue"   />
+  <DocFeatureRow title="المرشحات والأعمدة" description="استخدم المرشحات لتضييق النتائج وتحديد الأعمدة."           icon="filter" color="purple" />
+  <DocFeatureRow title="إضافة دور"         description="انقر على إضافة دور لإنشاء دور مخصص جديد."                icon="add"    color="green"  />
+</div>
+
+## إدارة الأدوار
+
+<p class="text-[14px] text-[#66758f] mt-0 mb-4">من عمود الإجراءات، يمكنك:</p>
+
+<div class="grid gap-4 sm:grid-cols-3 mb-2">
+  <DocActionCard title="تعديل الدور"   description="تحديث اسم الدور أو وصفه أو السياسات المعيّنة له."     icon="edit"   color="purple" />
+  <DocActionCard title="عرض الدور"     description="عرض تفاصيل الدور والأذونات والمستخدمين المعيّنين."    icon="view"   color="teal"   />
+  <DocActionCard title="حذف الدور"     description="إزالة الدور بعد التحقق من عدم تعيينه لأي مستخدم."     icon="more"   color="green"  />
+</div>
+
+<GuideCallout title="مهم" variant="info">
+  <ul>
+    <li>لا يمكن حذف الأدوار الافتراضية للنظام.</li>
+    <li>تأكد من عدم تعيين الدور لأي مستخدم قبل حذفه.</li>
+    <li>تسري تغييرات الأدوار فوراً على جميع المستخدمين المعيّنين.</li>
+  </ul>
+</GuideCallout>

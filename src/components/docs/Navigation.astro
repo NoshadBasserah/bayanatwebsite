@@ -1,6 +1,17 @@
 ---
-import { docsNavSections } from "@/data/docsNav";
+import { type CollectionEntry } from "astro:content";
+import { type Lang, useTranslations, localePath } from "@/i18n/utils";
+import { getNavSections } from "@/data/docsNav";
 
+interface Props {
+  post: CollectionEntry<"docs">;
+  lang?: Lang;
+}
+
+const { lang = "en" } = Astro.props;
+const t = useTranslations(lang);
+const navSections = getNavSections(lang);
+const overviewHref = localePath("/docs/", lang);
 const currentUrl = Astro.url;
 
 function normalize(path: string) {
@@ -15,18 +26,18 @@ function isChildActive(children: { href: string }[]): boolean {
   return children.some((c) => isActive(c.href));
 }
 
-const overviewActive = isActive("/docs/");
+const overviewActive = isActive(overviewHref);
 ---
 
 <nav class="px-3 py-4" aria-label="Documentation">
-  <!-- OVERVIEW section label -->
+  <!-- OVERVIEW label -->
   <p class="mb-2 px-3 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#949eb0]">
-    Overview
+    {t("nav.overview")}
   </p>
 
   <!-- Overview link -->
   <a
-    href="/docs/"
+    href={overviewHref}
     class:list={[
       "mb-3 flex items-center gap-2.5 rounded-[8px] px-3 py-2 text-[13px] font-medium transition-colors",
       overviewActive
@@ -34,22 +45,17 @@ const overviewActive = isActive("/docs/");
         : "text-[#314158] hover:bg-neutral-50 hover:text-[#009ad6]",
     ]}
   >
-    <!-- 2×2 grid icon (matches Figma) -->
     <span class="relative flex h-4 w-4 shrink-0">
       <span class="absolute left-0 top-0 h-[6px] w-[6px] rounded-[1.5px] bg-current"></span>
       <span class="absolute right-0 top-0 h-[6px] w-[6px] rounded-[1.5px] bg-current"></span>
       <span class="absolute bottom-0 left-0 h-[6px] w-[6px] rounded-[1.5px] bg-current"></span>
       <span class="absolute bottom-0 right-0 h-[6px] w-[6px] rounded-[1.5px] bg-current"></span>
     </span>
-    Overview
+    {t("nav.overview")}
   </a>
 
-  <!-- Sections: As Admin role / As User role -->
-  {docsNavSections.map((section) => (
-    <details
-      class="group mb-1"
-      open
-    >
+  {navSections.map((section) => (
+    <details class="group mb-1" open>
       <summary class="flex cursor-pointer list-none items-center justify-between rounded-[8px] px-3 py-2 text-[14px] font-medium text-[#314158] hover:bg-neutral-50 transition-colors select-none">
         <span>{section.label}</span>
         <svg
@@ -66,14 +72,13 @@ const overviewActive = isActive("/docs/");
       <ul class="mt-0.5 space-y-0.5">
         {section.items.map((item) =>
           item.children ? (
-            /* Nested item (Users) */
             <li>
               <details
                 class="group/sub"
                 open={isActive(item.href) || isChildActive(item.children)}
               >
                 <summary class:list={[
-                  "flex cursor-pointer list-none items-center justify-between rounded-[8px] pl-[24px] pr-3 py-2 text-[14px] transition-colors select-none",
+                  "flex cursor-pointer list-none items-center justify-between rounded-[8px] ps-[24px] pe-3 py-2 text-[14px] transition-colors select-none",
                   isActive(item.href)
                     ? "bg-[#eff6ff] font-medium text-[#009ad6]"
                     : "font-medium text-[#314158] hover:bg-neutral-50",
@@ -95,7 +100,7 @@ const overviewActive = isActive("/docs/");
                       <a
                         href={child.href}
                         class:list={[
-                          "block rounded-[8px] py-2 pl-[36px] pr-3 text-[14px] transition-colors",
+                          "block rounded-[8px] py-2 ps-[36px] pe-3 text-[14px] transition-colors",
                           isActive(child.href)
                             ? "bg-[#eff6ff] font-medium text-[#009ad6]"
                             : "text-[#45556c] hover:bg-neutral-50 hover:text-[#314158]",
@@ -109,12 +114,11 @@ const overviewActive = isActive("/docs/");
               </details>
             </li>
           ) : (
-            /* Flat item */
             <li>
               <a
                 href={item.href}
                 class:list={[
-                  "block rounded-[8px] py-2 pl-[24px] pr-3 text-[14px] transition-colors",
+                  "block rounded-[8px] py-2 ps-[24px] pe-3 text-[14px] transition-colors",
                   isActive(item.href)
                     ? "bg-[#eff6ff] font-medium text-[#009ad6]"
                     : "text-[#45556c] hover:bg-neutral-50 hover:text-[#314158]",

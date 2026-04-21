@@ -6,29 +6,33 @@ import BaseHead from "@/components/BaseHead.astro";
 import SkipLink from "@/components/SkipLink.astro";
 import Logo from "@/components/Logo.astro";
 import { siteConfig } from "@/site.config";
-import { docsNavSections, flattenNavItems } from "@/data/docsNav";
+import { getNavSections, flattenNavItems } from "@/data/docsNav";
+import { type Lang, useTranslations, switchLangPath } from "@/i18n/utils";
 
 interface Props {
   post: CollectionEntry<"docs">;
+  lang?: Lang;
 }
 
-const { post } = Astro.props;
+const { post, lang = "en" } = Astro.props;
+const t = useTranslations(lang);
+const isRtl = lang === "ar";
+
 const { title, description, adminFeatures, userFeatures, layoutStyle } = post.data;
-const isOverview = post.id === "index" || post.id === "";
+const isOverview = post.id === "index" || post.id === "" || post.id === "ar" || post.id === "ar/index";
 const isGuide = layoutStyle === "guide";
 
 const { headings: markdownHeadings } = await render(post);
 
-/* TOC headings */
 const overviewHeadings = [
-  { depth: 2, slug: "introduction", text: "Introduction" },
-  { depth: 2, slug: "as-admin-role", text: "As Admin role" },
-  { depth: 2, slug: "as-user-role", text: "As User role" },
+  { depth: 2, slug: "introduction", text: t("overview.intro") },
+  { depth: 2, slug: "as-admin-role", text: t("overview.asAdminRole") },
+  { depth: 2, slug: "as-user-role", text: t("overview.asUserRole") },
 ];
 const tocHeadings = isOverview ? overviewHeadings : markdownHeadings;
 
-/* Prev / Next */
-const allPages = flattenNavItems(docsNavSections);
+const navSections = getNavSections(lang);
+const allPages = flattenNavItems(navSections, lang);
 
 function normalize(p: string) {
   return p.endsWith("/") ? p : p + "/";
@@ -37,22 +41,29 @@ function normalize(p: string) {
 const currentPath = normalize(Astro.url.pathname);
 const currentIdx = allPages.findIndex((p) => normalize(p.href) === currentPath);
 
+const overviewHref = lang === "ar" ? "/ar/docs/" : "/docs/";
+
 const prevPage =
   currentIdx > 0
     ? allPages[currentIdx - 1]
     : isOverview
-      ? { title: "Overview", href: "/docs/" }
+      ? { title: t("nav.overview"), href: overviewHref }
       : null;
 
 const nextPage =
   currentIdx >= 0 && currentIdx < allPages.length - 1
     ? allPages[currentIdx + 1]
     : null;
+
+const arPath = switchLangPath(Astro.url.pathname, "ar");
+const enPath = switchLangPath(Astro.url.pathname, "en");
 ---
 
 <html
-  class="scroll-pt-[88px] scroll-smooth font-sans antialiased"
-  lang={siteConfig.lang}
+  class="scroll-pt-[88px] scroll-smooth antialiased"
+  class:list={[isRtl ? "font-arabic" : "font-sans"]}
+  lang={isRtl ? "ar" : siteConfig.lang}
+  dir={isRtl ? "rtl" : "ltr"}
   data-theme="light"
 >
   <head>
@@ -62,33 +73,33 @@ const nextPage =
     <SkipLink />
 
     <div class="flex min-h-screen">
-      <!-- ── Left Sidebar ── -->
-      <aside class="hidden lg:flex w-[240px] shrink-0 sticky top-0 h-screen flex-col border-r border-neutral-100 bg-white overflow-y-auto z-20">
+      <!-- ── Left Sidebar (right in RTL) ── -->
+      <aside class="hidden lg:flex w-[240px] shrink-0 sticky top-0 h-screen flex-col border-e border-neutral-100 bg-white overflow-y-auto z-20">
         <!-- Logo -->
         <div class="flex h-[72px] shrink-0 items-center border-b border-neutral-100 px-5">
-          <a href="/" aria-label="BayanatiHub home">
+          <a href={isRtl ? "/ar/docs/" : "/"} aria-label="BayanatiHub home">
             <Logo class="h-[47px] w-auto" />
           </a>
         </div>
 
         <!-- Navigation -->
         <div class="flex-1 overflow-y-auto">
-          <Navigation post={post} />
+          <Navigation post={post} lang={lang} />
         </div>
 
         <!-- Need help card -->
         <div class="shrink-0 p-3 pb-5">
           <div class="overflow-hidden rounded-[14px] border border-neutral-100 bg-gradient-to-b from-white to-[#e3f7ff] p-4">
-            <p class="text-[13px] font-semibold text-[#0f172a]">Need help?</p>
+            <p class="text-[13px] font-semibold text-[#0f172a]">{t("sidebar.needHelp")}</p>
             <p class="mt-1 text-[11px] leading-[16px] text-[#6b7689]">
-              Find guides and tutorials to make the most of BayanatiHub.
+              {t("sidebar.needHelpDesc")}
             </p>
             <a
               href="#"
               class="mt-3 flex h-[34px] items-center justify-between rounded-[8px] border border-[#e5ecfe] bg-white px-3 text-[11.5px] font-semibold text-[#009ad6] transition-colors hover:bg-[#eff6ff]"
             >
-              <span>View Help Center</span>
-              <span aria-hidden="true">→</span>
+              <span>{t("sidebar.viewHelpCenter")}</span>
+              <span aria-hidden="true">{isRtl ? "←" : "→"}</span>
             </a>
           </div>
         </div>
@@ -103,7 +114,7 @@ const nextPage =
             <svg class="h-[12px] w-[12px] shrink-0 text-[#949eb0]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
             </svg>
-            <span class="flex-1 text-[13px] text-[#949eb0]">Search documentation…</span>
+            <span class="flex-1 text-[13px] text-[#949eb0]">{t("header.search")}</span>
             <div class="flex h-[22px] items-center rounded-[5px] border border-[#e5e9f0] bg-white px-2">
               <span class="text-[10.5px] font-medium text-[#6b7689]">⌘ K</span>
             </div>
@@ -112,20 +123,34 @@ const nextPage =
           <!-- Right controls -->
           <div class="flex shrink-0 items-center gap-3">
             <!-- Theme toggle -->
-            <button aria-label="Toggle theme" class="hidden cursor-pointer sm:flex h-8 w-8 items-center justify-center rounded-full text-neutral-900
-             hover:bg-neutral-50 transition-colors [&>svg]:w-6 [&>svg]:h-auto">
+            <button aria-label={t("header.toggleTheme")} class="hidden cursor-pointer sm:flex h-8 w-8 items-center justify-center rounded-full text-neutral-800 hover:bg-neutral-50 transition-colors [&>svg]:w-6 [&>svg]:h-auto">
               <svg class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
               </svg>
             </button>
 
-            <!-- Language toggle -->
-            <button class="hidden sm:flex items-center gap-1.5 rounded-full px-2 py-1 text-[11.5px] font-medium text-[#8796af] hover:bg-neutral-50 transition-colors">
-              <span>العربية</span>
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-              </svg>
-            </button>
+            <!-- Language toggle: show only the OTHER language -->
+            {isRtl ? (
+              <a
+                href={enPath}
+                class="hidden sm:flex items-center gap-1.5 rounded-full px-2 py-1 text-[0.7188rem] font-medium transition-colors text-neutral-800 hover:bg-neutral-50"
+              >
+                <span>English</span>
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              </a>
+            ) : (
+              <a
+                href={arPath}
+                class="hidden sm:flex items-center gap-1.5 rounded-full px-2 py-1 text-[0.7188rem] font-medium transition-colors text-neutral-800 hover:bg-neutral-50"
+              >
+                <span>العربية</span>
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              </a>
+            )}
           </div>
         </header>
 
@@ -138,6 +163,7 @@ const nextPage =
                 description={description}
                 adminFeatures={adminFeatures ?? []}
                 userFeatures={userFeatures ?? []}
+                lang={lang}
               />
             ) : isGuide ? (
               <article data-docs-content class="docs-guide">
@@ -174,9 +200,9 @@ const nextPage =
                     href={prevPage.href}
                     class="flex flex-1 items-center gap-4 rounded-[14px] border border-neutral-100 bg-white px-5 py-5 shadow-[0px_2px_8px_0px_rgba(24,36,64,0.03)] transition-shadow hover:shadow-md"
                   >
-                    <span class="text-[18px] font-medium text-[#6b7689]">←</span>
+                    <span class="text-[18px] font-medium text-[#6b7689]">{isRtl ? "→" : "←"}</span>
                     <div>
-                      <p class="text-[11px] font-medium uppercase tracking-[0.04em] text-[#6b7689]">Previous</p>
+                      <p class="text-[11px] font-medium uppercase tracking-[0.04em] text-[#6b7689]">{t("pagination.previous")}</p>
                       <p class="mt-0.5 text-[15px] font-semibold tracking-[-0.003em] text-[#0f172a]">{prevPage.title}</p>
                     </div>
                   </a>
@@ -189,11 +215,11 @@ const nextPage =
                     href={nextPage.href}
                     class="flex flex-1 items-center justify-end gap-4 rounded-[14px] border border-neutral-100 bg-white px-5 py-5 shadow-[0px_2px_8px_0px_rgba(24,36,64,0.03)] transition-shadow hover:shadow-md"
                   >
-                    <div class="text-right">
-                      <p class="text-[11px] font-medium uppercase tracking-[0.04em] text-[#6b7689]">Next</p>
+                    <div class="text-end">
+                      <p class="text-[11px] font-medium uppercase tracking-[0.04em] text-[#6b7689]">{t("pagination.next")}</p>
                       <p class="mt-0.5 text-[15px] font-semibold tracking-[-0.003em] text-[#0f172a]">{nextPage.title}</p>
                     </div>
-                    <span class="text-[18px] font-medium text-[#6b7689]">→</span>
+                    <span class="text-[18px] font-medium text-[#6b7689]">{isRtl ? "←" : "→"}</span>
                   </a>
                 ) : (
                   <div class="flex-1" />
@@ -206,8 +232,7 @@ const nextPage =
           {tocHeadings.length > 0 && (
             <aside class="hidden xl:block w-[260px] shrink-0 sticky top-[72px] h-[calc(100vh-72px)] overflow-y-auto p-5 ps-0">
               <div class="rounded-[14px] border border-neutral-100 bg-white p-4 shadow-[0px_2px_8px_rgba(24,36,64,0.03)]">
-                
-                <p class="mb-3 text-sm font-semibold tracking-[-0.003em] text-[#0f172a]">On this page</p>
+                <p class="mb-3 text-sm font-semibold tracking-[-0.003em] text-[#0f172a]">{t("toc.onThisPage")}</p>
                 <div class="mb-3 h-px bg-[#f0f3f7]"></div>
                 <ul class="space-y-[10px]">
                   {tocHeadings.map((h, i) => (

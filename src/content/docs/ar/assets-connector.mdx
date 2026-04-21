@@ -1,0 +1,116 @@
+---
+title: موصل الأصول
+description: ربط مصادر البيانات الخارجية واستيراد بياناتها الوصفية إلى المنصة.
+section: /ar/docs
+priority: 12
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import assetsConnectorHero from "@/assets/images/assetsconnector.svg";
+import stepOne from "@/assets/images/assetsconnector1.svg";
+import stepTwo from "@/assets/images/assetsconnector2.svg";
+import stepThree from "@/assets/images/assetsconnector3.svg";
+import stepFour from "@/assets/images/assetsconnector4.svg";
+import stepFive from "@/assets/images/assetsconnector5.svg";
+import stepSix from "@/assets/images/assetsconnector6.svg";
+import stepSeven from "@/assets/images/assetsconnector7.svg";
+import stepEight from "@/assets/images/assetsconnector8.svg";
+import stepNine from "@/assets/images/assetsconnector9.svg";
+import stepTen from "@/assets/images/assetsconnector10.svg";
+import stepEleven from "@/assets/images/assetsconnector11.svg";
+import stepTwelve from "@/assets/images/assetsconnector12.svg";
+import stepThirteen from "@/assets/images/assetsconnector13.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "موصل الأصول" },
+  ]}
+/>
+
+<GuideIntro image={assetsConnectorHero} imageAlt="توضيح لوحة موصل الأصول">
+  <h1>موصل الأصول</h1>
+  <p>
+    يتيح موصل الأصول للمسؤولين ربط مصادر البيانات الخارجية وإدخال بياناتها
+    الوصفية إلى BayanatiHub للاكتشاف والحوكمة والمراقبة.
+  </p>
+  <p>
+    تشمل التكاملات المدعومة قواعد البيانات الهيكلية ولوحات BI وخدمات البيانات
+    الوصفية وأدوات مسار البيانات، كل منها مع إعدادات الاتصال وسلوك المزامنة الخاصة به.
+  </p>
+</GuideIntro>
+
+## خطوات إضافة موصل أصول
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="انتقل إلى تبويب موصل الأصول"
+    description="اعرض الموصلات المهيأة حالياً وحالة مزامنتها."
+    image={stepOne}
+    imageAlt="قائمة موصل الأصول"
+  />
+  <GuideStepCard
+    number={2}
+    title="انقر على إضافة موصل"
+    description="ابدأ تدفق إعداد موصل جديد."
+    image={stepTwo}
+    imageAlt="إضافة إجراء موصل"
+  />
+  <GuideStepCard
+    number={3}
+    title="اختر نوع مصدر البيانات"
+    description="حدد نوع قاعدة البيانات أو الخدمة أو منصة BI التي تريد ربطها."
+    image={stepThree}
+    imageAlt="اختيار نوع مصدر البيانات"
+  />
+  <GuideStepCard
+    number={4}
+    title="أدخل بيانات اعتماد الاتصال"
+    description="قدم المضيف والمنفذ وبيانات الاعتماد وأي معلمات اتصال أخرى مطلوبة."
+    image={stepFour}
+    imageAlt="نموذج بيانات اعتماد الاتصال"
+  />
+  <GuideStepCard
+    number={5}
+    title="اختبر الاتصال"
+    description="تحقق من أن المنصة يمكنها الوصول إلى المصدر الخارجي بنجاح."
+    image={stepFive}
+    imageAlt="اختبار الاتصال"
+  />
+  <GuideStepCard
+    number={6}
+    title="هيّئ إعدادات المزامنة"
+    description="حدد الكيانات التي يجب مزامنتها وتكرار استيعاب البيانات الوصفية."
+    image={stepSix}
+    imageAlt="إعدادات المزامنة"
+  />
+  <GuideStepCard
+    number={7}
+    title="قم بتشغيل مزامنة أولية"
+    description="ابدأ استيراد البيانات الوصفية الأولي لملء كتالوج الأصول."
+    image={stepSeven}
+    imageAlt="مزامنة أولية"
+  />
+  <GuideStepCard
+    number={8}
+    title="راجع الأصول المستوردة في كتالوج البيانات"
+    description="تحقق من استيراد البيانات الوصفية بدقة وتعيين الأصول بشكل صحيح."
+    image={stepEight}
+    imageAlt="مراجعة الأصول المستوردة"
+  />
+</div>
+
+<GuideCallout title="معلومات إضافية" variant="info">
+  <ul>
+    <li>تدعم بعض الموصلات المزامنة التلقائية المجدولة.</li>
+    <li>يمكن تشغيل مزامنة يدوية في أي وقت من لوحة الموصل.</li>
+    <li>راجع سجلات الأخطاء إذا فشلت المزامنة للحصول على تشخيص تفصيلي.</li>
+  </ul>
+</GuideCallout>

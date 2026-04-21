@@ -871,6 +871,7 @@
     height: auto;
     max-width: 338px;
     border-radius: 0.4rem;
+    @apply rtl:ml-0 rtl:mr-auto; 
   }
 
   .docs-guide-tabs {
@@ -1380,3 +1381,50 @@
     animation-iteration-count: 1 !important;
   }
 }
+
+/* ===== RTL / Arabic language support ===== */
+:lang(en) {
+  font-family: var(--font-sans);
+}
+
+:lang(ar) {
+  font-family: var(--font-arabic);
+  direction: rtl;
+}
+
+[dir="rtl"] body {
+  font-family: var(--font-arabic);
+}
+
+[dir="rtl"] .prose {
+  direction: rtl;
+  text-align: start;
+}
+
+[dir="rtl"] .docs-guide {
+  direction: rtl;
+}
+
+[dir="rtl"] .docs-step-card__panel {
+  direction: rtl;
+}
+
+[dir="rtl"] table {
+  direction: rtl;
+}
+[dir="rtl"] .overviewtopimage{
+  left: 20px;
+  right: auto;
+}
+[dir="rtl"] .topbannergradient{
+  background: linear-gradient(168deg, #009ad6 0%, #185871 70.7%) !important;
+}
+
+[dir="rtl"] .arrowIcon {
+  transform: rotate(180deg);
+}
+[dir="rtl"] th,
+[dir="rtl"] td {
+  text-align: start;
+}
+

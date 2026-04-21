@@ -1,0 +1,81 @@
+---
+title: مجموعات البيانات
+description: "يعرض هذا القسم جميع أصول البيانات التي يمكنك الوصول إليها. إذا لم يكن لديك وصول، يمكنك طلب الوصول."
+section: /ar/docs
+priority: 21
+navGroup: user
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import stepOne from "@/assets/images/datasetimage1.svg";
+import stepTwo from "@/assets/images/datasetimage2.svg";
+import stepThree from "@/assets/images/datasetimage3.svg";
+import stepFour from "@/assets/images/datasetimage4.svg";
+import stepFive from "@/assets/images/datasetimage5.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المستخدم", href: "#" },
+    { label: "مجموعات البيانات" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>مجموعات البيانات</h1>
+  <p>
+    يعرض هذا القسم جميع أصول البيانات التي يمكنك الوصول إليها. إذا لم يكن
+    لديك وصول إلى أي أصول بيانات، يمكنك طلب الوصول على النحو التالي:
+  </p>
+</GuideIntro>
+
+## خطوات الوصول إلى أصول البيانات
+
+<div class="docs-step-list mt-8">
+  <GuideStepCard
+    number={1}
+    title="طلب مجموعة بيانات جديدة"
+    description='انقر على "طلب جديد" لبدء طلب مجموعة بيانات.'
+    image={stepOne}
+    imageAlt="طلب مقتطف مجموعة بيانات جديدة"
+  />
+  <GuideStepCard
+    number={2}
+    title="تعبئة التفاصيل المطلوبة"
+    description="قدم المعلومات الأساسية والبيانات والبيانات الوصفية وPII والأمان والمشاركة الخارجية."
+    image={stepTwo}
+    imageAlt="مقتطف تعبئة التفاصيل المطلوبة"
+  />
+  <GuideStepCard
+    number={3}
+    title="تقديم الطلب وتتبعه"
+    description="تتبع طلبك من تبويب طلبات الوصول."
+    image={stepThree}
+    imageAlt="مقتطف تقديم وتتبع الطلب"
+  />
+  <GuideStepCard
+    number={4}
+    title="طلب الوصول إلى مجموعات البيانات الموجودة"
+    description="تصفح مجموعات البيانات المتاحة وانقر على طلب الوصول."
+    image={stepFour}
+    imageAlt="مقتطف طلب مجموعات البيانات الموجودة"
+  />
+  <GuideStepCard
+    number={5}
+    title="عرض مجموعة البيانات"
+    description="بعد الموافقة، يمكنك عرض مجموعة البيانات وتحليلها مباشرةً."
+    image={stepFive}
+    imageAlt="مقتطف عرض مجموعة البيانات"
+  />
+</div>
+
+<GuideCallout title="ملاحظة" variant="note">
+  <ul>
+    <li>تظهر فقط مجموعات البيانات التي تم منحك الوصول إليها في هذا القسم.</li>
+    <li>تتبع طلباتك المعلقة من تبويب طلبات الوصول.</li>
+  </ul>
+</GuideCallout>

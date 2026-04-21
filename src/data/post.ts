@@ -14,6 +14,19 @@ export async function getDocs(): Promise<CollectionEntry<"docs">[]> {
   });
 }
 
+/** Get docs filtered by language (en excludes ar/ prefix, ar requires it) */
+export async function getDocsByLang(lang: 'en' | 'ar'): Promise<CollectionEntry<"docs">[]> {
+  const all = await getDocs();
+  const isArabic = (id: string) => {
+    const n = id.replace(/\\/g, '/');
+    return n === 'ar' || n.startsWith('ar/');
+  };
+  if (lang === 'ar') {
+    return all.filter((doc) => isArabic(String(doc.id)));
+  }
+  return all.filter((doc) => !isArabic(String(doc.id)));
+}
+
 /** groups posts by year, using the year as the key */
 export function groupPostsByYear(posts: CollectionEntry<"post">[]) {
   return posts.reduce<Record<string, CollectionEntry<"post">[]>>(

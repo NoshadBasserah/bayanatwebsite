@@ -1,0 +1,202 @@
+---
+title: التصنيفات
+description: إنشاء تسميات التصنيف لأصول البيانات المحكومة وإدارتها وإيقافها.
+section: /ar/docs
+priority: 13
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import GuideTabs from "@/components/docs/GuideTabs.astro";
+import classificationsHero from "@/assets/images/classifications.svg";
+import createOne from "@/assets/images/classificationscreate1.svg";
+import createTwo from "@/assets/images/classificationscreate2.svg";
+import createThree from "@/assets/images/classificationscreate3.svg";
+import createFour from "@/assets/images/classificationscreate4.svg";
+import createFive from "@/assets/images/classificationscreate5.svg";
+import createSix from "@/assets/images/classificationscreate6.svg";
+import createSeven from "@/assets/images/classificationscreate7.svg";
+import editOne from "@/assets/images/classificationedit1.svg";
+import editTwo from "@/assets/images/classificationedit2.svg";
+import editThree from "@/assets/images/classificationsedit3.svg";
+import editFour from "@/assets/images/classificationsedit4.svg";
+import editFive from "@/assets/images/classificationsedit5.svg";
+import deleteOne from "@/assets/images/classificationsdelete1.svg";
+import deleteTwo from "@/assets/images/classificationsdelete2.svg";
+import deleteThree from "@/assets/images/classificationsdelete3.svg";
+import deleteFour from "@/assets/images/classificationsdelete4.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "التصنيفات" },
+  ]}
+/>
+
+<GuideIntro image={classificationsHero} imageAlt="توضيح إدارة التصنيفات">
+  <h1>التصنيفات</h1>
+  <p>
+    يساعد قسم التصنيفات المسؤولين على تحديد تسميات الحساسية والحوكمة
+    التي يمكن تطبيقها على مجموعات البيانات والجداول ولوحات التحكم والأصول
+    الأخرى المُدارة عبر BayanatiHub.
+  </p>
+  <p>
+    تدعم هذه التسميات المعالجة المتسقة للمعلومات الحساسة من خلال تسهيل
+    تنظيم الأصول وتطبيق قواعد السياسات وإيصال المخاطر للمستخدمين عبر المنصة.
+  </p>
+</GuideIntro>
+
+<GuideTabs
+  tabs={[
+    { id: "create", label: "إنشاء" },
+    { id: "edit", label: "تعديل" },
+    { id: "delete", label: "حذف" },
+  ]}
+  defaultTab="create"
+>
+  <div slot="create">
+    <h2 id="steps-to-create-a-classification">خطوات إنشاء تصنيف</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="انتقل إلى تبويب التصنيفات"
+        description="افتح مساحة عمل التصنيفات لمراجعة قائمة التسميات الموجودة وإعدادات الحوكمة."
+        image={createOne}
+        imageAlt="عرض قائمة التصنيفات"
+      />
+      <GuideStepCard
+        number={2}
+        title="انقر على إنشاء تصنيف"
+        description="ابدأ سجل تصنيف جديد للتسمية التي تريد المسؤولين وأصحاب البيانات استخدامها."
+        image={createTwo}
+        imageAlt="إجراء إنشاء التصنيف"
+      />
+      <GuideStepCard
+        number={3}
+        title="أدخل اسم التصنيف ووصفه"
+        description="قدم اسماً واضحاً وغرضاً وشرحاً تجارياً حتى تكون التسمية سهلة الفهم والتطبيق الصحيح."
+        image={createThree}
+        imageAlt="نموذج اسم ووصف التصنيف"
+      />
+      <GuideStepCard
+        number={4}
+        title="حدد مظهر التسمية ودرجة الخطورة"
+        description="اختر نمط العرض أو المستوى أو المؤشر المرئي الذي يساعد المستخدمين على التعرف السريع على التصنيف."
+        image={createFour}
+        imageAlt="خيارات تنسيق التصنيف"
+      />
+      <GuideStepCard
+        number={5}
+        title="هيّئ قواعد أو معايير التصنيف"
+        description="أضف المنطق أو الشروط أو إرشادات الحوكمة التي تحدد متى يجب استخدام هذا التصنيف."
+        image={createFive}
+        imageAlt="تهيئة قاعدة التصنيف"
+      />
+      <GuideStepCard
+        number={6}
+        title="راجع الملخص قبل الحفظ"
+        description="تأكد من دقة التفاصيل حتى يمكن إعادة استخدام التصنيف الجديد باتساق عبر الأصول."
+        image={createSix}
+        imageAlt="ملخص مراجعة التصنيف"
+      />
+      <GuideStepCard
+        number={7}
+        title="احفظ التصنيف وانشره"
+        description="تصبح التسمية الجديدة متاحة للمسؤولين والحراس لتعيينها على أصول البيانات ذات الصلة."
+        image={createSeven}
+        imageAlt="إجراء حفظ التصنيف"
+      />
+    </div>
+  </div>
+
+  <div slot="edit">
+    <h2 id="steps-to-edit-a-classification">خطوات تعديل تصنيف</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="افتح تصنيفاً موجوداً من القائمة"
+        description="اختر التسمية التي تريد تحديثها لمراجعة تعريفها الحالي وقواعدها وتفاصيل استخدامها."
+        image={editOne}
+        imageAlt="تفاصيل التصنيف المحدد"
+      />
+      <GuideStepCard
+        number={2}
+        title="انقر على تعديل لتعديل التصنيف"
+        description="ضع التصنيف في وضع التعديل لتعديل بياناته الوصفية أو تسمية العرض أو منطق الحوكمة."
+        image={editTwo}
+        imageAlt="إجراء تعديل التصنيف"
+      />
+      <GuideStepCard
+        number={3}
+        title="حدّث الحقول المطلوبة"
+        description="راجع الاسم أو الوصف أو المستوى أو المعايير لتعكس أحدث معايير الحوكمة."
+        image={editThree}
+        imageAlt="تحديث حقول التصنيف"
+      />
+      <GuideStepCard
+        number={4}
+        title="راجع الاستخدام والتبعيات المتأثرة"
+        description="تحقق من مكان تطبيق التصنيف بالفعل حتى تظل التغييرات واضحة ولا تسبب ارتباكاً للمستخدمين."
+        image={editFour}
+        imageAlt="مراجعة استخدام التصنيف"
+      />
+      <GuideStepCard
+        number={5}
+        title="احفظ التصنيف المحدث"
+        description="يتم تطبيق التعريف المنقح عبر المنصة في كل مكان يُشار فيه إلى التصنيف."
+        image={editFive}
+        imageAlt="حفظ التصنيف المعدَّل"
+      />
+    </div>
+  </div>
+
+  <div slot="delete">
+    <h2 id="steps-to-delete-a-classification">خطوات حذف تصنيف</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="اختر التصنيف الذي تريد إزالته"
+        description="افتح التصنيف المستهدف من القائمة وتحقق من أنك تعمل على تسمية الحوكمة الصحيحة."
+        image={deleteOne}
+        imageAlt="التصنيف المحدد للحذف"
+      />
+      <GuideStepCard
+        number={2}
+        title="راجع أماكن استخدام التصنيف حالياً"
+        description="تحقق مما إذا كانت التسمية معيّنة على أصول موجودة حتى تتجنب كسر سير عمل الحوكمة بشكل غير متوقع."
+        image={deleteTwo}
+        imageAlt="استخدام التصنيف قبل الحذف"
+      />
+      <GuideStepCard
+        number={3}
+        title="تأكيد إجراء الحذف"
+        description="وافق على الإزالة فقط بعد التحقق من أن التصنيف لم يعد مطلوباً أو تم استبداله."
+        image={deleteThree}
+        imageAlt="مربع حوار تأكيد الحذف"
+      />
+      <GuideStepCard
+        number={4}
+        title="تحقق من إزالة التصنيف من القائمة"
+        description="يجب ألا يظهر التصنيف المحذوف بعد الآن كخيار متاح عند تصنيف الأصول."
+        image={deleteFour}
+        imageAlt="إزالة التصنيف من القائمة"
+      />
+    </div>
+  </div>
+</GuideTabs>
+
+<GuideCallout title="مهم" variant="info">
+  <ul>
+    <li>استخدم اصطلاحات تسمية واضحة حتى تكون التصنيفات سهلة التمييز والتطبيق الصحيح.</li>
+    <li>قبل حذف تصنيف، راجع أي أصول لا تزال تعتمد عليه.</li>
+    <li>يمكن أن تؤثر التغييرات على التصنيفات على سير عمل الحوكمة والتقارير وتفسير سياسة الوصول.</li>
+  </ul>
+</GuideCallout>

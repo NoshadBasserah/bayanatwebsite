@@ -1,6 +1,7 @@
 ---
 import DocIcon from "./DocIcon.astro";
 import introbgright from "@/assets/images/introbgright.svg?url";
+import { type Lang, useTranslations } from "@/i18n/utils";
 
 interface FeatureItem {
   title: string;
@@ -15,16 +16,18 @@ interface Props {
   description: string;
   adminFeatures: FeatureItem[];
   userFeatures: FeatureItem[];
+  lang?: Lang;
 }
 
-const { title, description, adminFeatures, userFeatures } = Astro.props;
+const { title, description, adminFeatures, userFeatures, lang = "en" } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div data-docs-content>
   <!-- Hero Banner: id="introduction" for TOC scrollspy -->
   <div
     id="introduction"
-    class="relative mb-4 flex h-[182px] items-end overflow-hidden rounded-2xl p-6"
+    class="relative mb-4 flex h-[182px] items-end overflow-hidden rounded-2xl p-6 topbannergradient"
     style="background: linear-gradient(168deg, #185871 0%, #009ad6 70.7%)"
   >
     <div class="relative z-10">
@@ -35,7 +38,7 @@ const { title, description, adminFeatures, userFeatures } = Astro.props;
       src={introbgright}
       alt=""
       aria-hidden="true"
-      class="pointer-events-none absolute right-5 bottom-0 h-full w-auto select-none object-contain"
+      class="pointer-events-none absolute right-5 bottom-0 h-full w-auto select-none object-contain overviewtopimage"
       loading="eager"
     />
   </div>
@@ -43,7 +46,7 @@ const { title, description, adminFeatures, userFeatures } = Astro.props;
   <!-- As Admin role -->
   {adminFeatures.length > 0 && (
     <section id="as-admin-role" class="mb-4 rounded-xl !bg-white p-8">
-      <h2 class="mb-5 text-xl font-bold leading-9 text-black">As Admin role</h2>
+      <h2 class="mb-5 text-xl font-bold leading-9 text-black">{t("overview.asAdminRole")}</h2>
       <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {adminFeatures.map((item) =>
           item.featured ? (
@@ -94,7 +97,7 @@ const { title, description, adminFeatures, userFeatures } = Astro.props;
   <!-- As User role -->
   {userFeatures.length > 0 && (
     <section id="as-user-role" class="rounded-xl bg-white p-8">
-      <h2 class="mb-5 text-xl font-bold leading-9 text-black">As User role</h2>
+      <h2 class="mb-5 text-xl font-bold leading-9 text-black">{t("overview.asUserRole")}</h2>
       <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {userFeatures.map((item) => (
           <a href={item.href ?? "#"} class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 transition-colors border border-transparent hover:border-neutral-100  [&>.arrowIcon]:opacity-0 [&:hover>.arrowIcon]:opacity-100">

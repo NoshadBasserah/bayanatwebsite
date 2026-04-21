@@ -1,0 +1,109 @@
+---
+title: أصول البيانات
+description: تحديد صلاحيات عرض وتعديل البيانات العامة.
+section: /ar/docs
+priority: 11
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import dataAssetsHero from "@/assets/images/dataassets.svg";
+import stepOne from "@/assets/images/dataassets1.svg";
+import stepTwo from "@/assets/images/dataassets2.svg";
+import stepThree from "@/assets/images/dataassets3.svg";
+import stepFour from "@/assets/images/dataassets4.svg";
+import stepFive from "@/assets/images/dataassets5.svg";
+import stepSix from "@/assets/images/dataassets6.svg";
+import stepSeven from "@/assets/images/dataassets7.svg";
+import stepEight from "@/assets/images/dataassets8.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "أصول البيانات" },
+  ]}
+/>
+
+<GuideIntro image={dataAssetsHero} imageAlt="توضيح إدارة أصول البيانات">
+  <h1>أصول البيانات</h1>
+  <p>
+    يوفر تبويب أصول البيانات عرضاً شاملاً لجميع مصادر البيانات وقواعد البيانات
+    والمسارات ولوحات التحكم والبيانات الوصفية داخل BayanatiHub.
+  </p>
+  <p>يمكن للمسؤولين إدارتها مع إمكانيات التصفية والتنظيم.</p>
+</GuideIntro>
+
+## خطوات إدارة أصول البيانات
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="انتقل إلى تبويب أصول البيانات"
+    description="الوصول إلى الكتالوج المركزي لجميع أصول البيانات التنظيمية."
+    image={stepOne}
+    imageAlt="التنقل في أصول البيانات"
+  />
+  <GuideStepCard
+    number={2}
+    title="تصفح أصول البيانات المحددة أو ابحث عنها"
+    description="استخدم شريط البحث والمرشحات لتحديد مجموعات البيانات أو قواعد البيانات أو الجداول المحددة."
+    image={stepTwo}
+    imageAlt="البحث والتصفية في أصول البيانات"
+  />
+  <GuideStepCard
+    number={3}
+    title="اختر أصلاً لعرض صفحة تفاصيله"
+    description="عرض معلومات المخطط والسلالة وإحصائيات الاستخدام والبيانات الوصفية المخزنة."
+    image={stepThree}
+    imageAlt="عرض تفاصيل الأصل"
+  />
+  <GuideStepCard
+    number={4}
+    title="إضافة أو تعديل البيانات الوصفية بما في ذلك الوصف والعلامات والخصائص المخصصة"
+    description="قدم تعليقات أو شروطاً للموافقة للحفاظ على سجل التدقيق."
+    image={stepFour}
+    imageAlt="نموذج تعديل البيانات الوصفية"
+  />
+  <GuideStepCard
+    number={5}
+    title="تعيين أدوار الملكية والإشراف"
+    description="تعيين أصحاب البيانات والمشرفين المسؤولين عن جودة البيانات وحوكمتها."
+    image={stepFive}
+    imageAlt="أدوار الملكية والإشراف"
+  />
+  <GuideStepCard
+    number={6}
+    title="تعيين مستويات تصنيف البيانات والحساسية"
+    description="تطبيق التصنيفات الأمنية المناسبة (عام، داخلي، سري، مقيد)."
+    image={stepSix}
+    imageAlt="لوحة تصنيف البيانات"
+  />
+  <GuideStepCard
+    number={7}
+    title="تهيئة سياسات الوصول والأذونات"
+    description="تحديد من يمكنه عرض أصل البيانات أو الاستعلام عنه أو تعديله."
+    image={stepSeven}
+    imageAlt="لوحة تهيئة الأذونات"
+  />
+  <GuideStepCard
+    number={8}
+    title="نشر التغييرات لجعلها مرئية للمستخدمين"
+    description="نشر التغييرات لجعلها مرئية للمستخدمين."
+    image={stepEight}
+    imageAlt="إجراء النشر"
+  />
+</div>
+
+<GuideCallout title="ملاحظة" variant="note">
+  <ul>
+    <li>الأصول المنشورة فقط مرئية للمستخدمين الآخرين.</li>
+    <li>الأصول المسودة مرئية لمنشئها فقط.</li>
+    <li>يُسمح بالحذف فقط قبل النشر.</li>
+    <li>تتحكم أذونات الوصول في كيفية تفاعل المستخدمين مع الأصل.</li>
+  </ul>
+</GuideCallout>

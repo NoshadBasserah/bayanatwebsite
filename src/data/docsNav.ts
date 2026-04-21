@@ -1,3 +1,5 @@
+import { type Lang, useTranslations, localePath } from '@/i18n/utils';
+
 export interface NavItem {
   title: string;
   href: string;
@@ -10,52 +12,60 @@ export interface NavSection {
   items: NavItem[];
 }
 
-export const docsNavSections: NavSection[] = [
-  {
-    label: "As Admin role",
-    id: "admin",
-    items: [
-      { title: "Access Requests", href: "/docs/access-requests/" },
-      { title: "Data Assets", href: "/docs/data-assets/" },
-      { title: "Assets Connector", href: "/docs/assets-connector/" },
-      { title: "Classifications", href: "/docs/classifications/" },
-      { title: "Glossary", href: "/docs/glossary/" },
-      { title: "Lists", href: "/docs/lists/" },
-      { title: "Identity Providers", href: "/docs/identity-providers/" },
-      { title: "Analytics Engine", href: "/docs/analytics-engine/" },
-      { title: "Theme Settings", href: "/docs/theme-settings/" },
-      {
-        title: "Users",
-        href: "/docs/users/",
-        children: [
-          { title: "Users Section", href: "/docs/users/users-section/" },
-          { title: "Roles Section", href: "/docs/users/roles-section/" },
-          { title: "Policies Section", href: "/docs/users/policies-section/" },
-        ],
-      },
-      { title: "Domains", href: "/docs/domains/" },
-      { title: "Projects", href: "/docs/projects/" },
-    ],
-  },
-  {
-    label: "As User role",
-    id: "user",
-    items: [
-      { title: "Datasets", href: "/docs/user/datasets/" },
-      { title: "Dashboard", href: "/docs/user/dashboard/" },
-      { title: "Form builder", href: "/docs/user/form-builder/" },
-      { title: "Team & Spaces", href: "/docs/user/team-spaces/" },
-      { title: "Access Requests", href: "/docs/user/access-requests/" },
-      { title: "Data Assets", href: "/docs/user/data-assets/" },
-      { title: "Planner & Tasks", href: "/docs/user/planner-tasks/" },
-      { title: "Projects", href: "/docs/user/projects/" },
-    ],
-  },
-];
+export function getNavSections(lang: Lang = 'en'): NavSection[] {
+  const t = useTranslations(lang);
+  const p = (path: string) => localePath(path, lang);
 
-/** Flatten all nav items (including children) in sidebar order */
-export function flattenNavItems(sections: NavSection[]): NavItem[] {
-  const result: NavItem[] = [{ title: "Overview", href: "/docs/" }];
+  return [
+    {
+      label: t('nav.admin'),
+      id: 'admin',
+      items: [
+        { title: t('nav.access-requests'), href: p('/docs/access-requests/') },
+        { title: t('nav.data-assets'), href: p('/docs/data-assets/') },
+        { title: t('nav.assets-connector'), href: p('/docs/assets-connector/') },
+        { title: t('nav.classifications'), href: p('/docs/classifications/') },
+        { title: t('nav.glossary'), href: p('/docs/glossary/') },
+        { title: t('nav.lists'), href: p('/docs/lists/') },
+        { title: t('nav.identity-providers'), href: p('/docs/identity-providers/') },
+        { title: t('nav.analytics-engine'), href: p('/docs/analytics-engine/') },
+        { title: t('nav.theme-settings'), href: p('/docs/theme-settings/') },
+        {
+          title: t('nav.users'),
+          href: p('/docs/users/'),
+          children: [
+            { title: t('nav.users-section'), href: p('/docs/users/users-section/') },
+            { title: t('nav.roles-section'), href: p('/docs/users/roles-section/') },
+            { title: t('nav.policies-section'), href: p('/docs/users/policies-section/') },
+          ],
+        },
+        { title: t('nav.domains'), href: p('/docs/domains/') },
+        { title: t('nav.projects'), href: p('/docs/projects/') },
+      ],
+    },
+    {
+      label: t('nav.user'),
+      id: 'user',
+      items: [
+        { title: t('nav.datasets'), href: p('/docs/user/datasets/') },
+        { title: t('nav.dashboard'), href: p('/docs/user/dashboard/') },
+        { title: t('nav.form-builder'), href: p('/docs/user/form-builder/') },
+        { title: t('nav.team-spaces'), href: p('/docs/user/team-spaces/') },
+        { title: t('nav.access-requests'), href: p('/docs/user/access-requests/') },
+        { title: t('nav.data-assets'), href: p('/docs/user/data-assets/') },
+        { title: t('nav.planner-tasks'), href: p('/docs/user/planner-tasks/') },
+        { title: t('nav.projects'), href: p('/docs/user/projects/') },
+      ],
+    },
+  ];
+}
+
+export const docsNavSections: NavSection[] = getNavSections('en');
+
+export function flattenNavItems(sections: NavSection[], lang: Lang = 'en'): NavItem[] {
+  const t = useTranslations(lang);
+  const overviewHref = localePath('/docs/', lang);
+  const result: NavItem[] = [{ title: t('nav.overview'), href: overviewHref }];
   for (const section of sections) {
     for (const item of section.items) {
       result.push({ title: item.title, href: item.href });

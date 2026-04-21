@@ -1,0 +1,138 @@
+---
+title: المسرد
+description: إدارة المصطلحات التجارية وتعريفات المؤسسة.
+section: /ar/docs
+priority: 14
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideTabs from "@/components/docs/GuideTabs.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "المسرد" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>المسرد</h1>
+  <p>
+    يوفر مسرد الأعمال مستودعاً مركزياً للمصطلحات والتعريفات التجارية.
+  </p>
+  <p>
+    يساعد على إنشاء مفردات أعمال مشتركة عبر المنظمة، مما يضمن التفاهم
+    المتسق لمفاهيم البيانات. يمكن ربط المصطلحات بأصول البيانات لتوفير
+    السياق التجاري.
+  </p>
+</GuideIntro>
+
+<GuideTabs
+  tabs={[
+    { id: "create", label: "إنشاء" },
+    { id: "edit", label: "تعديل" },
+    { id: "delete", label: "حذف" },
+  ]}
+  defaultTab="create"
+>
+  <div slot="create">
+    <h2 id="steps-to-create-a-glossary">خطوات إنشاء مسرد</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="انتقل إلى تبويب المسرد"
+        description="الوصول إلى المستودع الكامل للمصطلحات التجارية."
+      />
+      <GuideStepCard
+        number={2}
+        title="انقر على إضافة مصطلح جديد"
+        description="فتح نموذج إنشاء مصطلح المسرد."
+      />
+      <GuideStepCard
+        number={3}
+        title="أدخل اسم المصطلح والتعريف التجاري"
+        description="قدم تعريفات واضحة وموجزة يمكن لأصحاب المصلحة غير التقنيين فهمها."
+      />
+      <GuideStepCard
+        number={4}
+        title="أضف المرادفات والمصطلحات ذات الصلة"
+        description="اربط المفاهيم ذات الصلة لتحسين القابلية للاكتشاف والفهم."
+      />
+      <GuideStepCard
+        number={5}
+        title="عيّن أصحاب المصطلح وخبراء الموضوع"
+        description="حدد المسؤول عن صيانة تعريف المصطلح."
+      />
+      <GuideStepCard
+        number={6}
+        title="نظّم المصطلحات في تسلسلات هرمية أو فئات اختيارياً"
+        description="أنشئ علاقات أصل-فرع لنماذج المجال المعقدة."
+      />
+      <GuideStepCard
+        number={7}
+        title="اربط المصطلح بأصول البيانات ذات الصلة"
+        description="اربط المصطلح التجاري بالأصول التقنية للبيانات لتتبعها."
+      />
+      <GuideStepCard
+        number={8}
+        title="انشر المصطلح"
+        description="اجعل المصطلح قابلاً للبحث ومتاحاً لوضع العلامات على الأصول."
+      />
+    </div>
+  </div>
+
+  <div slot="edit">
+    <h2 id="steps-to-edit-glossary-terms">خطوات تعديل مصطلحات المسرد</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="ابحث عن المصطلح وحدده"
+        description="استخدم بحث المسرد أو تصفح حسب الفئة."
+      />
+      <GuideStepCard
+        number={2}
+        title="انقر على تعديل"
+        description="افتح محرر المصطلح مع الحفاظ على سجل الإصدارات."
+      />
+      <GuideStepCard
+        number={3}
+        title="حدّث التعريف أو المرادفات أو العلاقات"
+        description="يتم تتبع جميع التغييرات مع الطوابع الزمنية ومعلومات المؤلف."
+      />
+      <GuideStepCard
+        number={4}
+        title="احفظ التغييرات"
+        description="تنعكس التحديثات فوراً عبر جميع الأصول المرتبطة."
+      />
+    </div>
+  </div>
+
+  <div slot="delete">
+    <h2 id="steps-to-delete-glossary-terms">خطوات حذف مصطلحات المسرد</h2>
+
+    <div class="docs-step-list">
+      <GuideStepCard
+        number={1}
+        title="اختر المصطلح للحذف"
+        description="راجع أماكن استخدام المصطلح حالياً."
+      />
+      <GuideStepCard
+        number={2}
+        title="انقر على حذف"
+        description="يعرض تحليل الأثر الذي يُظهر الأصول المرتبطة."
+      />
+      <GuideStepCard
+        number={3}
+        title="تأكيد الحذف مع مصطلح بديل اختياري"
+        description="يمكنك تحديد مصطلح بديل للاستبدال التلقائي."
+      />
+    </div>
+  </div>
+</GuideTabs>

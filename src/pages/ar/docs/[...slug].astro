@@ -5,12 +5,12 @@ import DocsLayout from "@/layouts/Docs.astro";
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
 export const getStaticPaths = (async () => {
-  const docs = await getDocsByLang('en');
+  const docs = await getDocsByLang('ar');
   return docs.map((post) => {
-    const id = String(post.id).replace(/^\//, "");
-    const isIndex = id === "index" || id === "";
+    const rawId = String(post.id).replace(/^ar\//, '').replace(/^ar$/, '');
+    const isIndex = rawId === 'index' || rawId === '';
     return {
-      params: { slug: isIndex ? undefined : id },
+      params: { slug: isIndex ? undefined : rawId },
       props: { post },
     };
   });
@@ -22,6 +22,6 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<DocsLayout post={post} lang="en">
+<DocsLayout post={post} lang="ar">
   <Content />
 </DocsLayout>

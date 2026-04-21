@@ -1,0 +1,68 @@
+---
+title: موفرو الهوية
+description: تهيئة نظام تسجيل الدخول الموحد وطرق المصادقة الخارجية.
+section: /ar/docs
+priority: 16
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "موفرو الهوية" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>موفرو الهوية</h1>
+  <p>
+    يدعم BayanatiHub تسجيل الدخول الموحد للمؤسسات (SSO) من خلال التكامل
+    مع موفري الهوية الخارجيين.
+  </p>
+  <p>
+    يمكن للمسؤولين تهيئة موفري الهوية مثل Active Directory (AD)
+    وخدمات Active Directory Federation Services (ADFS). يتيح ذلك المصادقة
+    الآمنة وإدارة الوصول المركزية وتجربة تسجيل دخول سلسة عبر المنصة.
+  </p>
+</GuideIntro>
+
+## خطوات تهيئة موفر الهوية
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="انتقل إلى تبويب موفرو الهوية"
+    description="اعرض موفري SSO المهيأين وحالة تفعيلهم الحالية."
+  />
+  <GuideStepCard
+    number={2}
+    title="انقر على إضافة موفر هوية"
+    description="افتح تدفق إعداد موفر الهوية."
+  />
+  <GuideStepCard
+    number={3}
+    title="اختر نوع الموفر (AD، ADFS)"
+    description="اختر الموفر الذي يتطابق مع بنية الهوية في مؤسستك."
+  />
+  <GuideStepCard
+    number={4}
+    title="أدخل تفاصيل الموفر (Entity ID، SSO URL، الشهادة)"
+    description="قم بتعيين سمات موفر الهوية إلى حقول مستخدم BayanatiHub مثل الاسم والبريد الإلكتروني والمجموعات."
+  />
+  <GuideStepCard
+    number={5}
+    title="اختبر تكامل SSO"
+    description="أجرِ تسجيل دخول تجريبي للتحقق من عمل المصادقة عبر الاتحاد بشكل صحيح."
+  />
+  <GuideStepCard
+    number={6}
+    title="فعّل موفر الهوية"
+    description="اجعل طريقة المصادقة الجديدة نشطة لمستخدمي المنصة."
+  />
+</div>

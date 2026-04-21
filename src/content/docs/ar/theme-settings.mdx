@@ -1,0 +1,84 @@
+---
+title: إعدادات المظهر
+description: تخصيص المظهر البصري لـ BayanatiHub ليتناسب مع هوية علامتك التجارية.
+section: /ar/docs
+priority: 18
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import ThemeLogoCard from "@/components/docs/ThemeLogoCard.astro";
+import ThemeFontCard from "@/components/docs/ThemeFontCard.astro";
+import ThemeColorCard from "@/components/docs/ThemeColorCard.astro";
+import fullLogoImg from "@/assets/images/fulllogo.svg";
+import compactLogoImg from "@/assets/images/compactlogo.svg";
+import faviconImg from "@/assets/images/faviconlogo.svg";
+import fontEnglishImg from "@/assets/images/fontfamilyenglish.svg";
+import fontArabicImg from "@/assets/images/fontfamilyarabic.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "إعدادات المظهر" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>إعدادات المظهر</h1>
+  <p>تخصيص المظهر البصري لـ BayanatiHub ليتناسب مع هوية علامتك التجارية.</p>
+  <p>تتيح لك إعدادات المظهر تهيئة الألوان والطباعة والشعارات والعناصر المرئية الأخرى التي تؤثر على واجهة المستخدم.</p>
+</GuideIntro>
+
+## الشعار والأيقونة
+
+<p class="ts-section-sub">يتيح لك هذا القسم رفع وإدارة أصول العلامة التجارية:</p>
+
+<div class="ts-logo-grid">
+  <ThemeLogoCard
+    image={fullLogoImg}
+    imageAlt="معاينة الشعار الكامل"
+    title="الشعار الكامل"
+    description="شعار المنصة الرئيسي"
+  />
+  <ThemeLogoCard
+    image={compactLogoImg}
+    imageAlt="معاينة الشعار المضغوط"
+    title="الشعار المضغوط"
+    description="نسخة مبسطة تُستخدم في مناطق واجهة المستخدم الأصغر (مثل الشريط الجانبي)"
+  />
+  <ThemeLogoCard
+    image={faviconImg}
+    imageAlt="معاينة الـ Favicon"
+    title="أيقونة المتصفح"
+    description="أيقونة تبويب المتصفح"
+  />
+</div>
+
+## خطوط الكتابة
+
+<div class="ts-font-grid">
+  <ThemeFontCard
+    image={fontEnglishImg}
+    imageAlt="معاينة خط اللغة الإنجليزية"
+    title="خط اللغة الإنجليزية"
+    description="الخط المستخدم في النصوص الإنجليزية عبر المنصة"
+  />
+  <ThemeFontCard
+    image={fontArabicImg}
+    imageAlt="معاينة خط اللغة العربية"
+    title="خط اللغة العربية"
+    description="الخط المستخدم في النصوص العربية عبر المنصة"
+  />
+</div>
+
+<GuideCallout title="ملاحظة" variant="note">
+  <ul>
+    <li>تؤثر تغييرات المظهر على جميع المستخدمين فور حفظها.</li>
+    <li>تأكد من اختبار الشعارات في مختلف الأحجام قبل النشر.</li>
+    <li>يُوصى باستخدام شعارات بتنسيق SVG للحصول على أفضل جودة.</li>
+  </ul>
+</GuideCallout>

@@ -1,0 +1,66 @@
+---
+title: أصول البيانات
+description: في هذا التبويب تُعرض جميع أصول البيانات المنشورة بما في ذلك قواعد البيانات والمسارات ولوحات التحكم والبيانات الوصفية.
+section: /ar/docs
+priority: 35
+navGroup: user
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المستخدم", href: "#" },
+    { label: "أصول البيانات" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>أصول البيانات</h1>
+  <p>
+    في هذا التبويب، تُعرض جميع أصول البيانات المنشورة بما في ذلك قواعد
+    البيانات والمسارات ولوحات التحكم والبيانات الوصفية.
+  </p>
+  <p>
+    يتضمن كل أصل تفاصيل مثل المنشئ والناشر وعدد الصفوف والأعمدة.
+  </p>
+  <p>
+    يمكنك أيضاً التصفية واختيار نوع خدمة محدد أو البحث عن أصل معين.
+  </p>
+</GuideIntro>
+
+<div class="mt-6 flex gap-1 rounded-[12px] border border-[#dbeafe] bg-white p-4">
+  <svg class="text-primary-600 mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="12" y1="16" x2="12" y2="12"></line>
+    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+  </svg>
+  <p class="m-0 text-[14px] leading-relaxed text-[#0f172a]">
+    للوصول إلى أي أصل بيانات، يجب على المستخدم تقديم{" "}
+    <strong class="text-[#009ad6]">طلب وصول.</strong>
+  </p>
+</div>
+
+## خطوات الوصول إلى أصول البيانات
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="تصفح قائمة أصول البيانات"
+    description="اعرض جميع الأصول المنشورة المتاحة في المنصة."
+  />
+  <GuideStepCard
+    number={2}
+    title="ابحث أو صفّ حسب نوع الخدمة"
+    description="استخدم البحث والمرشحات للعثور على الأصل المطلوب."
+  />
+  <GuideStepCard
+    number={3}
+    title="انقر على طلب الوصول"
+    description="قدم طلب وصول للأصل المختار، وتتبعه من تبويب طلبات الوصول."
+  />
+</div>

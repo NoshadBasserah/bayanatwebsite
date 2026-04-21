@@ -1,0 +1,89 @@
+---
+title: منشئ النماذج
+description: إنشاء نماذج منظمة لإدخال البيانات يدوياً أو استيرادها من Excel.
+section: /ar/docs
+priority: 23
+navGroup: user
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import stepOne from "@/assets/images/formbuilderimage1.svg";
+import stepTwo from "@/assets/images/formbuilderimage2.svg";
+import stepThree from "@/assets/images/formbuilderimage3.svg";
+import stepFour from "@/assets/images/formbuilderimage4.svg";
+
+<GuideBreadcrumbs items={[ { label: "التوثيق", href: "/ar/docs/" }, { label: "دور المستخدم", href: "#" }, { label: "منشئ النماذج" } ]} />
+
+<GuideIntro>
+  <h1>منشئ النماذج</h1>
+  <p>
+    يتيح لك تبويب منشئ النماذج إنشاء نماذج منظمة يمكن فيها إدخال البيانات
+    يدوياً أو استيرادها من ملف Excel. يمكن مشاركة النماذج داخل المساحات
+    واستخدامها لإنشاء لوحات التحكم.
+  </p>
+</GuideIntro>
+
+## خطوات إنشاء نموذج
+
+<div class="docs-step-list">
+  <GuideStepCard number={1} title="انتقل إلى منشئ النماذج"
+    description="افتح تبويب منشئ النماذج من قائمة التنقل اليسرى." image={stepOne}
+    imageAlt="الانتقال إلى منشئ النماذج" />
+  <GuideStepCard number={2} title="إنشاء نموذج جديد"
+    description="انقر على إنشاء نموذج وأدخل الاسم والوصف المطلوبين، ثم انقر على إنشاء." image={stepTwo}
+    imageAlt="إنشاء نموذج جديد" />
+  <GuideStepCard number={3} title="فتح نموذجك"
+    description="انقر على فتح النموذج. تظهر نافذة منبثقة بالخيارات المتاحة: استيراد البيانات أو إنشاء لوحة تحكم."
+    image={stepThree} imageAlt="فتح نموذجك" />
+  <GuideStepCard number={4} title="بناء نموذجك"
+    description="أضف أعمدة وأدرج صفوفاً وحدد أنواع البيانات أو استورد ملف Excel أو أنشئ لوحة تحكم من بياناتك."
+    image={stepFour} imageAlt="بناء نموذجك" />
+</div>
+
+## معلومات إضافية
+
+<div class="mt-6 flex flex-col gap-4">
+  <div class="flex items-center gap-4 rounded-[12px] border border-[#ffedd5] bg-white p-4 shadow-sm">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] bg-[#fff7ed] text-[#f97316]">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="12" y1="3" x2="12" y2="21"></line>
+      </svg>
+    </div>
+    <div>
+      <h4 class="m-0 text-sm font-semibold text-[#0f172a]">إضافة أعمدة</h4>
+      <p class="m-0 mt-0.5 text-sm text-[#475569]">أضف أعمدة وحدد أنواع البيانات المناسبة (نص، رقم، تاريخ، إلخ).</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[12px] border border-[#dcfce7] bg-white p-4 shadow-sm">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] bg-[#f0fdf4] text-[#16a34a]">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="17 8 12 3 7 8"></polyline>
+        <line x1="12" y1="3" x2="12" y2="15"></line>
+      </svg>
+    </div>
+    <div>
+      <h4 class="m-0 text-sm font-semibold text-[#0f172a]">استيراد من Excel</h4>
+      <p class="m-0 mt-0.5 text-sm text-[#475569]">استورد البيانات مباشرةً من ملف Excel لملء النموذج بسرعة.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[12px] border border-[#dbeafe] bg-white p-4 shadow-sm">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] bg-[#eff6ff] text-[#2563eb]">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7"></rect>
+        <rect x="14" y="3" width="7" height="7"></rect>
+        <rect x="14" y="14" width="7" height="7"></rect>
+        <rect x="3" y="14" width="7" height="7"></rect>
+      </svg>
+    </div>
+    <div>
+      <h4 class="m-0 text-sm font-semibold text-[#0f172a]">إنشاء لوحة تحكم</h4>
+      <p class="m-0 mt-0.5 text-sm text-[#475569]">حوّل بيانات نموذجك إلى لوحة تحكم تفاعلية بنقرة واحدة.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+---
+title: قسم السياسات
+description: تعريف وإدارة سياسات الوصول التي تحكم أذونات المستخدمين التفصيلية في BayanatiHub.
+section: /ar/docs
+priority: 22
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import DocInfoCard from "@/components/docs/DocInfoCard.astro";
+import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
+import DocActionCard from "@/components/docs/DocActionCard.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "المستخدمون", href: "/ar/docs/users/" },
+    { label: "قسم السياسات" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>قسم السياسات</h1>
+  <p>
+    يتيح هذا القسم للمسؤولين تعريف وإدارة سياسات الوصول التي تحكم
+    الأذونات التفصيلية للمستخدمين خارج نطاق الأدوار الافتراضية.
+  </p>
+</GuideIntro>
+
+## قائمة السياسات
+
+<p class="text-[14px] text-[#66758f] mt-1 mb-4">تعرض قائمة السياسات التفاصيل التالية:</p>
+
+<div class="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-2">
+  <DocInfoCard title="المعرف"          description="معرف فريد لكل سياسة."                               icon="id"          color="purple" />
+  <DocInfoCard title="اسم السياسة"     description="اسم السياسة الوصفي."                                icon="name"        color="blue"   />
+  <DocInfoCard title="الوصف"           description="شرح موجز لما تتحكم فيه السياسة."                   icon="description" color="green"  />
+  <DocInfoCard title="الحالة"          description="تشير إلى ما إذا كانت السياسة نشطة أم غير نشطة."    icon="status"      color="yellow" />
+</div>
+
+## البحث والتخصيص
+
+<div class="grid gap-3 mb-2">
+  <DocFeatureRow title="البحث"             description="استخدم شريط البحث للعثور على سياسة محددة."          icon="search" color="blue"   />
+  <DocFeatureRow title="المرشحات والأعمدة" description="استخدم المرشحات لتضييق النتائج وتحديد الأعمدة."    icon="filter" color="purple" />
+  <DocFeatureRow title="إضافة سياسة"       description="انقر على إضافة سياسة لإنشاء سياسة وصول جديدة."    icon="add"    color="green"  />
+</div>
+
+## إدارة السياسات
+
+<p class="text-[14px] text-[#66758f] mt-0 mb-4">من عمود الإجراءات، يمكنك:</p>
+
+<div class="grid gap-4 sm:grid-cols-3 mb-2">
+  <DocActionCard title="تعديل السياسة"   description="تحديث شروط السياسة وأذوناتها."                             icon="edit"   color="purple" />
+  <DocActionCard title="عرض السياسة"     description="عرض تفاصيل السياسة كاملة والأدوار المرتبطة بها."          icon="view"   color="teal"   />
+  <DocActionCard title="حذف السياسة"     description="إزالة السياسة بعد التحقق من عدم ارتباطها بأي أدوار نشطة." icon="more"   color="green"  />
+</div>
+
+<GuideCallout title="مهم" variant="info">
+  <ul>
+    <li>تُطبَّق السياسات على الأدوار وليس على المستخدمين مباشرةً.</li>
+    <li>تأكد من مراجعة الأدوار المرتبطة قبل تعديل أي سياسة أو حذفها.</li>
+    <li>يمكن للسياسات تقييد أو توسيع الأذونات المحددة في تعريف الدور.</li>
+  </ul>
+</GuideCallout>

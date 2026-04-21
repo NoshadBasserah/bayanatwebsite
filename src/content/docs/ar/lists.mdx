@@ -1,0 +1,71 @@
+---
+title: القوائم
+description: تنظيم مجموعات منتقاة من أصول البيانات.
+section: /ar/docs
+priority: 15
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "القوائم" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>القوائم</h1>
+  <p>
+    تتيح القوائم للمسؤولين إنشاء وإدارة مجموعات منتقاة من أصول البيانات.
+  </p>
+  <p>
+    يمكن استخدام هذه المجموعات لتنظيم الأصول حسب المشروع أو القسم أو
+    مجال البيانات أو أي معايير تجميع مخصصة. تساعد القوائم المستخدمين على
+    اكتشاف الأصول ذات الصلة والحفاظ على التجميعات المنطقية.
+  </p>
+</GuideIntro>
+
+## خطوات إدارة القوائم
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="انتقل إلى تبويب القوائم"
+    description="افتح المنطقة التي تتم فيها إدارة المجموعات المنتقاة الموجودة."
+  />
+  <GuideStepCard
+    number={2}
+    title="انقر على إضافة قائمة جديدة"
+    description="افتح نموذج إنشاء القائمة لبدء مجموعة جديدة."
+  />
+  <GuideStepCard
+    number={3}
+    title="أدخل اسم القائمة ووصفها"
+    description="قدم سياقاً حول الغرض والملكية والنطاق المقصود للقائمة."
+  />
+  <GuideStepCard
+    number={4}
+    title="أضف القيم أو الأصول"
+    description="اختر العناصر أو مجموعات البيانات أو الأصول التي تنتمي إلى هذه القائمة المنتقاة."
+  />
+  <GuideStepCard
+    number={5}
+    title="احفظ ونشر القائمة"
+    description="اجعل القائمة متاحة للمستخدمين المصرح لهم عبر المنصة."
+  />
+</div>
+
+<GuideCallout title="ملاحظة" variant="note">
+  <ul>
+    <li>يمكن مشاركة القوائم مع مستخدمين أو فرق محددة.</li>
+    <li>تُحدَّث القوائم تلقائياً عند تعديل الأصول الأساسية.</li>
+    <li>استخدم القوائم لإنشاء عروض منتقاة لحالات استخدام مختلفة.</li>
+  </ul>
+</GuideCallout>

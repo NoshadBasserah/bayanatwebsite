@@ -1,0 +1,71 @@
+---
+title: قسم المستخدمين
+description: عرض وإدارة جميع مستخدمي المنصة بما في ذلك الأدوار وحالة الترخيص وإعدادات الوصول.
+section: /ar/docs
+priority: 20
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import DocInfoCard from "@/components/docs/DocInfoCard.astro";
+import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
+import DocActionCard from "@/components/docs/DocActionCard.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "المستخدمون", href: "/ar/docs/users/" },
+    { label: "قسم المستخدمين" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>قسم المستخدمين</h1>
+  <p>
+    يعرض هذا القسم قائمة بجميع المستخدمين في المنصة مع تفاصيلهم الرئيسية
+    وإعدادات الوصول الخاصة بهم.
+  </p>
+</GuideIntro>
+
+## معلومات المستخدم
+
+<p class="text-[14px] text-[#66758f] mt-1 mb-4">يتضمن كل سجل مستخدم المعلومات التالية:</p>
+
+<div class="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-2">
+  <DocInfoCard title="المعرف"       description="معرف فريد للمستخدم."                                          icon="id"        color="purple" />
+  <DocInfoCard title="الاسم"        description="الاسم الكامل للمستخدم."                                       icon="name"      color="blue"   />
+  <DocInfoCard title="البريد الإلكتروني" description="عنوان البريد الإلكتروني للمستخدم."                    icon="email"     color="green"  />
+  <DocInfoCard title="الدليل"       description="مصدر حساب المستخدم (مثل قاعدة البيانات أو Active Directory)." icon="directory" color="yellow" />
+  <DocInfoCard title="الدور"        description="الدور المعيّن (مثل مسؤول، محلل بيانات، مشاهد)."               icon="role"      color="pink"   />
+  <DocInfoCard title="التراخيص"     description="يشير إلى التراخيص المهنية أو التحليلية."                       icon="license"   color="green"  />
+  <DocInfoCard title="الحالة"       description="يشير إلى ما إذا كان حساب المستخدم نشطاً أم غير نشط."           icon="status"    color="yellow" />
+  <DocInfoCard title="الإجراءات"    description="خيارات لإدارة المستخدم."                                       icon="actions"   color="slate"  />
+</div>
+
+## البحث وتخصيص المستخدمين
+
+<div class="grid gap-4 mb-2">
+  <DocFeatureRow title="البحث"               description="استخدم شريط البحث للعثور على المستخدمين بالاسم أو البريد الإلكتروني أو المعرف." icon="search" color="blue"   />
+  <DocFeatureRow title="المرشحات والأعمدة"   description="استخدم المرشحات لتضييق النتائج وتحديد الأعمدة التي تريد عرضها."               icon="filter" color="purple" />
+  <DocFeatureRow title="إضافة مستخدم"         description="انقر على إضافة مستخدم لإنشاء حساب مستخدم جديد."                             icon="add"    color="green"  />
+</div>
+
+## إدارة المستخدمين
+
+<p class="text-[14px] text-[#66758f] mt-0 mb-4">من عمود الإجراءات، يمكنك:</p>
+
+<div class="grid gap-4 sm:grid-cols-3 mb-2">
+  <DocActionCard title="تعديل تفاصيل المستخدم"    description="تحديث تفاصيل المستخدم مثل الدور والاسم والمعلومات الأخرى باستخدام أيقونة التعديل." icon="edit"   color="purple" />
+  <DocActionCard title="عرض معلومات المستخدم"     description="عرض معلومات مفصلة حول المستخدم باستخدام أيقونة العرض."                              icon="view"   color="teal"   />
+  <DocActionCard title="إجراءات أخرى"              description="الوصول إلى خيارات إدارة إضافية من قائمة الإجراءات."                                  icon="more"   color="green"  />
+</div>
+
+## مهم
+
+<GuideCallout title="مهم" variant="info">
+  المستخدمون المعطلون لن يتمكنوا من الوصول إلى المنصة.
+</GuideCallout>

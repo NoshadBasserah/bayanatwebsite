@@ -1,0 +1,89 @@
+---
+title: المشاريع
+description: يتيح هذا التبويب إنشاء وإدارة المشاريع لتنظيم أصول البيانات وتجميع العلامات والمصطلحات ذات الصلة.
+section: /ar/docs
+priority: 23
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideTabs from "@/components/docs/GuideTabs.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import DocInfoCard from "@/components/docs/DocInfoCard.astro";
+import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "المشاريع" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>المشاريع</h1>
+  <p>
+    يتيح هذا التبويب إنشاء وإدارة المشاريع، التي تُستخدم لتنظيم أصول البيانات
+    وتجميع العلامات والمصطلحات ذات الصلة من المسرد تحت هيكل حوكمة موحد.
+  </p>
+</GuideIntro>
+
+<h2 id="project-information">معلومات المشروع</h2>
+
+<p class="mt-1 mb-4 text-[14px] text-[#66758f]">
+  يعرض كل مشروع معلومات أساسية مثل
+</p>
+
+<div class="mt-3 mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <DocInfoCard title="الاسم" description="اسم المشروع لسهولة التعرف عليه" icon="name" color="purple" />
+  <DocInfoCard title="المالكون" description="المالكون الأساسيون المسؤولون عن المشروع." icon="role" color="blue" />
+  <DocInfoCard title="العلامات" description="العلامات الشائعة المرتبطة بالمشروع." icon="tag" color="green" />
+  <DocInfoCard title="مصطلحات المسرد" description="مصطلحات المسرد ذات الصلة المرتبطة بالمشروع." icon="glossary" color="yellow" />
+</div>
+
+<h2 class="mt-8">البحث والتخصيص</h2>
+
+<div class="mt-6 mb-8 grid gap-4">
+  <DocFeatureRow title="البحث" description="استخدم شريط البحث للعثور على المشاريع بالاسم أو المعرف." icon="search" color="blue" />
+  <DocFeatureRow title="المرشحات والأعمدة" description="استخدم المرشحات لتضييق النتائج وتحديد الأعمدة." icon="filter" color="purple" />
+  <DocFeatureRow title="إضافة مشروع" description="انقر على إضافة مشروع لإنشاء مشروع جديد." icon="add" color="green" />
+</div>
+
+<GuideTabs
+  tabs={[
+    { id: "create", label: "إنشاء" },
+    { id: "edit", label: "تعديل" },
+    { id: "delete", label: "حذف" },
+  ]}
+  defaultTab="create"
+>
+  <div slot="create">
+    <h2>خطوات إنشاء مشروع</h2>
+    <div class="docs-step-list">
+      <GuideStepCard number={1} title="انتقل إلى تبويب المشاريع" description="اعرض قائمة المشاريع الموجودة." />
+      <GuideStepCard number={2} title="انقر على إضافة مشروع" description="افتح نموذج إنشاء المشروع." />
+      <GuideStepCard number={3} title="أدخل اسم المشروع ووصفه" description="قدم اسماً واضحاً وغرضاً للمشروع." />
+      <GuideStepCard number={4} title="عيّن المالكين وأضف الأعضاء" description="حدد المالكين المسؤولين وأضف أعضاء الفريق." />
+      <GuideStepCard number={5} title="احفظ المشروع" description="يصبح المشروع الجديد متاحاً للتعاون." />
+    </div>
+  </div>
+  <div slot="edit">
+    <h2>خطوات تعديل مشروع</h2>
+    <div class="docs-step-list">
+      <GuideStepCard number={1} title="اختر المشروع من القائمة" description="افتح المشروع الذي تريد تحديثه." />
+      <GuideStepCard number={2} title="انقر على تعديل" description="ضع المشروع في وضع التعديل." />
+      <GuideStepCard number={3} title="حدّث الحقول المطلوبة" description="راجع الاسم أو الوصف أو الأعضاء." />
+      <GuideStepCard number={4} title="احفظ التغييرات" description="تنعكس التحديثات فوراً." />
+    </div>
+  </div>
+  <div slot="delete">
+    <h2>خطوات حذف مشروع</h2>
+    <div class="docs-step-list">
+      <GuideStepCard number={1} title="اختر المشروع للحذف" description="راجع الأصول والأعضاء المرتبطة." />
+      <GuideStepCard number={2} title="انقر على حذف" description="يعرض تأثير الحذف." />
+      <GuideStepCard number={3} title="تأكيد الحذف" description="وافق على الإزالة الدائمة." />
+    </div>
+  </div>
+</GuideTabs>

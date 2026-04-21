@@ -1,0 +1,153 @@
+---
+title: محرك التحليلات
+description: تهيئة محركات التحليلات المتصلة وتكاملات BI.
+section: /ar/docs
+priority: 17
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import qlikSenseLogo from "@/assets/images/qliksense.png";
+import powerBiLogo from "@/assets/images/powerbi.png";
+import tableauLogo from "@/assets/images/tableau.png";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "محرك التحليلات" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>محرك التحليلات</h1>
+  <p>
+    يوفر محرك التحليلات إمكانيات قوية لتحديد ملف البيانات وتقييم
+    الجودة وتحليلات الاستخدام.
+  </p>
+  <p>
+    يمكن للمسؤولين تهيئة فحوصات جودة البيانات الآلية ووظائف التحليل
+    وقواعد المراقبة للحفاظ على معايير جودة البيانات العالية عبر المنصة.
+  </p>
+</GuideIntro>
+
+## نظرة عامة
+
+<div class="rounded-[20px] border border-neutral-100 bg-white p-6 shadow-[0_4px_16px_rgba(24,36,64,0.045)]">
+  <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <h3 class="m-0 text-[18px] font-semibold tracking-[-0.02em] text-[#0f172a]">
+      محركات التحليلات المهيأة
+    </h3>
+    <button
+      type="button"
+      class="inline-flex h-[42px] items-center justify-center gap-2 self-start rounded-[12px] bg-[#009ad6] px-5 text-[15px] font-semibold text-white shadow-[0px_10px_24px_rgba(0,154,214,0.22)] transition-transform hover:-translate-y-[1px]"
+    >
+      <span aria-hidden="true">+</span>
+      <span>إضافة محرك</span>
+    </button>
+  </div>
+
+  <div class="mt-6 overflow-x-auto">
+    <table class="w-full min-w-[760px] border-separate border-spacing-0">
+      <thead>
+        <tr>
+          <th class="border-b border-[#edf1f7] px-0 py-3 text-start text-[13px] font-semibold tracking-[0.01em] text-[#7b879c]">
+            اسم المحرك
+          </th>
+          <th class="border-b border-[#edf1f7] px-0 py-3 text-start text-[13px] font-semibold tracking-[0.01em] text-[#7b879c]">
+            النوع
+          </th>
+          <th class="border-b border-[#edf1f7] px-0 py-3 text-start text-[13px] font-semibold tracking-[0.01em] text-[#7b879c]">
+            الحالة
+          </th>
+          <th class="border-b border-[#edf1f7] px-0 py-3 text-start text-[13px] font-semibold tracking-[0.01em] text-[#7b879c]">
+            آخر اتصال
+          </th>
+          <th class="border-b border-[#edf1f7] px-0 py-3 text-end text-[13px] font-semibold tracking-[0.01em] text-[#7b879c]">
+            الإجراءات
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border-b border-[#edf1f7] py-5 pe-6">
+            <div class="flex items-center gap-4">
+              <div class="grid h-11 w-11 place-items-center overflow-hidden rounded-full">
+                <img src={qlikSenseLogo.src} alt="Qlik Sense logo" class="h-8 w-8 object-contain" loading="lazy" />
+              </div>
+              <div>
+                <div class="text-[16px] font-semibold tracking-[-0.02em] text-[#0f172a]">محرك Qlik Sense</div>
+                <div class="mt-1 text-[14px] text-[#7b879c]">المحرك الأساسي للوحات التحكم</div>
+              </div>
+            </div>
+          </td>
+          <td class="border-b border-[#edf1f7] py-5 pe-6 text-[15px] font-medium text-[#334155]">Qlik Sense</td>
+          <td class="border-b border-[#edf1f7] py-5 pe-6">
+            <span class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[14px] font-semibold text-[#0b9b6f]">
+              <span class="h-2 w-2 rounded-full bg-[#0bcd84]"></span>
+              نشط
+            </span>
+          </td>
+          <td class="border-b border-[#edf1f7] py-5 pe-6 text-[15px] font-medium text-[#475569]">21 مايو 2025 10:30 ص</td>
+          <td class="border-b border-[#edf1f7] py-5 text-end text-[22px] leading-none text-[#94a3b8]">&vellip;</td>
+        </tr>
+        <tr>
+          <td class="border-b border-[#edf1f7] py-5 pe-6">
+            <div class="flex items-center gap-4">
+              <div class="grid h-11 w-11 place-items-center overflow-hidden rounded-full">
+                <img src={powerBiLogo.src} alt="Power BI logo" class="h-8 w-8 object-contain" loading="lazy" />
+              </div>
+              <div>
+                <div class="text-[16px] font-semibold tracking-[-0.02em] text-[#0f172a]">محرك Power BI</div>
+                <div class="mt-1 text-[14px] text-[#7b879c]">تم الاتصال بنجاح</div>
+              </div>
+            </div>
+          </td>
+          <td class="border-b border-[#edf1f7] py-5 pe-6 text-[15px] font-medium text-[#334155]">Power BI</td>
+          <td class="border-b border-[#edf1f7] py-5 pe-6">
+            <span class="inline-flex items-center gap-2 rounded-full bg-[#eaf9f0] px-4 py-1.5 text-[14px] font-semibold text-[#0b9b6f]">
+              <span class="h-2 w-2 rounded-full bg-[#0bcd84]"></span>
+              نشط
+            </span>
+          </td>
+          <td class="border-b border-[#edf1f7] py-5 pe-6 text-[15px] font-medium text-[#475569]">19 مايو 2025 2:15 م</td>
+          <td class="border-b border-[#edf1f7] py-5 text-end text-[22px] leading-none text-[#94a3b8]">&vellip;</td>
+        </tr>
+        <tr>
+          <td class="py-5 pe-6">
+            <div class="flex items-center gap-4">
+              <div class="grid h-11 w-11 place-items-center overflow-hidden rounded-full">
+                <img src={tableauLogo.src} alt="Tableau logo" class="h-8 w-8 object-contain" loading="lazy" />
+              </div>
+              <div>
+                <div class="text-[16px] font-semibold tracking-[-0.02em] text-[#0f172a]">محرك Tableau</div>
+                <div class="mt-1 text-[14px] text-[#7b879c]">تم الاتصال بنجاح</div>
+              </div>
+            </div>
+          </td>
+          <td class="py-5 pe-6 text-[15px] font-medium text-[#334155]">Tableau</td>
+          <td class="py-5 pe-6">
+            <span class="inline-flex items-center gap-2 rounded-full bg-[#fff4e5] px-4 py-1.5 text-[14px] font-semibold text-[#d18815]">
+              <span class="h-2 w-2 rounded-full bg-[#f59e0b]"></span>
+              غير نشط
+            </span>
+          </td>
+          <td class="py-5 pe-6 text-[15px] font-medium text-[#475569]">15 مايو 2025 9:45 ص</td>
+          <td class="py-5 text-end text-[22px] leading-none text-[#94a3b8]">&vellip;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## معلومات إضافية
+
+<GuideCallout title="معلومات إضافية" variant="info">
+  <ul>
+    <li>إذا كان محرك واحد فقط متصلاً، فستستخدم جميع لوحات التحكم هذا المحرك تلقائياً.</li>
+    <li>يمكنك إضافة محركات BI متعددة والتبديل بينها في أي وقت.</li>
+  </ul>
+</GuideCallout>

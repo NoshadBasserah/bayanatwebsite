@@ -1,0 +1,89 @@
+---
+title: طلبات الوصول
+description: إدارة كيفية وتوقيت طلبات المستخدمين للدخول إلى المنصة.
+section: /ar/docs
+priority: 10
+navGroup: admin
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import accessRequestHero from "@/assets/images/accessrequest.svg";
+import stepOne from "@/assets/images/accessreqieststep1.svg";
+import stepTwo from "@/assets/images/accessreqieststep2.svg";
+import stepThree from "@/assets/images/accessreqieststep3.svg";
+import stepFour from "@/assets/images/accessreqieststep4.svg";
+import stepFive from "@/assets/images/accessreqieststep5.svg";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المسؤول", href: "/ar/docs/" },
+    { label: "طلبات الوصول" },
+  ]}
+/>
+
+<GuideIntro image={accessRequestHero} imageAlt="توضيح لوحة طلبات الوصول">
+  <h1>طلبات الوصول</h1>
+  <p>يمكن للمستخدمين طلب الوصول في الحالات التالية:</p>
+## شروط الموافقة
+<ul class="list-disc marker:!text-primary-600 pl-5 rtl:pl-0 rtl:pr-5">
+<li>مجموعة بيانات منشورة ولكنها غير مخصصة لهم.</li>
+<li>لوحة تحكم موجودة تتطلب إذناً.</li>
+<li>يحتاجون إلى صلاحيات إضافية، مثل إضافة أعضاء إلى مساحة أو تعيين تراخيص.</li>
+</ul>
+</GuideIntro>
+
+
+## خطوات مراجعة طلبات الوصول
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="انتقل إلى تبويب طلبات الوصول من لوحة تحكم المسؤول الرئيسية"
+    description="يعرض التبويب جميع الطلبات المعلقة والمعتمدة والمرفوضة في عرض موحد."
+    image={stepOne}
+    imageAlt="نظرة عامة على جدول طلبات الوصول"
+  />
+  <GuideStepCard
+    number={2}
+    title="تصفية الطلبات حسب الحالة أو التاريخ أو مقدم الطلب"
+    description="استخدم عناصر التحكم في التصفية أعلى الصفحة لتضييق قائمة الطلبات."
+    image={stepTwo}
+    imageAlt="مرشحات طلبات الوصول"
+  />
+  <GuideStepCard
+    number={3}
+    title="اختر طلباً محدداً لعرض تفاصيله الكاملة"
+    description="انقر على أي صف طلب لفتح لوحة العرض التفصيلي التي تُظهر معلومات مقدم الطلب والأصل المطلوب ومستوى الوصول والتعليق والنشاط والتدقيق."
+    image={stepThree}
+    imageAlt="لوحة تفاصيل الطلب"
+  />
+  <GuideStepCard
+    number={4}
+    title="اعتماد الطلب أو رفضه مع تعليقات اختيارية"
+    description="قدم ملاحظات أو أي شروط للموافقة حتى يظل سجل المراجعة واضحاً."
+    image={stepFour}
+    imageAlt="إجراءات الاعتماد أو الرفض"
+  />
+  <GuideStepCard
+    number={5}
+    title="يتلقى مقدم الطلب إشعاراً بالبريد الإلكتروني بشأن القرار"
+    description="تُبقي الإشعارات الآلية جميع أصحاب المصلحة على علم بتغييرات الوصول."
+    image={stepFive}
+    imageAlt="إشعار الموافقة"
+  />
+</div>
+
+## معلومات إضافية
+
+<GuideCallout title="معلومات إضافية" variant="info">
+  <ul>
+    <li>عند الانتقال إلى تبويب طلباتي، ستظهر جميع الطلبات المقدمة إليّ.</li>
+    <li>بالنقر على تصدير، سيتم تصدير البيانات.</li>
+    <li>بالنقر على أيقونة العرض (العين)، ستظهر تفاصيل الطلب المحدد مع سجل التدقيق لتتبع حالة الطلب.</li>
+  </ul>
+</GuideCallout>
