@@ -39,7 +39,7 @@ const overviewActive = isActive(overviewHref);
   <a
     href={overviewHref}
     class:list={[
-      "mb-3 flex items-center gap-2.5 rounded-[8px] px-3 py-2 text-[13px] font-medium transition-colors",
+      "mb-3 flex items-center gap-2.5 rounded-[8px] px-3 py-2 text-sm font-medium transition-colors",
       overviewActive
         ? "bg-[#eff6ff] text-[#009ad6]"
         : "text-[#314158] hover:bg-neutral-50 hover:text-[#009ad6]",
@@ -56,7 +56,7 @@ const overviewActive = isActive(overviewHref);
 
   {navSections.map((section) => (
     <details class="group mb-1" open>
-      <summary class="flex cursor-pointer list-none items-center justify-between rounded-[8px] px-3 py-2 text-[14px] font-medium text-[#314158] hover:bg-neutral-50 transition-colors select-none">
+      <summary class="flex cursor-pointer list-none items-center justify-between rounded-[8px] px-3 py-2 text-sm font-medium text-[#314158] hover:bg-neutral-50 transition-colors select-none">
         <span>{section.label}</span>
         <svg
           class="h-4 w-4 shrink-0 text-[#949eb0] transition-transform duration-200 group-open:rotate-180"
@@ -78,7 +78,7 @@ const overviewActive = isActive(overviewHref);
                 open={isActive(item.href) || isChildActive(item.children)}
               >
                 <summary class:list={[
-                  "flex cursor-pointer list-none items-center justify-between rounded-[8px] ps-[24px] pe-3 py-2 text-[14px] transition-colors select-none",
+                  "flex cursor-pointer list-none items-center justify-between rounded-[8px] ps-[24px] pe-3 py-2 text-sm transition-colors select-none",
                   isActive(item.href)
                     ? "bg-[#eff6ff] font-medium text-[#009ad6]"
                     : "font-medium text-[#314158] hover:bg-neutral-50",
@@ -100,7 +100,7 @@ const overviewActive = isActive(overviewHref);
                       <a
                         href={child.href}
                         class:list={[
-                          "block rounded-[8px] py-2 ps-[36px] pe-3 text-[14px] transition-colors",
+                          "block rounded-[8px] py-2 ps-[36px] pe-3 text-sm transition-colors",
                           isActive(child.href)
                             ? "bg-[#eff6ff] font-medium text-[#009ad6]"
                             : "text-[#45556c] hover:bg-neutral-50 hover:text-[#314158]",
@@ -118,7 +118,7 @@ const overviewActive = isActive(overviewHref);
               <a
                 href={item.href}
                 class:list={[
-                  "block rounded-[8px] py-2 ps-[24px] pe-3 text-[14px] transition-colors",
+                  "block rounded-[8px] py-2 ps-[24px] pe-3 text-sm transition-colors",
                   isActive(item.href)
                     ? "bg-[#eff6ff] font-medium text-[#009ad6]"
                     : "text-[#45556c] hover:bg-neutral-50 hover:text-[#314158]",
