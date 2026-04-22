@@ -8,6 +8,7 @@ layoutStyle: guide
 ---
 
 import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import userssHero from "@/assets/images/usersintro.svg";
 import GuideIntro from "@/components/docs/GuideIntro.astro";
 import GuideCallout from "@/components/docs/GuideCallout.astro";
 import DocInfoCard from "@/components/docs/DocInfoCard.astro";
@@ -23,7 +24,7 @@ import DocActionCard from "@/components/docs/DocActionCard.astro";
   ]}
 />
 
-<GuideIntro>
+<GuideIntro  image={userssHero}>
   <h1>Users Section</h1>
   <p>
     This section displays a list of all users in the platform along with their

@@ -1,18 +1,15 @@
 ---
 title: المشاريع
-description: يتيح هذا التبويب إنشاء وإدارة المشاريع لتنظيم أصول البيانات وتجميع العلامات والمصطلحات ذات الصلة.
+description: تتيح وحدة المشاريع للمستخدمين تنظيم وإدارة أصول البيانات ضمن مساحة عمل منظمة، وتوفر عرضاً مركزياً للأصول والعلاقات وإعدادات الحوكمة وأعضاء الفريق.
 section: /ar/docs
-priority: 23
+priority: 24
 navGroup: admin
 layoutStyle: guide
 ---
 
 import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
 import GuideIntro from "@/components/docs/GuideIntro.astro";
-import GuideTabs from "@/components/docs/GuideTabs.astro";
-import GuideStepCard from "@/components/docs/GuideStepCard.astro";
-import DocInfoCard from "@/components/docs/DocInfoCard.astro";
-import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
 
 <GuideBreadcrumbs
   items={[
@@ -25,65 +22,223 @@ import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
 <GuideIntro>
   <h1>المشاريع</h1>
   <p>
-    يتيح هذا التبويب إنشاء وإدارة المشاريع، التي تُستخدم لتنظيم أصول البيانات
-    وتجميع العلامات والمصطلحات ذات الصلة من المسرد تحت هيكل حوكمة موحد.
+    تتيح وحدة المشاريع للمستخدمين تنظيم وإدارة أصول البيانات ضمن مساحة عمل
+    منظمة. وتوفر عرضاً مركزياً للأصول والعلاقات وإعدادات الحوكمة وأعضاء الفريق.
   </p>
 </GuideIntro>
 
-<h2 id="project-information">معلومات المشروع</h2>
+## نظرة عامة على المشروع
 
-<p class="mt-1 mb-4 text-[14px] text-[#66758f]">
-  يعرض كل مشروع معلومات أساسية مثل
-</p>
+<p class="mt-1 mb-4 text-[14px] text-[#66758f]">يعرض تبويب النظرة العامة ملخصاً للمشروع يشمل التفاصيل الرئيسية والمعلومات العامة.</p>
 
-<div class="mt-3 mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <DocInfoCard title="الاسم" description="اسم المشروع لسهولة التعرف عليه" icon="name" color="purple" />
-  <DocInfoCard title="المالكون" description="المالكون الأساسيون المسؤولون عن المشروع." icon="role" color="blue" />
-  <DocInfoCard title="العلامات" description="العلامات الشائعة المرتبطة بالمشروع." icon="tag" color="green" />
-  <DocInfoCard title="مصطلحات المسرد" description="مصطلحات المسرد ذات الصلة المرتبطة بالمشروع." icon="glossary" color="yellow" />
+<div class="mb-6 mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">الاسم والحالة</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">اسم المشروع مع حالته الحالية (مثل: مسودة).</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">النطاق</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">نطاق الحوكمة الذي ينتمي إليه المشروع.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">المالك</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">المالك الأساسي المسؤول عن المشروع.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">عدد الأصول</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">إجمالي عدد أصول البيانات المرتبطة بالمشروع.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ccfbf1]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">عدد العلاقات</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">عدد العلاقات المحددة بين الأصول.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">عدد الأعضاء</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">عدد المستخدمين المعينين في هذا المشروع.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">العلامات والمصطلحات</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">العلامات ومصطلحات المسرد المرتبطة بالمشروع.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">الوصف</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">ملخص مكتوب يشرح غرض المشروع.</p>
+  </div>
 </div>
 
-<h2 class="mt-8">البحث والتخصيص</h2>
+## الأصول
 
-<div class="mt-6 mb-8 grid gap-4">
-  <DocFeatureRow title="البحث" description="استخدم شريط البحث للعثور على المشاريع بالاسم أو المعرف." icon="search" color="blue" />
-  <DocFeatureRow title="المرشحات والأعمدة" description="استخدم المرشحات لتضييق النتائج وتحديد الأعمدة." icon="filter" color="purple" />
-  <DocFeatureRow title="إضافة مشروع" description="انقر على إضافة مشروع لإنشاء مشروع جديد." icon="add" color="green" />
+<p class="mt-1 mb-4 text-[14px] text-[#66758f]">يعرض تبويب الأصول جميع أصول البيانات المرتبطة بالمشروع مع خريطة بصرية لعلاقاتها.</p>
+
+<div class="mb-6 mt-4 grid gap-3">
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">قائمة الأصول</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">عرض جميع الأصول المرتبطة (مثل الجداول) مع الاسم والنوع والتصنيف في قائمة منظمة.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">التعليقات والملفات</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">إضافة تعليقات على الأصول ورفع ملفات داعمة أو إرفاق أصول جديدة مباشرةً من القائمة.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#fee2e2]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">إجراءات الأصول</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">تنفيذ إجراءات على الأصول الفردية كحذفها من المشروع.</p>
+    </div>
+  </div>
 </div>
 
-<GuideTabs
-  tabs={[
-    { id: "create", label: "إنشاء" },
-    { id: "edit", label: "تعديل" },
-    { id: "delete", label: "حذف" },
-  ]}
-  defaultTab="create"
->
-  <div slot="create">
-    <h2>خطوات إنشاء مشروع</h2>
-    <div class="docs-step-list">
-      <GuideStepCard number={1} title="انتقل إلى تبويب المشاريع" description="اعرض قائمة المشاريع الموجودة." />
-      <GuideStepCard number={2} title="انقر على إضافة مشروع" description="افتح نموذج إنشاء المشروع." />
-      <GuideStepCard number={3} title="أدخل اسم المشروع ووصفه" description="قدم اسماً واضحاً وغرضاً للمشروع." />
-      <GuideStepCard number={4} title="عيّن المالكين وأضف الأعضاء" description="حدد المالكين المسؤولين وأضف أعضاء الفريق." />
-      <GuideStepCard number={5} title="احفظ المشروع" description="يصبح المشروع الجديد متاحاً للتعاون." />
+<div class="mt-2 mb-6 rounded-[14px] border border-[#edf1f7] bg-white px-5 py-4">
+  <div class="flex items-center gap-3 mb-3">
+    <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#ccfbf1]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+    </div>
+    <p class="m-0 text-[14px] font-semibold text-[#0f172a]">خريطة الأصول</p>
+  </div>
+  <p class="m-0 text-[13px] leading-relaxed text-[#66758f]">يوفر تبويب الخريطة تمثيلاً بصرياً للأصول وعلاقاتها. عرض الأصول كعُقد، وتصور الروابط بينها، وإضافة علاقات جديدة مباشرةً على اللوحة.</p>
+</div>
+
+## الحوكمة
+
+<p class="mt-1 mb-4 text-[14px] text-[#66758f]">يتيح تبويب الحوكمة للمستخدمين تحديد قواعد التصنيف ومعايير الحوكمة للمشروع.</p>
+
+<div class="mb-6 mt-4 grid gap-3 sm:grid-cols-2">
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">مستوى الاعتماد</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">تحديد مستوى جودة معتمد مثل الذهبي للدلالة على موثوقية البيانات.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fee2e2]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">تصنيف البيانات الشخصية</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">تصنيف مستوى حساسية البيانات (مثل: غير حساسة) للامتثال لمتطلبات الخصوصية.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">الاستخدام المقصود</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">تحديد غرض بيانات المشروع (مثل: التحليل، إعداد التقارير).</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">حفظ إعدادات الحوكمة</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">تعيين التصنيفات للأصول وحفظ معايير الحوكمة عبر المشروع.</p>
+  </div>
+</div>
+
+## الأعضاء
+
+<p class="mt-1 mb-4 text-[14px] text-[#66758f]">يعرض تبويب الأعضاء المستخدمين المعينين في المشروع ويتيح إدارتهم.</p>
+
+<div class="mb-6 mt-4 grid gap-3">
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">قائمة الأعضاء</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">عرض جميع الأعضاء المعينين مع الاسم والدور (مسؤول / مشاهد) وتاريخ الإضافة إلى المشروع.</p>
     </div>
   </div>
-  <div slot="edit">
-    <h2>خطوات تعديل مشروع</h2>
-    <div class="docs-step-list">
-      <GuideStepCard number={1} title="اختر المشروع من القائمة" description="افتح المشروع الذي تريد تحديثه." />
-      <GuideStepCard number={2} title="انقر على تعديل" description="ضع المشروع في وضع التعديل." />
-      <GuideStepCard number={3} title="حدّث الحقول المطلوبة" description="راجع الاسم أو الوصف أو الأعضاء." />
-      <GuideStepCard number={4} title="احفظ التغييرات" description="تنعكس التحديثات فوراً." />
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">إضافة أعضاء</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">إضافة مستخدمين جدد إلى المشروع وتعيين دور لكل منهم (مسؤول أو مشاهد).</p>
     </div>
   </div>
-  <div slot="delete">
-    <h2>خطوات حذف مشروع</h2>
-    <div class="docs-step-list">
-      <GuideStepCard number={1} title="اختر المشروع للحذف" description="راجع الأصول والأعضاء المرتبطة." />
-      <GuideStepCard number={2} title="انقر على حذف" description="يعرض تأثير الحذف." />
-      <GuideStepCard number={3} title="تأكيد الحذف" description="وافق على الإزالة الدائمة." />
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ccfbf1]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">تعديل الأعضاء أو إزالتهم</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">تحديث دور أي عضو أو إزالته من المشروع في أي وقت.</p>
     </div>
   </div>
-</GuideTabs>
+</div>
+
+<div class="mb-6 mt-2 flex gap-3 rounded-[12px] border border-[#dbeafe] bg-[#eff6ff] p-4 text-[#2563eb]">
+  <svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <p class="m-0 text-[13px] font-medium leading-relaxed">
+    يتتبع <strong>لوح النشاط والتدقيق</strong> جميع الإجراءات داخل المشروع — بما في ذلك تحديثات المشروع وتغييرات الحوكمة وإضافة الأصول أو إزالتها — مما يمنحك سجل تدقيق كامل لكل تغيير.
+  </p>
+</div>
+
+## إجراءات المشروع
+
+<p class="mt-1 mb-4 text-[14px] text-[#66758f]">استخدم أزرار الإجراءات للتحكم في حالة دورة حياة المشروع.</p>
+
+<div class="mb-6 mt-4 grid gap-3 sm:grid-cols-2">
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v14a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">حفظ كمسودة</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">حفظ المشروع دون نشره. المشاريع في حالة المسودة غير مرئية بالكامل لجميع المستخدمين.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#dcfce7] bg-[#f0fdf4] px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">نشر</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">جعل المشروع نشطاً ومتاحاً عبر المنصة لجميع الأعضاء المعينين.</p>
+    </div>
+  </div>
+</div>
+
+<GuideCallout title="ملاحظة" variant="info">
+  المشاريع في حالة المسودة غير مرئية بالكامل لجميع المستخدمين. تعتمد الصلاحيات على أدوار المستخدمين، وتؤثر إعدادات الحوكمة على إمكانية الوصول إلى الأصول.
+</GuideCallout>
+
+<GuideCallout title="ملاحظة" variant="info">
+  يجب تحديد العلاقات بين الأصول يدوياً في تبويب الخريطة. يمكنك أيضاً نقل ملكية المشروع إلى مالك آخر في أي وقت.
+</GuideCallout>

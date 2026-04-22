@@ -20,7 +20,7 @@ const {
   </a>
   {
     !!children.length && (
-      <ul class="border-neutral-200 ml-2 border-l pl-2">
+      <ul class="border-neutral-200 ml-2 rtl:ml-0 rtl:mr-2 border-l rtl:border-l-0 rtl:border-r pl-2 rtl:pl-0 rtl:pr-2">
         {children.map((subheading) => (
           <Astro.self heading={subheading} />
         ))}

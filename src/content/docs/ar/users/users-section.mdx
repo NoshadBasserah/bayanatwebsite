@@ -10,9 +10,8 @@ layoutStyle: guide
 import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
 import GuideIntro from "@/components/docs/GuideIntro.astro";
 import GuideCallout from "@/components/docs/GuideCallout.astro";
-import DocInfoCard from "@/components/docs/DocInfoCard.astro";
-import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
-import DocActionCard from "@/components/docs/DocActionCard.astro";
+
+import userssHero from "@/assets/images/usersintro.svg";
 
 <GuideBreadcrumbs
   items={[
@@ -23,7 +22,7 @@ import DocActionCard from "@/components/docs/DocActionCard.astro";
   ]}
 />
 
-<GuideIntro>
+<GuideIntro  image={userssHero}>
   <h1>قسم المستخدمين</h1>
   <p>
     يعرض هذا القسم قائمة بجميع المستخدمين في المنصة مع تفاصيلهم الرئيسية
@@ -35,33 +34,129 @@ import DocActionCard from "@/components/docs/DocActionCard.astro";
 
 <p class="text-[14px] text-[#66758f] mt-1 mb-4">يتضمن كل سجل مستخدم المعلومات التالية:</p>
 
-<div class="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-2">
-  <DocInfoCard title="المعرف"       description="معرف فريد للمستخدم."                                          icon="id"        color="purple" />
-  <DocInfoCard title="الاسم"        description="الاسم الكامل للمستخدم."                                       icon="name"      color="blue"   />
-  <DocInfoCard title="البريد الإلكتروني" description="عنوان البريد الإلكتروني للمستخدم."                    icon="email"     color="green"  />
-  <DocInfoCard title="الدليل"       description="مصدر حساب المستخدم (مثل قاعدة البيانات أو Active Directory)." icon="directory" color="yellow" />
-  <DocInfoCard title="الدور"        description="الدور المعيّن (مثل مسؤول، محلل بيانات، مشاهد)."               icon="role"      color="pink"   />
-  <DocInfoCard title="التراخيص"     description="يشير إلى التراخيص المهنية أو التحليلية."                       icon="license"   color="green"  />
-  <DocInfoCard title="الحالة"       description="يشير إلى ما إذا كان حساب المستخدم نشطاً أم غير نشط."           icon="status"    color="yellow" />
-  <DocInfoCard title="الإجراءات"    description="خيارات لإدارة المستخدم."                                       icon="actions"   color="slate"  />
+<div class="mb-6 mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="13" y2="13"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">المعرف</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">معرف فريد للمستخدم.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">الاسم</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">الاسم الكامل للمستخدم.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">البريد الإلكتروني</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">عنوان البريد الإلكتروني للمستخدم.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">الدليل</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">مصدر حساب المستخدم (مثل قاعدة البيانات أو Active Directory).</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fce7f3]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">الدور</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">الدور المعيّن (مثل مسؤول، محلل بيانات، مشاهد).</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#d1fae5]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">التراخيص</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">يشير إلى التراخيص المهنية أو التحليلية.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fef9c3]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">الحالة</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">يشير إلى ما إذا كان حساب المستخدم نشطاً أم غير نشط.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#f1f5f9]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="19" r="1.2"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">الإجراءات</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">خيارات لإدارة المستخدم.</p>
+  </div>
 </div>
 
 ## البحث وتخصيص المستخدمين
 
-<div class="grid gap-4 mb-2">
-  <DocFeatureRow title="البحث"               description="استخدم شريط البحث للعثور على المستخدمين بالاسم أو البريد الإلكتروني أو المعرف." icon="search" color="blue"   />
-  <DocFeatureRow title="المرشحات والأعمدة"   description="استخدم المرشحات لتضييق النتائج وتحديد الأعمدة التي تريد عرضها."               icon="filter" color="purple" />
-  <DocFeatureRow title="إضافة مستخدم"         description="انقر على إضافة مستخدم لإنشاء حساب مستخدم جديد."                             icon="add"    color="green"  />
+<div class="mb-8 mt-4 grid gap-3">
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">البحث</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">استخدم شريط البحث للعثور على المستخدمين بالاسم أو البريد الإلكتروني أو المعرف.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6" /><line x1="4" y1="12" x2="14" y2="12" /><line x1="4" y1="18" x2="10" y2="18" /></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">المرشحات والأعمدة</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">استخدم المرشحات لتضييق النتائج وتحديد الأعمدة التي تريد عرضها.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14" /></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">إضافة مستخدم</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">انقر على إضافة مستخدم لإنشاء حساب مستخدم جديد.</p>
+    </div>
+  </div>
 </div>
 
 ## إدارة المستخدمين
 
 <p class="text-[14px] text-[#66758f] mt-0 mb-4">من عمود الإجراءات، يمكنك:</p>
 
-<div class="grid gap-4 sm:grid-cols-3 mb-2">
-  <DocActionCard title="تعديل تفاصيل المستخدم"    description="تحديث تفاصيل المستخدم مثل الدور والاسم والمعلومات الأخرى باستخدام أيقونة التعديل." icon="edit"   color="purple" />
-  <DocActionCard title="عرض معلومات المستخدم"     description="عرض معلومات مفصلة حول المستخدم باستخدام أيقونة العرض."                              icon="view"   color="teal"   />
-  <DocActionCard title="إجراءات أخرى"              description="الوصول إلى خيارات إدارة إضافية من قائمة الإجراءات."                                  icon="more"   color="green"  />
+<div class="mb-8 mt-4 grid gap-3 sm:grid-cols-3">
+  <div class="flex flex-col gap-3 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-4">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">تعديل تفاصيل المستخدم</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">تحديث تفاصيل المستخدم مثل الدور والاسم والمعلومات الأخرى باستخدام أيقونة التعديل.</p>
+    </div>
+  </div>
+  <div class="flex flex-col gap-3 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-4">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ccfbf1]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">عرض معلومات المستخدم</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">عرض معلومات مفصلة حول المستخدم باستخدام أيقونة العرض.</p>
+    </div>
+  </div>
+  <div class="flex flex-col gap-3 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-4">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">إجراءات أخرى</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">الوصول إلى خيارات إدارة إضافية من قائمة الإجراءات.</p>
+    </div>
+  </div>
 </div>
 
 ## مهم

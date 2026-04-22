@@ -8,6 +8,7 @@ layoutStyle: guide
 ---
 
 import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import listintro from "@/assets/images/listintro.svg";
 import GuideIntro from "@/components/docs/GuideIntro.astro";
 import GuideStepCard from "@/components/docs/GuideStepCard.astro";
 import GuideCallout from "@/components/docs/GuideCallout.astro";
@@ -20,7 +21,7 @@ import GuideCallout from "@/components/docs/GuideCallout.astro";
   ]}
 />
 
-<GuideIntro>
+<GuideIntro  image={listintro}>
   <h1>Lists</h1>
   <p>
     Lists allow administrators to create and manage curated collections of data

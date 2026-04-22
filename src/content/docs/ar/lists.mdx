@@ -9,6 +9,7 @@ layoutStyle: guide
 
 import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
 import GuideIntro from "@/components/docs/GuideIntro.astro";
+import listintro from "@/assets/images/listintro.svg";
 import GuideStepCard from "@/components/docs/GuideStepCard.astro";
 import GuideCallout from "@/components/docs/GuideCallout.astro";
 
@@ -20,7 +21,7 @@ import GuideCallout from "@/components/docs/GuideCallout.astro";
   ]}
 />
 
-<GuideIntro>
+<GuideIntro  image={listintro}>
   <h1>القوائم</h1>
   <p>
     تتيح القوائم للمسؤولين إنشاء وإدارة مجموعات منتقاة من أصول البيانات.

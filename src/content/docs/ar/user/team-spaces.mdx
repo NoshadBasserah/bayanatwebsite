@@ -10,16 +10,22 @@ layoutStyle: guide
 import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
 import GuideIntro from "@/components/docs/GuideIntro.astro";
 import GuideStepCard from "@/components/docs/GuideStepCard.astro";
-import GuideCallout from "@/components/docs/GuideCallout.astro";
 import stepOne from "@/assets/images/teamandspaceimage1.svg";
 import stepTwo from "@/assets/images/teamandspaceimage2.svg";
 import stepThree from "@/assets/images/teamandspaceimage3.svg";
 import stepFour from "@/assets/images/teamandspaceimage4.svg";
 import stepFive from "@/assets/images/teamandspaceimage5.svg";
+import teamandspace from "@/assets/images/teamandspace.svg";
 
-<GuideBreadcrumbs items={[ { label: "التوثيق", href: "/ar/docs/" }, { label: "دور المستخدم", href: "#" }, { label: "الفريق والمساحات" } ]} />
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المستخدم", href: "#" },
+    { label: "الفريق والمساحات" },
+  ]}
+/>
 
-<GuideIntro>
+<GuideIntro image={teamandspace}>
   <h1>الفريق والمساحات</h1>
   <p>
     يتيح هذا التبويب للمستخدمين إنشاء وإدارة الفرق والمساحات للتعاون بين الأعضاء.
@@ -30,73 +36,143 @@ import stepFive from "@/assets/images/teamandspaceimage5.svg";
   </p>
 </GuideIntro>
 
-<div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-  <div class="rounded-[16px] border border-[#edf1f7] bg-white p-5">
-    <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#ede9fe] text-[#7c3aed] mb-3">
-       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+## مقدمة
+
+<div class="mb-6 mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     </div>
-    <h4 class="m-0 text-[14px] font-semibold text-[#0f172a]">التعاون</h4>
-    <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">العمل معاً في مساحات مشتركة.</p>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">التعاون</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">العمل معاً في مساحات مشتركة.</p>
   </div>
-  <div class="rounded-[16px] border border-[#edf1f7] bg-white p-5">
-    <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#dbeafe] text-[#2563eb] mb-3">
-       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     </div>
-    <h4 class="m-0 text-[14px] font-semibold text-[#0f172a]">التواصل</h4>
-    <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">الدردشة المباشرة داخل المساحات</p>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">التواصل</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">الدردشة المباشرة داخل المساحات.</p>
   </div>
-  <div class="rounded-[16px] border border-[#edf1f7] bg-white p-5">
-    <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#d1fae5] text-[#059669] mb-3">
-       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
     </div>
-    <h4 class="m-0 text-[14px] font-semibold text-[#0f172a]">مشاركة الأصول</h4>
-    <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">النماذج ولوحات التحكم والمزيد</p>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">مشاركة الأصول</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">النماذج ولوحات التحكم والمزيد.</p>
   </div>
-  <div class="rounded-[16px] border border-[#edf1f7] bg-white p-5">
-    <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#fef3c7] text-[#d97706] mb-3">
-       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
     </div>
-    <h4 class="m-0 text-[14px] font-semibold text-[#0f172a]">تخطيط المهام</h4>
-    <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">المخطط داخل مساحتك</p>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">تخطيط المهام</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">المخطط داخل مساحتك.</p>
   </div>
 </div>
 
-## خطوات إنشاء مساحة
+## خطوات إنشاء فريق ومساحة
 
 <div class="docs-step-list">
   <GuideStepCard
     number={1}
     title="انتقل إلى تبويب الفريق والمساحات"
-    description="اعرض جميع المساحات الموجودة وأعضاء فريقك."
+    description="انقر على تبويب الفرق من الشريط الجانبي للوصول إلى مساحة عمل فريقك."
     image={stepOne}
     imageAlt="الانتقال إلى الفريق والمساحات"
   />
   <GuideStepCard
     number={2}
-    title="إنشاء مساحة جديدة"
-    description="انقر على إنشاء مساحة وأدخل الاسم والوصف المطلوبين."
+    title="أدخل التفاصيل"
+    description="أدخل التفاصيل المطلوبة (الاسم والوصف)."
     image={stepTwo}
-    imageAlt="إنشاء مساحة جديدة"
+    imageAlt="إدخال تفاصيل الفريق"
   />
   <GuideStepCard
     number={3}
-    title="دعوة أعضاء الفريق"
-    description="أضف زملاءك إلى المساحة لتمكين التعاون."
+    title="انقر على فتح الفريق"
+    description="ستظهر نافذة منبثقة. داخل الفريق، يمكنك إنشاء مساحات وإضافة أعضاء ومشاركة الأصول والتواصل بفعالية."
     image={stepThree}
-    imageAlt="دعوة أعضاء الفريق"
+    imageAlt="فتح الفريق"
   />
   <GuideStepCard
     number={4}
-    title="مشاركة الأصول والموارد"
-    description="شارك النماذج ولوحات التحكم والملفات داخل المساحة."
+    title="إنشاء مساحة جديدة"
+    description="أدخل التفاصيل المطلوبة (اسم المساحة والوصف). أضف الأعضاء وحدد الأصول مثل النماذج ولوحات التحكم والمخططات أو أصول البيانات."
     image={stepFour}
-    imageAlt="مشاركة الأصول والموارد"
+    imageAlt="إنشاء مساحة جديدة"
   />
-  <GuideStepCard
-    number={5}
-    title="إدارة المساحة وإعداداتها"
-    description="تحكم في صلاحيات الأعضاء وإعدادات الخصوصية داخل مساحتك."
-    image={stepFive}
-    imageAlt="إدارة المساحة"
-  />
+</div>
+
+## إدارة المساحات
+
+<div class="mb-6 mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="3" x2="12" y2="21"/><path d="M3 12h18"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">مساحات متعددة</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">يمكنك إنشاء مساحات متعددة داخل نفس الفريق لتنظيم المشاريع أو الموضوعات المختلفة.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">دردشة الفريق</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">تواصل مع أعضاء الفريق داخل المساحة بالنقر على أيقونة الدردشة.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ccfbf1]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">تعديل الفريق أو المساحة</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">انقر على أيقونة القلم (تعديل) لتحديث اسم أي فريق أو مساحة.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#fee2e2] bg-[#fef2f2] px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#fee2e2]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">حذف مساحة</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">حدد المساحة، انقر على قائمة النقاط الثلاث، واختر حذف المساحة.</p>
+    </div>
+  </div>
+</div>
+
+## إضافة مخطط وإدارة المهام
+
+<div class="docs-step-card mt-4">
+  <div class="docs-step-card__panel">
+    <div class="docs-step-card__body">
+      <p class="text-[14px] text-[#66758f] mt-0 mb-4">عند إضافة مخطط إلى مساحتك، يمكنك إنشاء وإدارة مهام الفريق مباشرةً داخل المساحة.</p>
+      <div class="space-y-4">
+        <div class="flex items-start gap-3">
+          <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#009ad6] text-[11px] font-bold text-white mt-0.5">1</div>
+          <p class="m-0 text-[13.5px] leading-relaxed text-[#475569]">انقر على <strong>إضافة مخطط</strong>، ثم اختر <strong>إضافة مهمة</strong>.</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#009ad6] text-[11px] font-bold text-white mt-0.5">2</div>
+          <p class="m-0 text-[13.5px] leading-relaxed text-[#475569]">أدخل تفاصيل المهمة: المُسنَد إليه وتاريخ البدء وتاريخ الانتهاء والأولوية والملاحظات.</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#009ad6] text-[11px] font-bold text-white mt-0.5">3</div>
+          <p class="m-0 text-[13.5px] leading-relaxed text-[#475569]">انقر على <strong>حفظ</strong> لإنشاء المهمة.</p>
+        </div>
+      </div>
+    </div>
+    <div class="docs-step-card__media">
+      <img src={stepFive.src} alt="إضافة مخطط" loading="lazy" />
+    </div>
+  </div>
+</div>
+
+<div class="mt-6 flex gap-3 rounded-[12px] border border-[#dbeafe] bg-[#eff6ff] p-4 text-[#2563eb]">
+  <svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <p class="m-0 text-[13px] font-medium leading-relaxed">
+    يمكن لكل مساحة داخل نفس الفريق أن تمتلك أعضاءها وأصولها ومخططاتها الخاصة — مما يتيح التحكم الدقيق في الوصول وتحديد نطاق التعاون لكل مشروع.
+  </p>
 </div>

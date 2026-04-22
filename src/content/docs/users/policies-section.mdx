@@ -13,6 +13,7 @@ import GuideCallout from "@/components/docs/GuideCallout.astro";
 import DocInfoCard from "@/components/docs/DocInfoCard.astro";
 import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
 import DocActionCard from "@/components/docs/DocActionCard.astro";
+import policymain from "@/assets/images/policymain.svg";
 
 <GuideBreadcrumbs
   items={[
@@ -23,7 +24,7 @@ import DocActionCard from "@/components/docs/DocActionCard.astro";
   ]}
 />
 
-<GuideIntro>
+<GuideIntro image={policymain}>
   <h1>Policies Section</h1>
   <p>
     This section allows administrators to create and manage access policies that

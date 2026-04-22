@@ -9,10 +9,17 @@ layoutStyle: guide
 
 import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
 import GuideIntro from "@/components/docs/GuideIntro.astro";
-import GuideTabs from "@/components/docs/GuideTabs.astro";
 import GuideStepCard from "@/components/docs/GuideStepCard.astro";
-import DocInfoCard from "@/components/docs/DocInfoCard.astro";
-import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import domainIntro from "@/assets/images/domainintro.svg";
+import domainImage1 from "@/assets/images/domainImage1.svg";
+import domainImage2 from "@/assets/images/domainImage2.svg";
+import domainImage3 from "@/assets/images/domainImage3.svg";
+import domainImage4 from "@/assets/images/domainImage4.svg";
+import domainImage5 from "@/assets/images/domainImage5.svg";
+import domainImage6 from "@/assets/images/domainImage6.svg";
+import domainImage7 from "@/assets/images/domainImage7.svg";
+import domainImage8 from "@/assets/images/domainImage8.svg";
 
 <GuideBreadcrumbs
   items={[
@@ -22,7 +29,7 @@ import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
   ]}
 />
 
-<GuideIntro>
+<GuideIntro image={domainIntro} imageAlt="توضيح إدارة النطاقات">
   <h1>النطاقات</h1>
   <p>
     يتيح هذا التبويب إنشاء وإدارة النطاقات، التي تُستخدم لتنظيم أصول البيانات
@@ -30,60 +37,165 @@ import DocFeatureRow from "@/components/docs/DocFeatureRow.astro";
   </p>
 </GuideIntro>
 
-<h2 id="domain-information">معلومات النطاق</h2>
+## معلومات النطاق
 
-<p class="mt-1 mb-4 text-[14px] text-[#66758f]">
-  يعرض كل نطاق معلومات أساسية مثل
-</p>
+<p class="mt-1 mb-4 text-[14px] text-[#66758f]">يعرض كل نطاق معلومات أساسية مثل</p>
 
-<div class="mt-3 mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <DocInfoCard title="الاسم" description="اسم النطاق لسهولة التعرف عليه" icon="name" color="purple" />
-  <DocInfoCard title="المالكون" description="المالكون الأساسيون المسؤولون عن النطاق." icon="role" color="blue" />
-  <DocInfoCard title="العلامات" description="العلامات الشائعة المرتبطة بالنطاق." icon="tag" color="green" />
-  <DocInfoCard title="مصطلحات المسرد" description="مصطلحات المسرد ذات الصلة المرتبطة بالنطاق." icon="glossary" color="yellow" />
+<div class="mb-6 mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">الاسم</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">اسم النطاق لسهولة التعرف عليه.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">المالكون</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">المالكون الأساسيون المسؤولون عن النطاق.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">العلامات</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">العلامات الشائعة المرتبطة بالنطاق.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">مصطلحات المسرد</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">مصطلحات المسرد ذات الصلة المرتبطة بالنطاق.</p>
+  </div>
 </div>
 
-<h2 class="mt-8">البحث والتخصيص</h2>
+## البحث والتخصيص
 
-<div class="mt-6 mb-8 grid gap-4">
-  <DocFeatureRow title="البحث" description="استخدم شريط البحث للعثور على النطاقات بالاسم." icon="search" color="blue" />
-  <DocFeatureRow title="المرشحات والأعمدة" description="استخدم المرشحات لتضييق النتائج وتحديد الأعمدة التي تريد عرضها." icon="filter" color="purple" />
-  <DocFeatureRow title="إضافة نطاق" description="انقر على إضافة نطاق لإنشاء نطاق جديد." icon="add" color="green" />
+<div class="mb-8 mt-4 grid gap-3">
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">البحث</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">استخدم شريط البحث للعثور على النطاقات بالاسم.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">المرشحات والأعمدة</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">استخدم المرشحات لتضييق النتائج وتحديد الأعمدة التي تريد عرضها.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">إضافة نطاق</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">انقر على إضافة نطاق لإنشاء نطاق جديد.</p>
+    </div>
+  </div>
 </div>
 
-<GuideTabs
-  tabs={[
-    { id: "create", label: "إنشاء" },
-    { id: "edit", label: "تعديل" },
-    { id: "delete", label: "حذف" },
-  ]}
-  defaultTab="create"
->
-  <div slot="create">
-    <h2>خطوات إنشاء نطاق</h2>
-    <div class="docs-step-list">
-      <GuideStepCard number={1} title="انتقل إلى تبويب النطاقات" description="اعرض قائمة النطاقات الموجودة." />
-      <GuideStepCard number={2} title="انقر على إضافة نطاق" description="افتح نموذج إنشاء النطاق." />
-      <GuideStepCard number={3} title="أدخل اسم النطاق ووصفه" description="قدم اسماً واضحاً وغرضاً للنطاق." />
-      <GuideStepCard number={4} title="عيّن المالكين والعلامات" description="حدد المالكين المسؤولين وأضف العلامات ذات الصلة." />
-      <GuideStepCard number={5} title="احفظ النطاق" description="يصبح النطاق الجديد متاحاً لتنظيم الأصول." />
+## خطوات إنشاء نطاق جديد
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="انتقل إلى تبويب النطاقات"
+    description="افتح قسم النطاقات من مجموعة الحوكمة في شريط التنقل الجانبي."
+    image={domainImage1}
+    imageAlt="التنقل إلى تبويب النطاقات"
+  />
+  <GuideStepCard
+    number={2}
+    title="انقر على زر (+) إضافة لإنشاء نطاق جديد"
+    description="انقر على زر + إضافة في أعلى قائمة النطاقات لفتح نموذج إنشاء النطاق."
+    image={domainImage2}
+    imageAlt="زر إضافة نطاق جديد"
+  />
+  <GuideStepCard
+    number={3}
+    title="أدخل التفاصيل المطلوبة"
+    description="أدخل اسم النطاق (مطلوب) واسم العرض ووصفاً يشرح غرض النطاق."
+    image={domainImage3}
+    imageAlt="نموذج تفاصيل النطاق"
+  />
+  <GuideStepCard
+    number={4}
+    title="ضبط الهوية البصرية"
+    description="حدد رابط أيقونة لتمثيل النطاق بصرياً، واختر لوناً يظهر كمؤشر بصري في جميع أنحاء الواجهة."
+    image={domainImage4}
+    imageAlt="إعداد الهوية البصرية للنطاق"
+  />
+  <GuideStepCard
+    number={5}
+    title="إضافة العلامات ومصطلحات المسرد"
+    description="أرفق العلامات ومصطلحات المسرد اختيارياً بالنطاق لتجميع بيانات الحوكمة ذات الصلة تحت هيكل موحد."
+    image={domainImage5}
+    imageAlt="علامات ومصطلحات مسرد النطاق"
+  />
+  <GuideStepCard
+    number={6}
+    title="انقر على حفظ"
+    description="تأكيد إنشاء النطاق. سيظهر النطاق الجديد في القائمة فوراً."
+    image={domainImage6}
+    imageAlt="حفظ النطاق"
+  />
+</div>
+
+## إدارة النطاقات
+
+<div class="docs-step-list">
+  <div class="docs-step-card">
+    <div class="docs-step-card__panel">
+      <div class="docs-step-card__body">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <h3 class="m-0">تعديل النطاق</h3>
+        </div>
+        <p>انقر على <strong>تعديل النطاق</strong> داخل عرض تفاصيل النطاق لتحديث أي حقل — بما في ذلك الاسم والوصف والهوية البصرية والعلامات ومصطلحات المسرد.</p>
+      </div>
+      <div class="docs-step-card__media">
+        <img src={domainImage7.src} alt="تعديل النطاق" loading="lazy" />
+      </div>
     </div>
   </div>
-  <div slot="edit">
-    <h2>خطوات تعديل نطاق</h2>
-    <div class="docs-step-list">
-      <GuideStepCard number={1} title="اختر النطاق من القائمة" description="افتح النطاق الذي تريد تحديثه." />
-      <GuideStepCard number={2} title="انقر على تعديل" description="ضع النطاق في وضع التعديل." />
-      <GuideStepCard number={3} title="حدّث الحقول المطلوبة" description="راجع الاسم أو الوصف أو المالكين." />
-      <GuideStepCard number={4} title="احفظ التغييرات" description="يتم تطبيق التعريف المنقح عبر المنصة." />
+  <div class="docs-step-card">
+    <div class="docs-step-card__panel">
+      <div class="docs-step-card__body">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <h3 class="m-0">البحث عن نطاق</h3>
+        </div>
+        <p>استخدم <strong>شريط البحث</strong> في أعلى تبويب النطاقات للعثور بسرعة على نطاق محدد بالاسم.</p>
+      </div>
+      <div class="docs-step-card__media">
+        <img src={domainImage8.src} alt="البحث عن نطاق" loading="lazy" />
+      </div>
     </div>
   </div>
-  <div slot="delete">
-    <h2>خطوات حذف نطاق</h2>
-    <div class="docs-step-list">
-      <GuideStepCard number={1} title="اختر النطاق للحذف" description="راجع أماكن استخدامه حالياً." />
-      <GuideStepCard number={2} title="انقر على حذف" description="يعرض تحليل الأثر." />
-      <GuideStepCard number={3} title="تأكيد الحذف" description="وافق على الإزالة بعد التحقق." />
-    </div>
-  </div>
-</GuideTabs>
+</div>
+
+<GuideCallout title="ملاحظة" variant="info">
+  تساعد النطاقات في تنظيم البيانات وحوكمتها عبر المنصة. إسناد نطاق إلى أصول البيانات أو المشاريع أو مصطلحات المسرد يضمن التصنيف المتسق وقابلية الاكتشاف.
+</GuideCallout>
+
+<GuideCallout title="ملاحظة" variant="info">
+  ستظهر المشاريع والأصول المرتبطة في قسم الاستخدام بمجرد تعيين النطاق وبدء استخدامه الفعلي. تتحدث أعداد الاستخدام تلقائياً مع ربط الأصول.
+</GuideCallout>
+
+<GuideCallout title="ملاحظة" variant="info">
+  يُستخدم حقل اللون كمؤشر بصري في الواجهة — يظهر على رقائق النطاق والشارات عبر المنصة، مما يجعل النطاقات قابلة للتعرف عليها بلمحة.
+</GuideCallout>

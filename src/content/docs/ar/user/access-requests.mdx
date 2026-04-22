@@ -1,6 +1,6 @@
 ---
 title: طلبات الوصول
-description: تتبع حالة طلبات الموارد المعلقة الخاصة بك.
+description: يمكن للمستخدمين طلب الوصول إلى مجموعات البيانات ولوحات التحكم والصلاحيات الإضافية.
 section: /ar/docs
 priority: 25
 navGroup: user
@@ -9,8 +9,10 @@ layoutStyle: guide
 
 import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
 import GuideIntro from "@/components/docs/GuideIntro.astro";
-import GuideStepCard from "@/components/docs/GuideStepCard.astro";
-import GuideCallout from "@/components/docs/GuideCallout.astro";
+import useraccessrequest1 from "@/assets/images/useraccessrequest1.svg";
+import useraccessrequest2 from "@/assets/images/useraccessrequest2.svg";
+import useraccessrequest3 from "@/assets/images/useraccessrequest3.svg";
+import accessrequestmain from "@/assets/images/accessrequestmain.svg";
 
 <GuideBreadcrumbs
   items={[
@@ -20,43 +22,128 @@ import GuideCallout from "@/components/docs/GuideCallout.astro";
   ]}
 />
 
-<GuideIntro>
+
+<GuideIntro image={accessrequestmain}>
   <h1>طلبات الوصول</h1>
-  <p>
-    يتيح لك هذا القسم تتبع جميع طلبات الوصول التي قدمتها ومراقبة حالتها
-    في الوقت الفعلي.
-  </p>
+  <p class="text-[15px] font-semibold text-[#0f172a] mb-3">يمكن للمستخدمين طلب الوصول عند:</p>
+  <ul class="list-none p-0 m-0 space-y-2">
+    <li class="flex items-center gap-2 text-[14px] text-[#0f172a]">
+      <span class="text-[#64748b] font-bold">•</span>
+      نشر مجموعة بيانات دون تعيينها لهم
+    </li>
+    <li class="flex items-center gap-2 text-[14px] text-[#0f172a]">
+      <span class="text-[#64748b] font-bold">•</span>
+      وجود لوحة تحكم تستلزم صلاحية للوصول
+    </li>
+    <li class="flex items-center gap-2 text-[14px] text-[#0f172a]">
+      <span class="text-[#64748b] font-bold">•</span>
+      الحاجة إلى صلاحيات إضافية (مثل الإضافة إلى مساحة أو التراخيص)
+    </li>
+  </ul>
 </GuideIntro>
 
-## خطوات تتبع طلبات الوصول
+## نظرة عامة
 
-<div class="docs-step-list">
-  <GuideStepCard
-    number={1}
-    title="انتقل إلى تبويب طلبات الوصول"
-    description="يعرض التبويب جميع الطلبات التي قدمتها مع حالتها الحالية."
-  />
-  <GuideStepCard
-    number={2}
-    title="تصفية الطلبات حسب الحالة أو التاريخ"
-    description="استخدم المرشحات لتضييق قائمة الطلبات وعرض فئات محددة."
-  />
-  <GuideStepCard
-    number={3}
-    title="انقر على طلب لعرض تفاصيله"
-    description="اطّلع على معلومات الطلب الكاملة بما في ذلك سجل النشاط والتدقيق."
-  />
-  <GuideStepCard
-    number={4}
-    title="تلقي إشعارات بتغييرات الحالة"
-    description="ستتلقى إشعارات بالبريد الإلكتروني عند الموافقة على طلبك أو رفضه."
-  />
+<div class="mt-4 flex gap-3 rounded-[12px] border border-[#dbeafe] bg-[#eff6ff] p-4 text-[#2563eb]">
+  <svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="12" y1="16" x2="12" y2="12"></line>
+    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+  </svg>
+  <p class="m-0 text-[14px] leading-relaxed text-[#0f172a]">
+    عند الانتقال إلى تبويب <strong class="text-[#009ad6]">طلباتي</strong>، ستظهر جميع الطلبات التي قدمتها.
+  </p>
 </div>
 
-<GuideCallout title="معلومات إضافية" variant="info">
-  <ul>
-    <li>يمكنك تصدير قائمة طلباتك بالنقر على زر التصدير.</li>
-    <li>انقر على أيقونة العرض (العين) لرؤية التفاصيل الكاملة وسجل التدقيق.</li>
-    <li>يمكنك إلغاء الطلبات المعلقة قبل اتخاذ قرار بشأنها.</li>
-  </ul>
-</GuideCallout>
+## الطلبات المقدمة
+
+<div class="mt-4 docs-step-list">
+  <div class="docs-step-card">
+    <div class="docs-step-card__panel">
+      <div class="docs-step-card__body">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3 class="m-0">عرض جميع الطلبات المقدمة</h3>
+        </div>
+        <p>عند الانتقال إلى تبويب <strong>طلباتي</strong>، تُعرض جميع طلباتك في قائمة تشمل الحالة الحالية واسم مجموعة البيانات وتاريخ الطلب والمُعتمِد المعيّن.</p>
+      </div>
+      <div class="docs-step-card__media">
+        <img src={useraccessrequest1.src} alt="عرض جميع الطلبات المقدمة" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <div class="docs-step-card">
+    <div class="docs-step-card__panel">
+      <div class="docs-step-card__body">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </div>
+          <h3 class="m-0">عرض تفاصيل الطلب</h3>
+        </div>
+        <p>انقر على أيقونة العين بجانب أي طلب لفتح لوحة التفاصيل الكاملة، بما في ذلك جميع البيانات الوصفية المقدمة وسجل التدقيق الحي الذي يُظهر كل تغيير في الحالة.</p>
+      </div>
+      <div class="docs-step-card__media">
+        <img src={useraccessrequest2.src} alt="عرض تفاصيل الطلب" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <div class="docs-step-card">
+    <div class="docs-step-card__panel">
+      <div class="docs-step-card__body">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#dcfce7]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </div>
+          <h3 class="m-0">تصدير الطلبات</h3>
+        </div>
+        <p>انقر على تصدير لتنزيل جميع طلباتك المقدمة كملف للمراجعة دون اتصال أو إعداد التقارير أو الأرشفة.</p>
+      </div>
+      <div class="docs-step-card__media">
+        <img src={useraccessrequest3.src} alt="تصدير الطلبات" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</div>
+
+## إلغاء الطلب
+
+<div class="mt-4 rounded-[12px] border border-[#ffedd5] bg-[#fff7ed] p-4">
+  <div class="flex items-start gap-3">
+    <div class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-[#f97316] text-[#f97316]">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </div>
+    <div>
+      <p class="m-0 text-[13px] leading-relaxed text-[#9a4b15]">
+        يمكنك إلغاء طلبك <strong>قبل موافقة المسؤول</strong> عليه. بعد الموافقة، لا يمكنك إلغاء الطلب من طرفك وسيستلزم ذلك تدخلاً من المسؤول.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 flex gap-3 rounded-[12px] border border-[#dbeafe] bg-[#eff6ff] p-4 text-[#2563eb]">
+  <svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="12" y1="16" x2="12" y2="12"></line>
+    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+  </svg>
+  <p class="m-0 text-[13px] leading-relaxed text-[#0f172a]">
+    يُسجّل <strong class="text-[#009ad6]">سجل التدقيق</strong> في لوحة عرض التفاصيل كل تغيير في الحالة — من أجرى الإجراء وما هو الإجراء ومتى — مما يمنحك شفافية كاملة حول دورة حياة طلبك.
+  </p>
+</div>

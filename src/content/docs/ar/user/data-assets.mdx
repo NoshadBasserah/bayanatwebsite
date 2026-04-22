@@ -11,6 +11,9 @@ import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
 import GuideIntro from "@/components/docs/GuideIntro.astro";
 import GuideStepCard from "@/components/docs/GuideStepCard.astro";
 
+import dataassetsmain from "@/assets/images/dataassetsmain.svg";
+
+
 <GuideBreadcrumbs
   items={[
     { label: "التوثيق", href: "/ar/docs/" },
@@ -19,7 +22,7 @@ import GuideStepCard from "@/components/docs/GuideStepCard.astro";
   ]}
 />
 
-<GuideIntro>
+<GuideIntro image={dataassetsmain}>
   <h1>أصول البيانات</h1>
   <p>
     في هذا التبويب، تُعرض جميع أصول البيانات المنشورة بما في ذلك قواعد

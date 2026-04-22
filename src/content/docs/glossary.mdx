@@ -9,8 +9,8 @@ layoutStyle: guide
 
 import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
 import GuideIntro from "@/components/docs/GuideIntro.astro";
-import GuideStepCard from "@/components/docs/GuideStepCard.astro";
-import GuideTabs from "@/components/docs/GuideTabs.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+import glossaryHero from "@/assets/images/glossarymain.svg";
 
 <GuideBreadcrumbs
   items={[
@@ -20,7 +20,7 @@ import GuideTabs from "@/components/docs/GuideTabs.astro";
   ]}
 />
 
-<GuideIntro>
+<GuideIntro image={glossaryHero} imageAlt="Glossary management illustration">
   <h1>Glossary</h1>
   <p>
     The Business Glossary provides a centralized repository of business terms
@@ -33,107 +33,139 @@ import GuideTabs from "@/components/docs/GuideTabs.astro";
   </p>
 </GuideIntro>
 
-<GuideTabs
-  tabs={[
-    { id: "create", label: "Create" },
-    { id: "edit", label: "Edit" },
-    { id: "delete", label: "Delete" },
-  ]}
-  defaultTab="create"
->
-  <div slot="create">
-    <h2 id="steps-to-create-a-glossary">Steps to Create a Glossary</h2>
 
-    <div class="docs-step-list">
-      <GuideStepCard
-        number={1}
-        title="Navigate to the Glossary tab"
-        description="Access the complete business terminology repository."
-      />
-      <GuideStepCard
-        number={2}
-        title="Click 'Add New Term'"
-        description="Open the glossary term creation form."
-      />
-      <GuideStepCard
-        number={3}
-        title="Enter the term name and business definition"
-        description="Provide clear, concise definitions that non-technical stakeholders can understand."
-      />
-      <GuideStepCard
-        number={4}
-        title="Add synonyms and related terms"
-        description="Link related concepts to improve discoverability and understanding."
-      />
-      <GuideStepCard
-        number={5}
-        title="Assign term owners and subject matter experts"
-        description="Designate who is responsible for maintaining the term definition."
-      />
-      <GuideStepCard
-        number={6}
-        title="Optionally organize terms into hierarchies or categories"
-        description="Create parent-child relationships for complex domain models."
-      />
-      <GuideStepCard
-        number={7}
-        title="Link the term to relevant data assets"
-        description="Associate the business term with technical data assets for traceability."
-      />
-      <GuideStepCard
-        number={8}
-        title="Publish the term"
-        description="Make the term searchable and available for asset tagging."
-      />
+## Glossary Terms
+
+<p class="text-[14px] text-[#66758f] mt-1 mb-4">The glossary includes the following core information:</p>
+
+<div class="mb-6 mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Name</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Business term name.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Description</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Short definition of the term.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ccfbf1]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Tags</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Optional related tags.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Usage</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Used across assets &amp; classifications.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#f1f5f9]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="19" r="1.2"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Actions</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Options to manage glossary terms.</p>
+  </div>
+</div>
+
+## Creating a Glossary and Terms
+
+<div class="mb-4 mt-4 grid gap-3">
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14" /></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Create Glossary</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Update the term name, description, or tags.</p>
     </div>
   </div>
-
-  <div slot="edit">
-    <h2 id="steps-to-edit-glossary-terms">Steps to Edit Glossary Terms</h2>
-
-    <div class="docs-step-list">
-      <GuideStepCard
-        number={1}
-        title="Search for and select the term"
-        description="Use the glossary search or browse by category."
-      />
-      <GuideStepCard
-        number={2}
-        title="Click 'Edit'"
-        description="Open the term editor while maintaining version history."
-      />
-      <GuideStepCard
-        number={3}
-        title="Update definition, synonyms, or relationships"
-        description="All changes are tracked with timestamps and author information."
-      />
-      <GuideStepCard
-        number={4}
-        title="Save changes"
-        description="Updates are immediately reflected across all linked assets."
-      />
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Create Term</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Add a new term inside the selected glossary.</p>
     </div>
   </div>
-
-  <div slot="delete">
-    <h2 id="steps-to-delete-glossary-terms">Steps to Delete Glossary Terms</h2>
-
-    <div class="docs-step-list">
-      <GuideStepCard
-        number={1}
-        title="Select the term to delete"
-        description="Review where the term is currently used."
-      />
-      <GuideStepCard
-        number={2}
-        title="Click 'Delete'"
-        description="Displays impact analysis showing linked assets."
-      />
-      <GuideStepCard
-        number={3}
-        title="Confirm deletion with optional replacement term"
-        description="You can specify an alternative term for automatic replacement."
-      />
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="18" x2="14" y2="18" /></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Required Fields</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Open fields: class assets, and optional tags.</p>
     </div>
   </div>
-</GuideTabs>
+</div>
+
+<p class="text-[13px] text-[#66758f] mb-6">Click <strong class="text-[#009ad6]">Save</strong> to create the glossary term.</p>
+
+## Managing Glossary Terms
+
+<div class="mb-8 mt-4 grid gap-3">
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Edit Term</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Update the term, click Edit, update the required fields then click Save.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#fee2e2]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Delete Term</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Remove the term when it is no longer needed.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#f1f5f9]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">More Actions</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Open the three-dot menu to edit or delete the selected term.</p>
+    </div>
+  </div>
+</div>
+
+## Editing / Deleting a Glossary Term
+
+<div class="mb-6 mt-4 grid gap-3 sm:grid-cols-2">
+  <div class="flex flex-col gap-3 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-4">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Edit</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Select the term, click Edit, update the required fields, use click Save.</p>
+    </div>
+  </div>
+  <div class="flex flex-col gap-3 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-4">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#fee2e2]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Delete</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Open the three-dot menu and choose delete for the selected term.</p>
+    </div>
+  </div>
+</div>
+
+<div class="flex items-center gap-3 rounded-[14px] border border-[#fde68a] bg-[#fffbeb] px-5 py-4">
+  <span class="text-[#d97706] shrink-0">⚠</span>
+  <p class="text-[13px] text-[#92400e] m-0">Deleted terms may affect linked assets, classifications, or domains.</p>
+</div>

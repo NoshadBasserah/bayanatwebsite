@@ -10,137 +10,158 @@ layoutStyle: guide
 import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
 import GuideIntro from "@/components/docs/GuideIntro.astro";
 import GuideStepCard from "@/components/docs/GuideStepCard.astro";
-import GuideCallout from "@/components/docs/GuideCallout.astro";
 import stepOne from "@/assets/images/teamandspaceimage1.svg";
 import stepTwo from "@/assets/images/teamandspaceimage2.svg";
 import stepThree from "@/assets/images/teamandspaceimage3.svg";
 import stepFour from "@/assets/images/teamandspaceimage4.svg";
 import stepFive from "@/assets/images/teamandspaceimage5.svg";
+import teamandspace from "@/assets/images/teamandspace.svg";
 
-<GuideBreadcrumbs items={[ { label: "Docs" , href: "/docs/" }, { label: "As user role" , href: "#" }, {
-  label: "Team & Spaces" }, ]} />
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As user role", href: "#" },
+    { label: "Team & Spaces" },
+  ]}
+/>
 
-<GuideIntro>
+<GuideIntro image={teamandspace}>
   <h1>Team & Spaces</h1>
   <p>
-    This tab allows users to create and manage teams, and spaces for collaboration among members.
+    This tab allows users to create and manage teams, and spaces for
+    collaboration among members.
   </p>
   <p>
-    it enables users to share information, access resources, create dashboards, communicats, and work, together effectively as a team.
+    It enables users to share information, access resources, create dashboards,
+    communicate, and work together effectively as a team.
   </p>
 </GuideIntro>
 
-<div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-  <div class="rounded-[16px] border border-[#edf1f7] bg-white p-5">
-    <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#ede9fe] text-[#7c3aed] mb-3">
-       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+## Introduction
+
+<div class="mb-6 mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     </div>
-    <h4 class="m-0 text-[14px] font-semibold text-[#0f172a]">Collaborate</h4>
-    <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">Work together in shared spaces.</p>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Collaborate</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Work together in shared spaces.</p>
   </div>
-  <div class="rounded-[16px] border border-[#edf1f7] bg-white p-5">
-    <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#dbeafe] text-[#2563eb] mb-3">
-       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     </div>
-    <h4 class="m-0 text-[14px] font-semibold text-[#0f172a]">Communicate</h4>
-    <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">Chat directly in spaces</p>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Communicate</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Chat directly in spaces.</p>
   </div>
-  <div class="rounded-[16px] border border-[#edf1f7] bg-white p-5">
-    <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#d1fae5] text-[#059669] mb-3">
-       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
     </div>
-    <h4 class="m-0 text-[14px] font-semibold text-[#0f172a]">Share Assets</h4>
-    <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">Forms, Dashboards & more</p>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Share Assets</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Forms, Dashboards &amp; more.</p>
   </div>
-  <div class="rounded-[16px] border border-[#edf1f7] bg-white p-5">
-    <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#fef3c7] text-[#d97706] mb-3">
-       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
     </div>
-    <h4 class="m-0 text-[14px] font-semibold text-[#0f172a]">Plan Tasks</h4>
-    <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">Planner inside your space</p>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Plan Tasks</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Planner inside your space.</p>
   </div>
 </div>
 
-<h2 id="steps-to-create-a-team-and-space" class="text-[17px] font-bold text-[#0f172a] mb-6">Steps to Create a Team and Space:</h2>
+## Steps to Create a Team and Space
 
 <div class="docs-step-list">
-  <GuideStepCard number={1} title="Navigate to the Teams & Spaces" description="Tab on the Teams." image={stepOne} imageAlt="Navigate to the Teams & Spaces" />
-  
-  <GuideStepCard number={2} title="Enter Details" description="nter the required details (Name and Description)." image={stepTwo} imageAlt="Enter Details" />
-  
-  <GuideStepCard number={3} title="Click on Open Team." description={`A pop-up will appear with the following message. Within the team, you can create spaces, add members, share assets, and communicats effectively.`} image={stepThree} imageAlt="Click on Open Team" />
-  <GuideStepCard number={4} title="Create New Space" description={`Enter the required details (Space Name and Description) Add members and select assets such as Forms, Dashboards, Planners, or Data Assets.`} image={stepFour} imageAlt="Create New Space" />
+  <GuideStepCard
+    number={1}
+    title="Navigate to the Teams & Spaces"
+    description="Click on the Teams tab from the sidebar to access your team workspace."
+    image={stepOne}
+    imageAlt="Navigate to the Teams & Spaces"
+  />
+  <GuideStepCard
+    number={2}
+    title="Enter Details"
+    description="Enter the required details (Name and Description)."
+    image={stepTwo}
+    imageAlt="Enter team details"
+  />
+  <GuideStepCard
+    number={3}
+    title="Click on Open Team"
+    description="A pop-up will appear. Within the team, you can create spaces, add members, share assets, and communicate effectively."
+    image={stepThree}
+    imageAlt="Click on Open Team"
+  />
+  <GuideStepCard
+    number={4}
+    title="Create New Space"
+    description="Enter the required details (Space Name and Description). Add members and select assets such as Forms, Dashboards, Planners, or Data Assets."
+    image={stepFour}
+    imageAlt="Create New Space"
+  />
 </div>
 
+## Space Management
 
-
-<h2 id="additional-information" class="sr-only">Additional Information</h2>
-
-<div class="mt-8 grid grid-cols-1 sm:grid-cols-4 gap-4">
-  <div class="doc-feature-row p-4 border border-[#edf1f7] rounded-[16px] bg-white">
-    <div class="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-full bg-[#dbeafe] text-[#2563eb]">
-       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="3" x2="12" y2="21"></line><path d="M3 12h18"></path></svg>
+<div class="mb-6 mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="3" x2="12" y2="21"/><path d="M3 12h18"/></svg>
     </div>
     <div>
       <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Multiple Spaces</p>
-      <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">You can create multiple spaces within the same team to organize different projects or topics.</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">You can create multiple spaces within the same team to organize different projects or topics.</p>
     </div>
   </div>
-
-  <div class="doc-feature-row p-4 border border-[#edf1f7] rounded-[16px] bg-white">
-    <div class="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-full bg-[#ede9fe] text-[#7c3aed]">
-       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     </div>
     <div>
       <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Team Chat</p>
-      <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">Communicate with team members within a space by clicking the chat icon.</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Communicate with team members within a space by clicking the chat icon.</p>
     </div>
   </div>
-
-  <div class="doc-feature-row p-4 border border-[#edf1f7] rounded-[16px] bg-white">
-    <div class="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-full bg-[#ccfbf1] text-[#0d9488]">
-       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ccfbf1]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
     </div>
     <div>
       <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Edit Team or Space</p>
-      <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">Click the pencil (edit) icon to update the name of any team or space.</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Click the pencil (edit) icon to update the name of any team or space.</p>
     </div>
   </div>
-
-  <div class="doc-feature-row p-4 border border-[#fee2e2] rounded-[16px] bg-[#fef2f2]">
-    <div class="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-full bg-[#fee2e2] text-[#ef4444]">
-       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#fee2e2] bg-[#fef2f2] px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#fee2e2]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
     </div>
     <div>
       <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Delete a Space</p>
-      <p class="m-0 mt-1 text-sm leading-relaxed text-[#66758f]">Select the space, click the three-dot menu, and choose Delete Space.</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Select the space, click the three-dot menu, and choose Delete Space.</p>
     </div>
   </div>
 </div>
 
-<div class="docs-step-card mt-8 " >
+## Adding a Planner & Managing Tasks
+
+<div class="docs-step-card mt-4">
   <div class="docs-step-card__panel">
     <div class="docs-step-card__body">
-      <div class="flex items-center gap-3 mb-2">
-         <div class="flex h-[1.75rem] w-[1.75rem] items-center justify-center rounded-[6px] bg-[#dbeafe] text-[#2563eb]">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-         </div>
-         <h3 class="m-0 text-[16px] font-bold text-[#0f172a]">Adding a Planner & Managing Tasks</h3>
-      </div>
-      <p class="text-[14px] text-[#66758f]">When a Planner is added to your space, you can create and manage tasks for the team directly within the space.</p>
-      
-      <div class="mt-4 space-y-4">
+      <p class="text-[14px] text-[#66758f] mt-0 mb-4">When a Planner is added to your space, you can create and manage tasks for the team directly within the space.</p>
+      <div class="space-y-4">
         <div class="flex items-start gap-3">
-          <div class="flex h-[1.25rem] w-[1.25rem] shrink-0 items-center justify-center rounded-full bg-[#009ad6] text-[11px] font-bold text-white mt-0.5">1</div>
-          <p class="m-0 text-[13.5px] leading-relaxed text-[#475569]">Click Add Planner, then select Add Task.</p>
+          <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#009ad6] text-[11px] font-bold text-white mt-0.5">1</div>
+          <p class="m-0 text-[13.5px] leading-relaxed text-[#475569]">Click <strong>Add Planner</strong>, then select <strong>Add Task</strong>.</p>
         </div>
         <div class="flex items-start gap-3">
-          <div class="flex h-[1.25rem] w-[1.25rem] shrink-0 items-center justify-center rounded-full bg-[#009ad6] text-[11px] font-bold text-white mt-0.5">2</div>
+          <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#009ad6] text-[11px] font-bold text-white mt-0.5">2</div>
           <p class="m-0 text-[13.5px] leading-relaxed text-[#475569]">Enter task details: Assignee, Start Date, End Date, Priority, and Notes.</p>
         </div>
         <div class="flex items-start gap-3">
-          <div class="flex h-[1.25rem] w-[1.25rem] shrink-0 items-center justify-center rounded-full bg-[#009ad6] text-[11px] font-bold text-white mt-0.5">3</div>
-          <p class="m-0 text-[13.5px] leading-relaxed text-[#475569]">Click Save to create the task.</p>
+          <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#009ad6] text-[11px] font-bold text-white mt-0.5">3</div>
+          <p class="m-0 text-[13.5px] leading-relaxed text-[#475569]">Click <strong>Save</strong> to create the task.</p>
         </div>
       </div>
     </div>
@@ -150,13 +171,8 @@ import stepFive from "@/assets/images/teamandspaceimage5.svg";
   </div>
 </div>
 
-<div class="mt-8 flex gap-3 rounded-[12px] border border-[#dbeafe] bg-[#eff6ff] p-4 text-[#2563eb]">
-  <svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="10"></circle>
-    <line x1="12" y1="16" x2="12" y2="12"></line>
-    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-  </svg>
+<div class="mt-6 flex gap-3 rounded-[12px] border border-[#dbeafe] bg-[#eff6ff] p-4 text-[#2563eb]">
+  <svg class="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
   <p class="m-0 text-[13px] font-medium leading-relaxed">
     Spaces within the same team can each have their own members, assets, and planners — allowing fine-grained access control and collaboration scoping per project.
   </p>

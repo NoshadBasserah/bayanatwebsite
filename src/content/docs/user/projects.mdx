@@ -1,0 +1,167 @@
+---
+title: Projects
+description: View and collaborate on your assigned projects, organize data assets, and manage related tags and glossary terms.
+section: /docs
+priority: 23
+navGroup: user
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "Docs", href: "/docs/" },
+    { label: "As user role", href: "#" },
+    { label: "Projects" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>Projects</h1>
+  <p>
+    This tab allows you to view and collaborate on projects, which are used to
+    organize data assets, and group related tags and glossary terms under a
+    unified governance structure.
+  </p>
+</GuideIntro>
+
+## Project information
+
+<p class="mt-1 mb-4 text-[14px] text-[#66758f]">Each project shows basic information such as</p>
+
+<div class="mb-6 mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Name</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Project name for easy identification.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Owners</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Primary owners responsible for the project.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Tags</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Common tags associated with the project.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">Glossary Terms</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">Relevant glossary terms linked to the project.</p>
+  </div>
+</div>
+
+## Finding and Customizing Projects
+
+<div class="mb-8 mt-4 grid gap-3">
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Search</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Use the search bar to find projects by name or description.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Filters &amp; Columns</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Use filters to narrow down results and select which columns to display.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">Add Projects</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">Click on Add Project to create a new project.</p>
+    </div>
+  </div>
+</div>
+
+## Steps to Create a New Project
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="Navigate to the Projects tab"
+    description="Open the Projects section from the left navigation sidebar."
+  />
+  <GuideStepCard
+    number={2}
+    title="Click on the (+) Add button to create a new Project"
+    description="Click the + Add button at the top of the project list to open the project creation form."
+  />
+  <GuideStepCard
+    number={3}
+    title="Enter the Required Details"
+    description="Fill in the project Name (required), Display Name, and a Description to explain the project's purpose."
+  />
+  <GuideStepCard
+    number={4}
+    title="Configure Visual Identity"
+    description="Set an icon URL to represent the project visually, and choose a Color that will appear as a visual indicator throughout the UI."
+  />
+  <GuideStepCard
+    number={5}
+    title="Add Tags &amp; Glossary Terms"
+    description="Optionally attach Tags and Glossary Terms to the project to group related governance metadata under a unified structure."
+  />
+  <GuideStepCard
+    number={6}
+    title="Click Save"
+    description="Confirm the project creation. The new project will appear in the list immediately."
+  />
+</div>
+
+## Managing Projects
+
+<div class="docs-step-list">
+  <div class="docs-step-card">
+    <div class="docs-step-card__panel">
+      <div class="docs-step-card__body">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <h3 class="m-0">Edit Project</h3>
+        </div>
+        <p>Click the pencil (edit) icon next to any project to open the edit form. Update the Name, Display Name, Description, Visual Identity, Tags, or Glossary Terms, then click <strong>Save</strong> to apply changes.</p>
+      </div>
+    </div>
+  </div>
+  <div class="docs-step-card">
+    <div class="docs-step-card__panel">
+      <div class="docs-step-card__body">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <h3 class="m-0">Search for a Project</h3>
+        </div>
+        <p>Use the <strong>search bar</strong> at the top of the Projects tab to quickly locate a specific project by name or description.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<GuideCallout title="Note" variant="info">
+  Assigning a project to data assets, tags, or glossary terms ensures consistent classification and discoverability across the platform.
+</GuideCallout>

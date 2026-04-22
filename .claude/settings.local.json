@@ -4,7 +4,10 @@
       "mcp__claude_ai_Figma__get_design_context",
       "Bash(npm run *)",
       "mcp__plugin_figma_figma__get_design_context",
-      "Bash(npx astro *)"
+      "Bash(npx astro *)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:4399__TRACKED_VAR__)",
+      "Bash(curl -s \"http://localhost:4400/docs/classifications/\")",
+      "Bash(curl -s \"http://localhost:4400/docs/access-requests/\")"
     ]
   }
 }

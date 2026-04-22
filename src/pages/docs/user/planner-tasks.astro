@@ -21,6 +21,7 @@ import plannerimage10 from "@/assets/images/plannerimage10.svg";
 import plannerimage11 from "@/assets/images/plannerimage11.svg";
 import plannerimage12 from "@/assets/images/plannerimage12.svg";
 import plannerimage13 from "@/assets/images/plannerimage13.svg";
+import plannertaskmain from "@/assets/images/plannertaskmain.svg";
 
 const title = "Planner & Tasks";
 const description =
@@ -107,13 +108,13 @@ const tocHeadings = [
                 <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
               </svg>
             </button>
-            <button class="hidden items-center gap-1.5 rounded-full px-2 py-1 text-[11.5px] font-medium text-[#8796af] transition-colors hover:bg-neutral-50 sm:flex">
-              <span>Arabic</span>
+            <a href="/ar/docs/user/planner-tasks/" class="hidden items-center gap-1.5 rounded-full px-2 py-1 text-[0.7188rem] font-medium text-neutral-800 transition-colors hover:bg-neutral-50 sm:flex">
+              <span>العربية</span>
               <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10"></circle>
                 <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
               </svg>
-            </button>
+            </a>
           </div>
         </header>
 
@@ -129,7 +130,7 @@ const tocHeadings = [
                 ]}
               />
 
-              <GuideIntro>
+              <GuideIntro image={plannertaskmain}>
                 <h1>Planner &amp; Tasks</h1>
                 <p>
                   This tab allows you to manage both your personal tasks and tasks

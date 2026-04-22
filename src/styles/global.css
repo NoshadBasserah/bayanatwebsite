@@ -1428,3 +1428,68 @@
   text-align: start;
 }
 
+/* ── Step list & badge ── */
+[dir="rtl"] .docs-step-list {
+  padding-left: 0;
+  padding-right: 3rem;
+}
+[dir="rtl"] .docs-step-list::before {
+  left: auto;
+  right: 1.15rem;
+}
+[dir="rtl"] .docs-step-card__badge {
+  left: auto;
+  right: -3rem;
+}
+
+/* ── Guide ul list indent ── */
+[dir="rtl"] .docs-guide > ul {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+/* ── Callout ul indent ── */
+[dir="rtl"] .docs-guide-callout__content ul {
+  padding-left: 0;
+  padding-right: 2.9rem;
+}
+
+/* ── Intro media alignment ── */
+[dir="rtl"] .docs-guide-intro .docs-step-card__media {
+  text-align: left;
+}
+
+/* ── Guide intro h1: remove LTR letter-spacing that breaks Arabic connections ── */
+[dir="rtl"] .docs-guide-intro__copy h1 {
+  letter-spacing: 0;
+}
+
+/* ── Breadcrumb separator: flip › to ‹ in RTL ── */
+[dir="rtl"] .docs-guide-breadcrumbs [aria-hidden="true"] {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+/* ── Step card & guide intro: single column in RTL when no media/art present ── */
+@media (min-width: 960px) {
+  [dir="rtl"] .docs-step-card__panel:not(:has(.docs-step-card__media)) {
+    grid-template-columns: 1fr;
+  }
+
+  [dir="rtl"] .docs-guide-intro:not(:has(.docs-guide-intro__art)) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Mobile step sizes ── */
+@media (max-width: 959px) {
+  [dir="rtl"] .docs-step-list {
+    padding-left: 0;
+    padding-right: 2.5rem;
+  }
+  [dir="rtl"] .docs-step-card__badge {
+    left: auto;
+    right: -2.5rem;
+  }
+}
+

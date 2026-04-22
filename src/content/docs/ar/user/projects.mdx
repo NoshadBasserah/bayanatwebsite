@@ -1,0 +1,166 @@
+---
+title: المشاريع
+description: عرض المشاريع المُسندة إليك والتعاون فيها، وتنظيم أصول البيانات، وإدارة العلامات ومصطلحات المسرد المرتبطة بها.
+section: /ar/docs
+priority: 23
+navGroup: user
+layoutStyle: guide
+---
+
+import GuideBreadcrumbs from "@/components/docs/GuideBreadcrumbs.astro";
+import GuideIntro from "@/components/docs/GuideIntro.astro";
+import GuideStepCard from "@/components/docs/GuideStepCard.astro";
+import GuideCallout from "@/components/docs/GuideCallout.astro";
+
+<GuideBreadcrumbs
+  items={[
+    { label: "التوثيق", href: "/ar/docs/" },
+    { label: "دور المستخدم", href: "#" },
+    { label: "المشاريع" },
+  ]}
+/>
+
+<GuideIntro>
+  <h1>المشاريع</h1>
+  <p>
+    يتيح هذا التبويب عرض المشاريع والتعاون فيها، إذ تُستخدم لتنظيم أصول البيانات
+    وتجميع العلامات ومصطلحات المسرد ذات الصلة ضمن هيكل حوكمة موحد.
+  </p>
+</GuideIntro>
+
+## معلومات المشروع
+
+<p class="mt-1 mb-4 text-[14px] text-[#66758f]">يعرض كل مشروع معلومات أساسية مثل</p>
+
+<div class="mb-6 mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">الاسم</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">اسم المشروع للتعرف عليه بسهولة.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">المالكون</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">المالكون الأساسيون المسؤولون عن المشروع.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">العلامات</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">العلامات الشائعة المرتبطة بالمشروع.</p>
+  </div>
+  <div class="flex flex-col gap-2 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#fef3c7]">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <p class="m-0 text-sm font-semibold text-[#0f172a]">مصطلحات المسرد</p>
+    <p class="m-0 text-sm leading-relaxed text-[#66758f]">مصطلحات المسرد ذات الصلة المرتبطة بالمشروع.</p>
+  </div>
+</div>
+
+## البحث عن المشاريع وتخصيصها
+
+<div class="mb-8 mt-4 grid gap-3">
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">البحث</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">استخدم شريط البحث للعثور على المشاريع بالاسم أو الوصف.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">المرشحات والأعمدة</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">استخدم المرشحات لتضييق النتائج وتحديد الأعمدة التي تريد عرضها.</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 rounded-[14px] border border-[#edf1f7] bg-white px-4 py-3">
+    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#dcfce7]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+    </div>
+    <div>
+      <p class="m-0 text-[14px] font-semibold text-[#0f172a]">إضافة مشاريع</p>
+      <p class="m-0 mt-0.5 text-sm leading-relaxed text-[#66758f]">انقر على إضافة مشروع لإنشاء مشروع جديد.</p>
+    </div>
+  </div>
+</div>
+
+## خطوات إنشاء مشروع جديد
+
+<div class="docs-step-list">
+  <GuideStepCard
+    number={1}
+    title="انتقل إلى تبويب المشاريع"
+    description="افتح قسم المشاريع من شريط التنقل الجانبي."
+  />
+  <GuideStepCard
+    number={2}
+    title="انقر على زر (+) إضافة لإنشاء مشروع جديد"
+    description="انقر على زر + إضافة في أعلى قائمة المشاريع لفتح نموذج إنشاء المشروع."
+  />
+  <GuideStepCard
+    number={3}
+    title="أدخل التفاصيل المطلوبة"
+    description="أدخل اسم المشروع (مطلوب) واسم العرض ووصفاً يشرح غرض المشروع."
+  />
+  <GuideStepCard
+    number={4}
+    title="ضبط الهوية البصرية"
+    description="حدد رابط أيقونة لتمثيل المشروع بصرياً، واختر لوناً يظهر كمؤشر بصري في جميع أنحاء الواجهة."
+  />
+  <GuideStepCard
+    number={5}
+    title="إضافة العلامات ومصطلحات المسرد"
+    description="أرفق العلامات ومصطلحات المسرد اختيارياً بالمشروع لتجميع بيانات الحوكمة ذات الصلة تحت هيكل موحد."
+  />
+  <GuideStepCard
+    number={6}
+    title="انقر على حفظ"
+    description="تأكيد إنشاء المشروع. سيظهر المشروع الجديد في القائمة فوراً."
+  />
+</div>
+
+## إدارة المشاريع
+
+<div class="docs-step-list">
+  <div class="docs-step-card">
+    <div class="docs-step-card__panel">
+      <div class="docs-step-card__body">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#ede9fe]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <h3 class="m-0">تعديل المشروع</h3>
+        </div>
+        <p>انقر على أيقونة القلم (تعديل) بجانب أي مشروع لفتح نموذج التعديل. حدّث الاسم أو الاسم المعروض أو الوصف أو الهوية البصرية أو العلامات أو مصطلحات المسرد، ثم انقر على <strong>حفظ</strong> لتطبيق التغييرات.</p>
+      </div>
+    </div>
+  </div>
+  <div class="docs-step-card">
+    <div class="docs-step-card__panel">
+      <div class="docs-step-card__body">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#dbeafe]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <h3 class="m-0">البحث عن مشروع</h3>
+        </div>
+        <p>استخدم <strong>شريط البحث</strong> في أعلى تبويب المشاريع للعثور بسرعة على مشروع محدد بالاسم أو الوصف.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<GuideCallout title="ملاحظة" variant="info">
+  يساعد تعيين مشروع لأصول البيانات أو العلامات أو مصطلحات المسرد على ضمان التصنيف المتسق وقابلية الاكتشاف عبر المنصة.
+</GuideCallout>

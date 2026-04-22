@@ -1,7 +1,7 @@
 import type { SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
-  author: "Your Brand",
+  author: "BayanatiHub",
   date: {
     locale: "en-US",
     options: {
@@ -14,7 +14,7 @@ export const siteConfig: SiteConfig = {
     "An Astro template for product and documentation sites. Replace this description in src/site.config.ts.",
   lang: "en-US",
   ogLocale: "en_US",
-  title: "Your Brand",
+  title: "BayanatiHub",
 };
 
 // Used to generate links in both the Header & Footer.
