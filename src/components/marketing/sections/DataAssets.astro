@@ -1,0 +1,92 @@
+---
+const features = [
+  {
+    title: "Automated tagging",
+    desc: "PII, sensitivity, and domain detected on ingest.",
+    variant: "",
+    icon: "M12 3l2.1 5.4L20 9.5l-4 3.9 1 5.6-5-2.8-5 2.8 1-5.6-4-3.9 5.9-1.1L12 3Z",
+  },
+  {
+    title: "Health monitoring",
+    desc: "Freshness, volume, and quality SLAs at a glance.",
+    variant: "",
+    icon: "M4 19V5M4 19h16M8 17v-5M12 17V9M16 17v-7",
+  },
+  {
+    title: "Ownership & lineage",
+    desc: "See who owns each asset and where it flows.",
+    variant: "mk-ico--violet",
+    icon: "M6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM6 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM8 5h6a4 4 0 0 1 4 4v0M6 9v8",
+  },
+];
+---
+
+<section class="mk-section mk-section--alt" id="discovery">
+  <div class="mk-container da__grid">
+    <div class="da__copy mk-reveal">
+      <span class="mk-eyebrow mk-eyebrow--dot">Discovery</span>
+      <h2 class="mk-h2" style="margin-top:16px">
+        Data assets, <span class="mk-serif">simplified.</span>
+      </h2>
+      <p class="mk-lead" style="margin-top:14px; max-width:420px">
+        View every data asset with rich semantic context. Understand what a
+        table represents, who owns it, how it's being used — and whether you can
+        trust it.
+      </p>
+
+      <ul class="da__features">
+        {
+          features.map((f) => (
+            <li>
+              <span class={`mk-ico ${f.variant}`}>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d={f.icon} stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <div>
+                <p class="da__ft">{f.title}</p>
+                <p class="mk-small">{f.desc}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+
+      <a class="mk-link" href="/docs/data-assets/" style="margin-top:26px">
+        Explore the catalog
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="da__art mk-reveal">
+      <img
+        src="/images/home/catalog-mockup.png"
+        alt="BayanatiHub data catalog showing assets, owners, classifications, quality scores and lineage"
+        width="690"
+        height="575"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .da__grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: center;
+    gap: 48px;
+  }
+  .da__features { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 20px; }
+  .da__features li { display: flex; gap: 14px; align-items: flex-start; }
+  .da__ft { font-weight: 700; color: var(--mk-heading); font-size: 0.9375rem; }
+  .da__art img {
+    width: 100%;
+    border-radius: var(--mk-r-lg);
+    box-shadow: var(--mk-shadow-xl);
+    border: 1px solid var(--mk-border);
+  }
+  @media (max-width: 900px) {
+    .da__grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+</style>

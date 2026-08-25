@@ -1,0 +1,191 @@
+---
+// Inline search bar with dropdown results (Pagefind-powered)
+---
+
+<div class="relative flex-1 min-w-0 max-w-[420px]" id="search-container">
+  <!-- Input wrapper -->
+  <div class="flex h-[40px] items-center gap-2 rounded-[10px] border border-neutral-100 bg-[#f7f8fb] px-3 transition-colors focus-within:border-[#009ad6]/50 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(0,154,214,0.08)]">
+    <svg class="h-[12px] w-[12px] shrink-0 text-[#949eb0]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input
+      id="search-input"
+      type="search"
+      placeholder="Search documentation…"
+      autocomplete="off"
+      spellcheck="false"
+      class="h-full flex-1 bg-transparent text-sm text-[#0f172a] outline-none placeholder:text-[#949eb0] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
+    />
+    <kbd id="search-kbd" class="hidden sm:flex h-[22px] items-center rounded-[5px] border border-[#e5e9f0] bg-white px-2 transition-opacity">
+      <span class="text-[10.5px] font-medium text-[#6b7689]">⌘ K</span>
+    </kbd>
+  </div>
+
+  <!-- Dropdown panel -->
+  <div
+    id="search-dropdown"
+    class="absolute start-0 end-0 top-[calc(100%+6px)] z-50! hidden overflow-hidden rounded-[14px] bg-white shadow-xl ring-1 ring-neutral-200"
+  >
+    <div id="search-results" class="max-h-[400px] overflow-y-auto p-2">
+      <div class="px-3 py-6 text-center text-sm text-[#949eb0]">Start typing to search…</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #search-results mark {
+    background: transparent;
+    color: #009ad6;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  const container = document.getElementById('search-container') as HTMLElement;
+  const input     = document.getElementById('search-input')    as HTMLInputElement;
+  const dropdown  = document.getElementById('search-dropdown') as HTMLElement;
+  const resultsEl = document.getElementById('search-results')  as HTMLElement;
+  const kbd       = document.getElementById('search-kbd')      as HTMLElement;
+
+  let pagefind: any = null;
+  let debounceTimer: ReturnType<typeof setTimeout>;
+  let activeIdx = -1;
+
+  // ── Pagefind loader ─────────────────────────────────────
+  async function loadPagefind(): Promise<boolean> {
+    if (pagefind) return true;
+    try {
+      const load = new Function('p', 'return import(p)');
+      pagefind = await load('/pagefind/pagefind.js');
+      await pagefind.init();
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  // ── Dropdown open / close ────────────────────────────────
+  function openDropdown() {
+    dropdown.classList.remove('hidden');
+    kbd?.classList.add('opacity-0', 'pointer-events-none');
+  }
+
+  function closeDropdown() {
+    dropdown.classList.add('hidden');
+    kbd?.classList.remove('opacity-0', 'pointer-events-none');
+    activeIdx = -1;
+  }
+
+  // ── HTML helpers ─────────────────────────────────────────
+  function setHTML(html: string) {
+    resultsEl.innerHTML = html;
+    activeIdx = -1;
+  }
+
+  const emptyPrompt = () =>
+    `<div class="px-3 py-6 text-center text-sm text-[#949eb0]">Start typing to search…</div>`;
+
+  const noResults = (q: string) =>
+    `<div class="px-3 py-6 text-center">
+       <p class="text-sm text-[#949eb0]">No results for "<strong class="font-semibold text-[#0f172a]">${q}</strong>"</p>
+     </div>`;
+
+  const notBuilt = () =>
+    `<div class="px-3 py-6 text-center">
+       <p class="text-sm text-[#949eb0]">Search index not found.</p>
+       <p class="mt-1 text-xs text-[#b0bac6]">Run <code class="rounded bg-neutral-100 px-1 font-mono">pnpm build</code> to enable search.</p>
+     </div>`;
+
+  // ── Search ───────────────────────────────────────────────
+  async function runSearch(query: string) {
+    if (!query.trim()) { setHTML(emptyPrompt()); return; }
+
+    const ok = await loadPagefind();
+    if (!ok) { setHTML(notBuilt()); return; }
+
+    const search = await pagefind.search(query);
+    if (!search.results.length) { setHTML(noResults(query)); return; }
+
+    const top  = search.results.slice(0, 8);
+    const data = await Promise.all(top.map((r: any) => r.data()));
+
+    setHTML(
+      `<ul class="space-y-0.5">` +
+      data.map((d: any, i: number) => `
+        <li>
+          <a href="${d.url}"
+             class="search-result flex items-start gap-3 rounded-[10px] px-3 py-2.5 transition-colors hover:bg-[#f0f9ff]"
+             data-idx="${i}"
+          >
+            <div class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#eff6ff]">
+              <svg width="13" height="13" fill="none" stroke="#009ad6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="truncate text-[13px] font-semibold text-[#0f172a]">${d.meta?.title ?? 'Untitled'}</p>
+              ${d.excerpt ? `<p class="mt-0.5 line-clamp-2 text-[12px] leading-relaxed text-[#66758f]">${d.excerpt}</p>` : ''}
+            </div>
+            <svg class="mt-1 h-3.5 w-3.5 shrink-0 text-[#b0bac6] rtl:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </li>
+      `).join('') +
+      `</ul>`
+    );
+  }
+
+  // ── Active highlight ─────────────────────────────────────
+  function highlightActive() {
+    const items = resultsEl.querySelectorAll<HTMLElement>('.search-result');
+    items.forEach((el, i) => el.classList.toggle('bg-[#f0f9ff]', i === activeIdx));
+    if (activeIdx >= 0) items[activeIdx]?.scrollIntoView({ block: 'nearest' });
+  }
+
+  // ── Events ───────────────────────────────────────────────
+  input.addEventListener('focus', () => {
+    openDropdown();
+    loadPagefind();
+  });
+
+  input.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => runSearch(input.value), 220);
+  });
+
+  input.addEventListener('keydown', (e) => {
+    const items = resultsEl.querySelectorAll<HTMLElement>('.search-result');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIdx = Math.min(activeIdx + 1, items.length - 1);
+      highlightActive();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIdx = Math.max(activeIdx - 1, -1);
+      highlightActive();
+    } else if (e.key === 'Enter' && activeIdx >= 0) {
+      e.preventDefault();
+      (items[activeIdx] as HTMLAnchorElement).click();
+    } else if (e.key === 'Escape') {
+      input.blur();
+      closeDropdown();
+    }
+  });
+
+  // Close on outside click
+  document.addEventListener('mousedown', (e) => {
+    if (!container.contains(e.target as Node)) closeDropdown();
+  });
+
+  // Cmd/Ctrl+K → focus input
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      input.focus();
+      input.select();
+      openDropdown();
+    }
+  });
+</script>

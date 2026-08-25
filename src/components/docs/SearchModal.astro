@@ -1,0 +1,207 @@
+---
+// Pagefind-powered search modal — opens via #search-open-btn click or Cmd/Ctrl+K
+---
+
+<div
+  id="search-modal"
+  class="fixed inset-0 z-[200] hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Search documentation"
+>
+  <!-- Backdrop -->
+  <div id="search-backdrop" class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Panel -->
+  <div class="relative mx-auto mt-[8vh] w-full max-w-[580px] px-4">
+    <div class="overflow-hidden rounded-[18px] bg-white shadow-2xl ring-1 ring-neutral-200">
+
+      <!-- Input row -->
+      <div class="flex items-center gap-3 border-b border-neutral-100 px-4">
+        <svg class="h-[14px] w-[14px] shrink-0 text-[#949eb0]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search documentation…"
+          autocomplete="off"
+          spellcheck="false"
+          class="h-12 flex-1 bg-transparent text-sm text-[#0f172a] outline-none placeholder:text-[#949eb0]"
+        />
+        <kbd class="flex h-6 items-center rounded-md border border-neutral-200 bg-neutral-50 px-1.5 text-[11px] font-medium text-[#6b7689]">
+          Esc
+        </kbd>
+      </div>
+
+      <!-- Results area -->
+      <div id="search-results" class="max-h-[420px] overflow-y-auto p-2">
+        <div class="px-4 py-8 text-center text-sm text-[#949eb0]">
+          Start typing to search documentation…
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  #search-results mark {
+    background: transparent;
+    color: #009ad6;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  const modal = document.getElementById('search-modal') as HTMLElement;
+  const backdrop = document.getElementById('search-backdrop') as HTMLElement;
+  const input = document.getElementById('search-input') as HTMLInputElement;
+  const resultsEl = document.getElementById('search-results') as HTMLElement;
+
+  let pagefind: any = null;
+  let debounceTimer: ReturnType<typeof setTimeout>;
+  let activeIdx = -1;
+
+  async function loadPagefind(): Promise<boolean> {
+    if (pagefind) return true;
+    try {
+      // new Function bypasses Vite's static import analysis entirely
+      const load = new Function('p', 'return import(p)');
+      pagefind = await load('/pagefind/pagefind.js');
+      await pagefind.init();
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  function setHTML(html: string) {
+    resultsEl.innerHTML = html;
+    activeIdx = -1;
+  }
+
+  function emptyState() {
+    return `<div class="px-4 py-8 text-center text-sm text-[#949eb0]">Start typing to search documentation…</div>`;
+  }
+
+  function noResults(q: string) {
+    return `<div class="px-4 py-8 text-center">
+      <p class="text-sm text-[#949eb0]">No results for "<strong class="font-semibold text-[#0f172a]">${q}</strong>"</p>
+      <p class="mt-1 text-xs text-[#b0bac6]">Try different keywords</p>
+    </div>`;
+  }
+
+  function notBuilt() {
+    return `<div class="px-4 py-8 text-center">
+      <p class="text-sm text-[#949eb0]">Search index not available.</p>
+      <p class="mt-1 text-xs text-[#b0bac6]">Run <code class="rounded bg-neutral-100 px-1 font-mono">pnpm build</code> to enable search.</p>
+    </div>`;
+  }
+
+  async function runSearch(query: string) {
+    if (!query.trim()) { setHTML(emptyState()); return; }
+
+    const ok = await loadPagefind();
+    if (!ok) { setHTML(notBuilt()); return; }
+
+    const search = await pagefind.search(query);
+    if (!search.results.length) { setHTML(noResults(query)); return; }
+
+    const top = search.results.slice(0, 8);
+    const data = await Promise.all(top.map((r: any) => r.data()));
+
+    setHTML(
+      `<ul class="space-y-0.5">` +
+      data.map((d: any, i: number) => `
+        <li>
+          <a href="${d.url}"
+             class="search-result flex items-start gap-3 rounded-[10px] px-3 py-2.5 transition-colors hover:bg-[#f7f8fb]"
+             data-idx="${i}"
+          >
+            <div class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#eff6ff]">
+              <svg width="13" height="13" fill="none" stroke="#009ad6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="truncate text-[13px] font-semibold text-[#0f172a]">${d.meta?.title ?? 'Untitled'}</p>
+              ${d.excerpt ? `<p class="mt-0.5 line-clamp-2 text-[12px] leading-relaxed text-[#66758f]">${d.excerpt}</p>` : ''}
+            </div>
+            <svg class="mt-1 h-3.5 w-3.5 shrink-0 text-[#b0bac6] rtl:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </li>
+      `).join('') +
+      `</ul>`
+    );
+  }
+
+  function highlightActive() {
+    const items = resultsEl.querySelectorAll<HTMLElement>('.search-result');
+    items.forEach((el, i) => {
+      el.classList.toggle('bg-[#f7f8fb]', i === activeIdx);
+    });
+    if (activeIdx >= 0) {
+      items[activeIdx]?.scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function openModal() {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => input.focus());
+    loadPagefind();
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+    input.value = '';
+    setHTML(emptyState());
+  }
+
+  // Search input
+  input.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => runSearch(input.value), 220);
+  });
+
+  // Keyboard navigation
+  input.addEventListener('keydown', (e) => {
+    const items = resultsEl.querySelectorAll<HTMLElement>('.search-result');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIdx = Math.min(activeIdx + 1, items.length - 1);
+      highlightActive();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIdx = Math.max(activeIdx - 1, -1);
+      highlightActive();
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (activeIdx >= 0) (items[activeIdx] as HTMLAnchorElement).click();
+    } else if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // Backdrop click
+  backdrop.addEventListener('click', closeModal);
+
+  // Search bar button in header
+  document.getElementById('search-open-btn')?.addEventListener('click', openModal);
+
+  // Global Cmd/Ctrl+K
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      modal.classList.contains('hidden') ? openModal() : closeModal();
+    }
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+</script>

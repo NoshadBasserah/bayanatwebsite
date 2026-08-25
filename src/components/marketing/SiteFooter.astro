@@ -1,0 +1,120 @@
+---
+const columns = [
+  {
+    title: "Product",
+    links: ["Features", "Integrations", "Pricing", "Changelog", "Roadmap"],
+  },
+  {
+    title: "Resources",
+    links: ["Documentation", "Guides", "API Reference", "Status", "Community"],
+  },
+  {
+    title: "Company",
+    links: ["About", "Contact", "Careers", "Privacy Policy", "Terms"],
+  },
+  {
+    title: "Trust",
+    links: ["Security", "Compliance", "SOC 2 report", "SLA", "DPA"],
+  },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="mkf">
+  <div class="mk-container mkf__grid">
+    <div class="mkf__brand">
+      <p class="mkf__tagline">
+        The modern orchestration layer for enterprise data operations.
+      </p>
+      <div class="mkf__social">
+        <a href="#" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4l7.3 9.3L4.5 20M20 4l-7.2 8M9.5 13.5L20 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 9v8M6.5 6.5v.01M10.5 17v-4.5a2 2 0 0 1 4 0V17M10.5 12V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 19c-4 1.2-4-2-5.5-2.5M15 21v-3.2a2.8 2.8 0 0 0-.8-2.2c2.6-.3 5.3-1.3 5.3-5.8a4.5 4.5 0 0 0-1.2-3.1 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.3 1.2a11.3 11.3 0 0 0-6 0C6.6 3 5.6 3.3 5.6 3.3a4.2 4.2 0 0 0-.1 3.2A4.5 4.5 0 0 0 4.3 9.8c0 4.4 2.7 5.5 5.3 5.8a2.8 2.8 0 0 0-.8 2v3.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    {
+      columns.map((col) => (
+        <nav class="mkf__col" aria-label={col.title}>
+          <p class="mkf__heading">{col.title}</p>
+          <ul>
+            {col.links.map((l) => (
+              <li><a href="#">{l}</a></li>
+            ))}
+          </ul>
+        </nav>
+      ))
+    }
+  </div>
+
+  <div class="mk-container mkf__bottom">
+    <p>© {year} BayanatiHub Inc. All rights reserved.</p>
+    <div class="mkf__bottom-right">
+      <span class="mkf__status"><span class="mkf__dot"></span>All systems operational</span>
+      <span class="mkf__legal">EN · Privacy · Cookies</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .mkf { background: var(--mk-surface); border-top: 1px solid var(--mk-border); }
+  .mkf__grid {
+    display: grid;
+    grid-template-columns: 1.6fr repeat(4, 1fr);
+    gap: 32px;
+    padding-block: 56px 40px;
+  }
+  .mkf__tagline { font-size: 0.9375rem; line-height: 1.6; color: var(--mk-text); max-width: 230px; }
+  .mkf__social { display: flex; gap: 10px; margin-top: 18px; }
+  .mkf__social a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px;
+    border: 1px solid var(--mk-border);
+    border-radius: var(--mk-r-xs);
+    color: var(--mk-text);
+    transition: color 0.16s var(--mk-ease), border-color 0.16s var(--mk-ease);
+  }
+  .mkf__social a:hover { color: var(--mk-brand-ink); border-color: var(--mk-brand-lighter); }
+  .mkf__social svg { width: 18px; height: 18px; }
+
+  .mkf__heading {
+    font-family: var(--mk-font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mk-muted);
+    margin-bottom: 14px;
+  }
+  .mkf__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+  .mkf__col a { font-size: 0.875rem; color: var(--mk-text); transition: color 0.16s var(--mk-ease); }
+  .mkf__col a:hover { color: var(--mk-brand-ink); }
+
+  .mkf__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 22px;
+    border-top: 1px solid var(--mk-border);
+    font-size: 0.8125rem;
+    color: var(--mk-muted);
+  }
+  .mkf__bottom-right { display: flex; align-items: center; gap: 22px; }
+  .mkf__status { display: inline-flex; align-items: center; gap: 7px; }
+  .mkf__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mk-success); box-shadow: 0 0 0 3px var(--mk-success-100); }
+
+  @media (max-width: 900px) {
+    .mkf__grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .mkf__brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 560px) {
+    .mkf__bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>

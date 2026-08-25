@@ -1,0 +1,101 @@
+---
+const faqs = [
+  {
+    q: "How does BayanatiHub handle data security?",
+    a: "BayanatiHub is SOC 2 Type II and GDPR compliant. All data is encrypted at rest with AES-256 and in transit with TLS 1.3. We support customer-managed keys (CMK), region pinning, SSO/SAML, and granular RBAC. We never store your raw data — only metadata and lineage.",
+    open: true,
+  },
+  {
+    q: "Can we integrate with our existing SSO?",
+    a: "Yes. BayanatiHub supports SAML 2.0 and OIDC, with SCIM provisioning for Okta, Azure AD, Google Workspace, and more. Roles and groups map automatically to your governance policies.",
+  },
+  {
+    q: "What data sources are supported?",
+    a: "120+ native connectors across warehouses, lakes, BI tools, and orchestration — plus a public OpenAPI to catalog anything else.",
+  },
+  {
+    q: "Is there a trial period available?",
+    a: "Every plan starts with a 14-day trial. No credit card required, and you can cancel any time.",
+  },
+  {
+    q: "How does automated lineage work?",
+    a: "We parse query logs, dbt manifests, and connector metadata to reconstruct column-level lineage automatically — kept fresh as your pipelines change.",
+  },
+];
+---
+
+<section class="mk-section mk-section--alt" id="faq">
+  <div class="mk-container faq__grid">
+    <div class="faq__intro mk-reveal">
+      <span class="mk-eyebrow mk-eyebrow--dash">FAQ</span>
+      <h2 class="mk-h2" style="margin-top:14px">
+        Frequently asked questions.
+      </h2>
+      <p class="mk-body" style="margin-top:14px">
+        Everything else you might want to know. Still curious?
+      </p>
+      <a class="mk-link" href="/#get-started" style="margin-top:8px">Talk to us
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="faq__list mk-reveal">
+      {
+        faqs.map((f) => (
+          <div class={`faq__item${f.open ? " is-open" : ""}`} data-faq>
+            <button class="faq__q" type="button" data-faq-trigger aria-expanded={f.open ? "true" : "false"}>
+              <span>{f.q}</span>
+              <span class="faq__sign" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a"><p>{f.a}</p></div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: start; }
+  .faq__list { display: grid; gap: 12px; }
+  .faq__item {
+    background: var(--mk-surface);
+    border: 1px solid var(--mk-border);
+    border-radius: var(--mk-r);
+    box-shadow: var(--mk-shadow-xs);
+    overflow: hidden;
+  }
+  .faq__q {
+    width: 100%;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 18px 20px;
+    background: transparent; border: 0; cursor: pointer;
+    font-family: var(--mk-font-sans);
+    font-size: 0.9375rem; font-weight: 700; color: var(--mk-heading);
+    text-align: left;
+  }
+  .faq__sign { position: relative; width: 22px; height: 22px; flex: none; border-radius: 50%; background: var(--mk-surface-alt); transition: background 0.2s var(--mk-ease); }
+  .faq__sign::before, .faq__sign::after {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    width: 9px; height: 2px; border-radius: 2px; background: var(--mk-text);
+    transform: translate(-50%, -50%); transition: opacity 0.2s var(--mk-ease), transform 0.2s var(--mk-ease);
+  }
+  .faq__sign::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .faq__item.is-open .faq__sign { background: var(--mk-brand); }
+  .faq__item.is-open .faq__sign::before, .faq__item.is-open .faq__sign::after { background: #fff; }
+  .faq__item.is-open .faq__sign::after { opacity: 0; }
+
+  .faq__a {
+    display: grid; grid-template-rows: 0fr;
+    transition: grid-template-rows 0.28s var(--mk-ease);
+  }
+  .faq__a > p {
+    overflow: hidden;
+    margin: 0; padding: 0 20px;
+    font-size: 0.875rem; line-height: 1.65; color: var(--mk-text);
+  }
+  .faq__item.is-open .faq__a { grid-template-rows: 1fr; }
+  .faq__item.is-open .faq__a > p { padding-bottom: 20px; }
+
+  @media (max-width: 900px) { .faq__grid { grid-template-columns: 1fr; gap: 28px; } }
+</style>

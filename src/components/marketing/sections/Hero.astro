@@ -1,0 +1,101 @@
+---
+const stats = [
+  { num: "25M+", label: "assets indexed" },
+  { num: "99.9%", label: "uptime SLA" },
+  { num: "SOC 2 · GDPR", label: "enterprise ready" },
+];
+---
+
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="mk-container hero__grid">
+    <div class="hero__copy mk-reveal">
+      <h1 class="hero__title">
+        Unify your data.<br />
+        Govern access.<br />
+        Enable <span class="mk-serif">self-service</span><br />
+        analytics.
+      </h1>
+      <p class="hero__lead mk-lead">
+        BayanatiHub enables teams to discover, govern, and use data with
+        confidence through structured access, metadata management, and
+        intelligent workflows.
+      </p>
+      <div class="hero__actions">
+        <a class="mk-btn mk-btn--primary mk-btn--lg" href="/#get-started">
+          Book a demo
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="mk-btn mk-btn--ghost mk-btn--lg" href="/#platform">Explore product</a>
+      </div>
+      <dl class="hero__stats">
+        {
+          stats.map((s) => (
+            <div>
+              <dt class="mk-stat__num">{s.num}</dt>
+              <dd class="mk-stat__label">{s.label}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <div class="hero__art mk-reveal">
+      <img
+        src="/images/home/hero-illustration.png"
+        alt="BayanatiHub data platform — a central catalog connecting cloud sources, users and assets"
+        width="670"
+        height="510"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero { position: relative; overflow: hidden; }
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background: var(--mk-grad-hero);
+    z-index: 0;
+  }
+  .hero__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    align-items: center;
+    gap: 32px;
+    padding-block: clamp(40px, 5vw, 64px);
+  }
+  .hero__title {
+    font-size: clamp(2.5rem, 1.6rem + 3.4vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    color: var(--mk-heading);
+  }
+  .hero__title .mk-serif { color: var(--mk-heading); }
+  .hero__lead { margin-top: 22px; max-width: 460px; }
+  .hero__actions { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .hero__stats {
+    display: flex;
+    gap: 40px;
+    margin: 40px 0 0;
+    padding-top: 26px;
+    border-top: 1px solid var(--mk-border);
+  }
+  .hero__stats dd { margin: 0; }
+  .hero__art { display: flex; justify-content: center; }
+  .hero__art img { width: 100%; max-width: 688px; height: auto; }
+
+  @media (max-width: 900px) {
+    .hero__grid { grid-template-columns: 1fr; }
+    .hero__art { order: -1; }
+    .hero__stats { gap: 28px; }
+  }
+  @media (max-width: 480px) {
+    .hero__stats { flex-wrap: wrap; gap: 20px; }
+  }
+</style>

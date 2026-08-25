@@ -1,0 +1,90 @@
+/* =====================================================================
+   BayanatiHub — Marketing Design Tokens
+   ---------------------------------------------------------------------
+   Single source of truth for the public website (Home, About, Login…).
+   Plain CSS custom properties (framework-agnostic, LESS-style variables)
+   extracted to match the Figma "Home" design exactly.
+
+   Scope: imported by marketing.css → loaded only by the Marketing layout,
+   so the documentation section is completely unaffected.
+   ===================================================================== */
+
+:root {
+  /* ---- Brand · teal/cyan (primary action) ---- */
+  --mk-brand: #11a0ae;          /* primary teal */
+  --mk-brand-light: #1fbecd;    /* brand */
+  --mk-brand-lighter: #4fd8e3;
+  --mk-brand-ink: #0e7f8a;      /* darkest teal */
+  --mk-brand-soft: #e6f7fd;     /* soft tint bg */
+  --mk-brand-soft-2: #f0fbfc;
+
+  /* ---- Link / accent blue (illustration + inline links) ---- */
+  --mk-link: #009ad6;
+  --mk-link-bright: #00aeef;
+
+  /* ---- Ink / text ---- */
+  --mk-heading: #2a313c;        /* headings */
+  --mk-text-strong: #3f495a;
+  --mk-text: #546178;           /* body */
+  --mk-muted: #8794ab;          /* captions, meta */
+
+  /* ---- Surfaces ---- */
+  --mk-page: #fbfcfe;           /* page background */
+  --mk-surface: #ffffff;        /* cards */
+  --mk-surface-alt: #f5f7fb;    /* alternating light section */
+  --mk-surface-soft: #f9fafc;
+  --mk-border: #edeff2;         /* hairline borders */
+  --mk-border-strong: #dae0ec;
+
+  /* ---- Dark (navy) surfaces ---- */
+  --mk-navy: #0b1530;
+  --mk-navy-deep: #060b1c;
+  --mk-navy-soft: #142447;
+  --mk-navy-accent: #004f6e;
+
+  /* ---- Semantic (status only — never decorative) ---- */
+  --mk-success: #17b26a;
+  --mk-success-bg: #ecfdf3;
+  --mk-success-100: #dcfae6;
+  --mk-violet: #5925dc;
+  --mk-violet-bg: #f4f3ff;
+  --mk-amber: #a06310;
+  --mk-amber-icon: #e8a23b;
+  --mk-amber-bg: #fbebcb;
+  --mk-rose: #dd5a6b;
+  --mk-rose-bg: #fef3f2;
+
+  /* ---- Gradients ---- */
+  --mk-grad-brand: linear-gradient(135deg, #2bc6d3 0%, #11a0ae 55%, #0e7f8a 100%);
+  --mk-grad-hero: radial-gradient(120% 90% at 70% 0%, #eaf6ff 0%, rgba(251, 252, 254, 0) 60%);
+  --mk-grad-dark: linear-gradient(150deg, #0b1530 0%, #0e2a45 55%, #0a4257 100%);
+
+  /* ---- Typography ---- */
+  --mk-font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mk-font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --mk-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* ---- Radii ---- */
+  --mk-r-xs: 8px;
+  --mk-r-sm: 10px;
+  --mk-r: 12px;
+  --mk-r-lg: 14px;
+  --mk-r-xl: 20px;
+  --mk-r-2xl: 28px;
+  --mk-r-pill: 9999px;
+
+  /* ---- Elevation (ink-900 base, per design system) ---- */
+  --mk-shadow-xs: 0 1px 2px rgba(11, 21, 48, 0.04);
+  --mk-shadow-sm: 0 1px 3px rgba(11, 21, 48, 0.06), 0 1px 2px rgba(11, 21, 48, 0.04);
+  --mk-shadow-md: 0 6px 16px rgba(11, 21, 48, 0.07);
+  --mk-shadow-lg: 0 18px 40px rgba(11, 21, 48, 0.08);
+  --mk-shadow-xl: 0 28px 60px rgba(11, 21, 48, 0.12);
+  --mk-ring: 0 0 0 3px var(--mk-brand-soft);
+
+  /* ---- Layout ---- */
+  --mk-maxw: 1280px;
+  --mk-gutter: 24px;
+
+  /* ---- Motion ---- */
+  --mk-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}

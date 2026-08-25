@@ -1,0 +1,91 @@
+---
+const checks = [
+  "Policy-as-code with org-wide guardrails",
+  "Time-bound, least-privilege access by default",
+  "Slack & email notifications for approvers",
+];
+---
+
+<section class="mk-section" id="security">
+  <div class="mk-container ar__grid">
+    <div class="ar__art mk-reveal">
+      <img
+        src="/images/home/access-mockup.png"
+        alt="Access requests board with pending, approved and rejected columns and an automated approval flow"
+        width="660"
+        height="525"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="ar__copy mk-reveal">
+      <span class="mk-eyebrow mk-eyebrow--dot">Security</span>
+      <h2 class="mk-h2" style="margin-top:16px">
+        Automated <span class="mk-serif">access requests.</span>
+      </h2>
+      <p class="mk-lead" style="margin-top:14px; max-width:440px">
+        No more ticket chaos. Users request access directly from the asset page,
+        triggering automated approval flows that route to the right owners —
+        with full audit trails.
+      </p>
+
+      <div class="ar__stats">
+        <div class="ar__stat ar__stat--brand">
+          <span class="ar__stat-num">80%</span>
+          <span class="ar__stat-label">faster provisioning</span>
+        </div>
+        <div class="ar__stat ar__stat--rose">
+          <span class="ar__stat-num">0</span>
+          <span class="ar__stat-label">manual errors</span>
+        </div>
+      </div>
+
+      <ul class="ar__checks">
+        {
+          checks.map((c) => (
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {c}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ar__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 48px;
+  }
+  .ar__art img {
+    width: 100%;
+    border-radius: var(--mk-r-lg);
+    box-shadow: var(--mk-shadow-xl);
+    border: 1px solid var(--mk-border);
+  }
+  .ar__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+  .ar__stat {
+    border-radius: var(--mk-r);
+    padding: 16px 18px;
+    border: 1px solid var(--mk-border);
+  }
+  .ar__stat--brand { background: var(--mk-brand-soft); border-color: var(--mk-brand-soft); }
+  .ar__stat--rose { background: var(--mk-rose-bg); border-color: var(--mk-rose-bg); }
+  .ar__stat-num { display: block; font-size: 1.9rem; font-weight: 800; letter-spacing: -0.02em; }
+  .ar__stat--brand .ar__stat-num { color: var(--mk-brand-ink); }
+  .ar__stat--rose .ar__stat-num { color: var(--mk-rose); }
+  .ar__stat-label { font-size: 0.8125rem; color: var(--mk-muted); }
+
+  .ar__checks { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 14px; }
+  .ar__checks li { display: flex; align-items: center; gap: 11px; font-size: 0.9375rem; color: var(--mk-text-strong); }
+  .ar__checks svg { width: 18px; height: 18px; color: var(--mk-success); flex: none; }
+
+  @media (max-width: 900px) {
+    .ar__grid { grid-template-columns: 1fr; gap: 36px; }
+    .ar__art { order: 1; }
+  }
+</style>

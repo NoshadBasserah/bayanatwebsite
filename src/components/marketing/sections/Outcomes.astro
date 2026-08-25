@@ -1,0 +1,98 @@
+---
+const cards = [
+  {
+    tag: "Outcome 01",
+    title: "Data Governance",
+    desc: "Enforce policy at the asset level with automated classification, lineage, and full audit trails.",
+    tone: "brand",
+    icon: "M4 9l8-5 8 5M5 9v9m4-9v9m6-9v9m4-9v9M3 20h18M4 9h16",
+  },
+  {
+    tag: "Outcome 02",
+    title: "Analytics Enablement",
+    desc: "Empower analysts to discover and trust data instantly — without filing tickets or guessing context.",
+    tone: "amber",
+    featured: true,
+    icon: "M5 4h11l3 3v13H5V4Zm2 9l2.5 2.5L13 11M16 17a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm2 0l2 2",
+  },
+  {
+    tag: "Outcome 03",
+    title: "Cross-Team Collaboration",
+    desc: "Connect data producers and consumers with shared workspaces, glossaries, and ownership at scale.",
+    tone: "violet",
+    icon: "M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm6 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM4 19a5 5 0 0 1 10 0M14 19a5 5 0 0 1 6-4",
+  },
+];
+const toneClass: Record<string, string> = { brand: "", amber: "mk-ico--amber", violet: "mk-ico--violet" };
+---
+
+<section class="mk-section" id="outcomes">
+  <div class="mk-container">
+    <div class="mk-head mk-reveal">
+      <span class="mk-eyebrow mk-eyebrow--dash mk-eyebrow--center">Outcomes</span>
+      <h2 class="mk-h2" style="margin-top:14px">
+        Tailored for your <span class="mk-serif">outcomes.</span>
+      </h2>
+      <p class="mk-lead">
+        Whatever your data org is solving for next — BayanatiHub gets you there
+        faster.
+      </p>
+    </div>
+
+    <div class="mk-grid mk-grid--3 out__grid mk-reveal" data-mk-stagger>
+      {
+        cards.map((c) => (
+          <article class={`out__card mk-card mk-card--pad${c.featured ? " out__card--feature" : " mk-card--hover"}`}>
+            <div class={`out__art out__art--${c.tone}`}>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d={c.icon} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <p class="out__tag">
+              <span class={`mk-ico ${toneClass[c.tone]} out__tagico`}>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              {c.tag}
+            </p>
+            <h3 class="out__title">{c.title}</h3>
+            <p class="mk-body out__desc">{c.desc}</p>
+            <a class="mk-link" href="#">Learn more
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .out__grid { margin-top: 44px; align-items: stretch; }
+  .out__card { display: flex; flex-direction: column; }
+  .out__card--feature {
+    background: linear-gradient(180deg, #fff8ee 0%, #fffdfa 100%);
+    border-color: var(--mk-amber-bg);
+    box-shadow: var(--mk-shadow-lg);
+  }
+  .out__art {
+    height: 96px;
+    border-radius: var(--mk-r);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .out__art svg { width: 52px; height: 52px; }
+  .out__art--brand { background: linear-gradient(180deg, var(--mk-brand-soft), #fff); color: var(--mk-brand); }
+  .out__art--amber { background: linear-gradient(180deg, #fdf2dd, #fff); color: var(--mk-amber-icon); }
+  .out__art--violet { background: linear-gradient(180deg, var(--mk-violet-bg), #fff); color: var(--mk-violet); }
+
+  .out__tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mk-font-mono); font-size: 0.625rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--mk-muted);
+    margin-bottom: 8px;
+  }
+  .out__tagico { width: 18px; height: 18px; border-radius: 5px; }
+  .out__tagico svg { width: 11px; height: 11px; }
+  .out__title { font-size: 1.1875rem; font-weight: 800; color: var(--mk-heading); margin-bottom: 8px; }
+  .out__desc { flex: 1; margin-bottom: 16px; }
+</style>

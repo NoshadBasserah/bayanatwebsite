@@ -1,0 +1,87 @@
+---
+const steps = [
+  {
+    n: "01",
+    title: "Connect",
+    desc: "Plug in your warehouses, lakes, BI tools, and pipelines through 120+ native connectors.",
+    icon: "M9 15l6-6M10 8H8a4 4 0 0 0 0 8h2M14 16h2a4 4 0 0 0 0-8h-2",
+  },
+  {
+    n: "02",
+    title: "Import",
+    desc: "Auto-ingest schemas, lineage, ownership, and metadata into a unified governed catalog.",
+    icon: "M12 4l8 4-8 4-8-4 8-4ZM4 12l8 4 8-4M4 16l8 4 8-4",
+  },
+  {
+    n: "03",
+    title: "Request",
+    desc: "Users request access from any asset page; approvals flow to the right owners automatically.",
+    icon: "M7 11V8a5 5 0 0 1 10 0v3M6 11h12v9H6v-9Zm6 4v2",
+  },
+  {
+    n: "04",
+    title: "Explore",
+    desc: "Discover, query, and collaborate on trusted data — with full context and audit trails.",
+    icon: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm3.5-12.5L13.5 13l-4.5 2 2-4.5 4.5-2Z",
+  },
+];
+---
+
+<section class="mk-section" id="journey">
+  <div class="mk-container">
+    <div class="mk-head mk-reveal">
+      <span class="mk-eyebrow mk-eyebrow--dash mk-eyebrow--center">Onboarding</span>
+      <h2 class="mk-h2" style="margin-top:14px">
+        The journey to <span class="mk-serif">governance.</span>
+      </h2>
+      <p class="mk-lead">
+        From scattered systems to a curated data platform — usually within four
+        weeks.
+      </p>
+    </div>
+
+    <ol class="jrn__grid mk-reveal" data-mk-stagger>
+      {
+        steps.map((s) => (
+          <li class="jrn__step">
+            <div class="jrn__top">
+              <span class="jrn__num">{s.n}</span>
+              <span class="jrn__ico">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d={s.icon} stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </div>
+            <h3 class="jrn__title">{s.title}</h3>
+            <p class="mk-body">{s.desc}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .jrn__grid {
+    list-style: none;
+    margin: 48px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+  .jrn__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .jrn__num { font-family: var(--mk-font-mono); font-size: 0.8125rem; font-weight: 600; color: var(--mk-muted); }
+  .jrn__ico {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px;
+    border-radius: var(--mk-r-sm);
+    background: var(--mk-brand-soft);
+    color: var(--mk-brand);
+  }
+  .jrn__ico svg { width: 20px; height: 20px; }
+  .jrn__title { font-size: 1.125rem; font-weight: 800; color: var(--mk-heading); margin-bottom: 8px; }
+
+  @media (max-width: 900px) { .jrn__grid { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+  @media (max-width: 480px) { .jrn__grid { grid-template-columns: 1fr; } }
+</style>

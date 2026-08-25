@@ -1,21 +1,28 @@
 ---
-import Base from "@/layouts/Base.astro";
-import Hero from "@/sections/home/hero.astro";
-import Capabilities from "@/sections/home/capabilities.astro";
-import GettingStarted from "@/sections/home/getting-started.astro";
-import FreeTrial from "@/sections/home/free-trial.astro";
-import Cta from "@/sections/home/cta.astro";
-
-const meta = {
-  title: "Home",
-  description: "An Astro template for product and documentation sites. Replace this description in src/pages/index.astro.",
-};
+import Marketing from "@/layouts/Marketing.astro";
+import Hero from "@/components/marketing/sections/Hero.astro";
+import Integrations from "@/components/marketing/sections/Integrations.astro";
+import Platform from "@/components/marketing/sections/Platform.astro";
+import Journey from "@/components/marketing/sections/Journey.astro";
+import DataAssets from "@/components/marketing/sections/DataAssets.astro";
+import AccessRequests from "@/components/marketing/sections/AccessRequests.astro";
+import MoreTools from "@/components/marketing/sections/MoreTools.astro";
+import EnterpriseGrade from "@/components/marketing/sections/EnterpriseGrade.astro";
+import Outcomes from "@/components/marketing/sections/Outcomes.astro";
+import Faq from "@/components/marketing/sections/Faq.astro";
+import GetStarted from "@/components/marketing/GetStarted.astro";
 ---
 
-<Base meta={meta}>
+<Marketing>
   <Hero />
-  <Capabilities />
-  <GettingStarted />
-  <FreeTrial />
-  <Cta />
-</Base>
+  <Integrations />
+  <Platform />
+  <Journey />
+  <DataAssets />
+  <AccessRequests />
+  <MoreTools />
+  <EnterpriseGrade />
+  <Outcomes />
+  <Faq />
+  <GetStarted />
+</Marketing>

@@ -34,7 +34,7 @@ const hasHero = Astro.slots.has("hero");
   </head>
   <body class="bg-neutral-50 text-neutral-800 font-sans">
     <SkipLink />
-    <div class="relative z-10">
+    <div class="relative">
       <slot name="sidebar" />
       <Header />
       {hasHero && <slot name="hero" />}

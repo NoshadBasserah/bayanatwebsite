@@ -27,11 +27,11 @@ const t = useTranslations(lang);
   <!-- Hero Banner: id="introduction" for TOC scrollspy -->
   <div
     id="introduction"
-    class="relative mb-4 flex h-[182px] items-end overflow-hidden rounded-2xl p-6 topbannergradient"
+    class="relative mb-4 flex min-h-[140px] sm:h-[182px] items-end overflow-hidden rounded-2xl p-5 sm:p-6 topbannergradient"
     style="background: linear-gradient(168deg, #185871 0%, #009ad6 70.7%)"
   >
-    <div class="relative z-10">
-      <p class="text-[32px] font-bold leading-tight text-white">{title}</p>
+    <div class="relative">
+      <p class="text-xl sm:text-[32px] font-bold leading-tight text-white">{title}</p>
       <p class="mt-1 text-sm leading-relaxed text-white/90">{description}</p>
     </div>
     <img
@@ -45,7 +45,7 @@ const t = useTranslations(lang);
 
   <!-- As Admin role -->
   {adminFeatures.length > 0 && (
-    <section id="as-admin-role" class="mb-4 rounded-xl !bg-white p-8">
+    <section id="as-admin-role" class="mb-4 rounded-xl !bg-white p-5 sm:p-8">
       <h2 class="mb-5 text-xl font-bold leading-9 text-black">{t("overview.asAdminRole")}</h2>
       <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {adminFeatures.map((item) =>
@@ -63,7 +63,7 @@ const t = useTranslations(lang);
                 </div>
                 <div>
                   <p class="text-sm font-semibold leading-5 text-[#2a313c]">{item.title}</p>
-                  <p class="mt-0.5 max-w-[240px] text-sm leading-[1.6] text-neutral-600">{item.description}</p>
+                  <p class="mt-0.5 max-w-none sm:max-w-[240px] text-sm leading-[1.6] text-neutral-600">{item.description}</p>
                 </div>
               </div>
               <svg class="arrowIcon ml-3 rtl:ml-0 rtl:mr-3 h-5 w-5 shrink-0 text-primary-600 rtl:[transform:scaleX(-1)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -81,7 +81,7 @@ const t = useTranslations(lang);
               </div>
               <div>
                 <p class="text-sm font-semibold leading-5 text-[#2a313c]">{item.title}</p>
-                <p class="mt-0.5 max-w-[240px] text-sm leading-[1.6] text-neutral-600">{item.description}</p>
+                <p class="mt-0.5 max-w-none sm:max-w-[240px] text-sm leading-[1.6] text-neutral-600">{item.description}</p>
               </div>
             </div>
             <svg class="arrowIcon ml-3 rtl:ml-0 rtl:mr-3 h-5 w-5 shrink-0 text-primary-600 rtl:[transform:scaleX(-1)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -96,7 +96,7 @@ const t = useTranslations(lang);
 
   <!-- As User role -->
   {userFeatures.length > 0 && (
-    <section id="as-user-role" class="rounded-xl bg-white p-8">
+    <section id="as-user-role" class="rounded-xl bg-white p-5 sm:p-8">
       <h2 class="mb-5 text-xl font-bold leading-9 text-black">{t("overview.asUserRole")}</h2>
       <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {userFeatures.map((item) => (
@@ -109,7 +109,7 @@ const t = useTranslations(lang);
             </div>
             <div>
               <p class="text-sm font-semibold leading-5 text-[#2a313c]">{item.title}</p>
-              <p class="mt-0.5 max-w-[240px] text-sm leading-[1.6] text-neutral-600">{item.description}</p>
+              <p class="mt-0.5 max-w-none sm:max-w-[240px] text-sm leading-[1.6] text-neutral-600">{item.description}</p>
             </div>
             </div>
               <svg class="arrowIcon ml-3 rtl:ml-0 rtl:mr-3 h-5 w-5 shrink-0 text-primary-600 rtl:[transform:scaleX(-1)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
